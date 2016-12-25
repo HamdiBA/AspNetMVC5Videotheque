@@ -10,12 +10,15 @@
 <h2>ListeArticle</h2>
 
 @Html.Grid(Model).Columns(columns =>
-        {
-            columns.Add(p => p.Nom_art).Filterable(true);
-            columns.Add(p => p.Categorie).Filterable(true);
-            columns.Add(p => p.Genre).Filterable(true);
-            columns.Add(p => p.Quantite).Sortable(true);
-            columns.Add(p => p.Prix).Sortable(true);
-            columns.Add(p => p.Date_ajout).Sortable(true);
-        })
+{
+    columns.Add(p => p.Nom_art).Filterable(true);
+    columns.Add(p => p.Categorie).Filterable(true);
+    columns.Add(p => p.Genre).Filterable(true);
+    columns.Add(p => p.Quantite).Sortable(true);
+    columns.Add(p => p.Prix).Sortable(true);
+    columns.Add(p => p.Date_ajout).Sortable(true);
+    columns.Add().Sanitized(false)
+                 .Encoded(false)
+                 .RenderValueAs(p => Html.ActionLink("Editer", "EditArticle", new { id = p.ID }));
+})
 

@@ -17,5 +17,14 @@ namespace WebApplication.Controllers
             List<Article> articles = contexteEF.Article.ToList();
             return View(articles);
         }
+
+        [HttpGet]
+        public ActionResult EditArticle(int? id)
+        {
+           
+                Article article = contexteEF.Article.Single(p => p.ID == id);
+                return View(article);
+           
+        }
     }
 }
