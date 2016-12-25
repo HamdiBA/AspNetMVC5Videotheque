@@ -3,7 +3,27 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "BDD", "BDD\BDD.sqlproj", "{A1296A32-F222-467A-9CE4-BFD074E99383}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAL", "DAL\DAL.csproj", "{F7394340-498A-45E3-B7E5-E1F23C537D83}"
+EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A1296A32-F222-467A-9CE4-BFD074E99383}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A1296A32-F222-467A-9CE4-BFD074E99383}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A1296A32-F222-467A-9CE4-BFD074E99383}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{A1296A32-F222-467A-9CE4-BFD074E99383}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A1296A32-F222-467A-9CE4-BFD074E99383}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A1296A32-F222-467A-9CE4-BFD074E99383}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{F7394340-498A-45E3-B7E5-E1F23C537D83}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F7394340-498A-45E3-B7E5-E1F23C537D83}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F7394340-498A-45E3-B7E5-E1F23C537D83}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F7394340-498A-45E3-B7E5-E1F23C537D83}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
