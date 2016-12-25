@@ -67,3 +67,5 @@ C:\Users\hamdi\OneDrive\Documents\Visual Studio 2015\Projects\LocatMe\WebApplica
 C:\Users\hamdi\OneDrive\Documents\Visual Studio 2015\Projects\LocatMe\WebApplication\bin\EntityFramework.SqlServer.xml
 C:\Users\hamdi\OneDrive\Documents\Visual Studio 2015\Projects\LocatMe\WebApplication\bin\fr\EntityFramework.resources.dll
 C:\Users\hamdi\OneDrive\Documents\Visual Studio 2015\Projects\LocatMe\WebApplication\bin\fr\EntityFramework.SqlServer.resources.dll
+C:\Users\hamdi\OneDrive\Documents\Visual Studio 2015\Projects\LocatMe\WebApplication\bin\AutoMapper.dll
+C:\Users\hamdi\OneDrive\Documents\Visual Studio 2015\Projects\LocatMe\WebApplication\bin\AutoMapper.xml

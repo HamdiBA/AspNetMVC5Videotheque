@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using WebApplication.Models;
 using DAL;
 
 namespace WebApplication.Controllers
@@ -21,10 +22,44 @@ namespace WebApplication.Controllers
         [HttpGet]
         public ActionResult EditArticle(int? id)
         {
-           
+            if (id.HasValue)
+            {
                 Article article = contexteEF.Article.Single(p => p.ID == id);
+                ArticleEditee articleEditee = AutoMapper.Mapper.Map<ArticleEditee>(article);
+                return View(articleEditee);
+            }
+            else
+            {
+                // Pas d'ID : création
+                return View(new ArticleEditee());
+            }
+        }
+
+        [HttpPost]
+        public ActionResult EditArticle(ArticleEditee article)
+        {
+            if (!ModelState.IsValid)
+            {
                 return View(article);
-           
+            }
+
+            if (article.ID.HasValue)
+            {
+                Article articleDB = contexteEF.Article.Single(p => p.ID == article.ID);
+                articleDB = AutoMapper.Mapper.Map<ArticleEditee, Article>(article, articleDB);
+            }
+            else
+            {
+                var nouvelleArticle = AutoMapper.Mapper.Map<Article>(article);
+                int idMax = contexteEF.Article.Max(p => p.ID);
+                nouvelleArticle.ID = idMax + 1;
+
+                contexteEF.Article.Add(nouvelleArticle);
+            }
+
+            contexteEF.SaveChanges();
+
+            return RedirectToAction("ListeArticle");
         }
     }
 }
