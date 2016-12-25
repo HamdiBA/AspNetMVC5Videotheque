@@ -1,0 +1,10 @@
+25/12/2016 17:22:16	Ce journal contient des informations sur l'importation du script 'Initialisation.sql' dans le projet 'BDD' sur l'ordinateur 'DESKTOP-BG0BMOP' par l'utilisateur 'hamdi.
+25/12/2016 17:22:16	Début de l'importation du fichier : C:\Users\hamdi\OneDrive\Documents\Visual Studio 2015\Projects\LocatMe\BDD\Donnees\Initialisation.sql 
+25/12/2016 17:22:16	Nom de fichier C:\Users\hamdi\OneDrive\Documents\Visual Studio 2015\Projects\LocatMe\BDD\Donnees\Initialisation.sql (taille : 990)
+25/12/2016 17:22:16	Analyse du script d'importation
+25/12/2016 17:22:16	Nombre total de lots dans le script : 1
+25/12/2016 17:22:16	Nombre total d'instructions dans le script : 0
+25/12/2016 17:22:16	Le script a été correctement importé dans le projet.
+25/12/2016 17:22:16	Dans le script que vous avez fourni à l'opération d'importation, une ou plusieurs instructions n'ont pas été totalement comprises. Elles ont été déplacées vers le fichier ScriptsIgnoredOnImport.sql. Pour plus d'informations, examinez le contenu du fichier.
+25/12/2016 17:22:16	Un résumé de l'opération d'importation a été enregistré à l'emplacement suivant : C:\Users\hamdi\OneDrive\Documents\Visual Studio 2015\Projects\LocatMe\BDD\Importer les journaux de scripts\Initialisation_sql_20161225042216.log.
+25/12/2016 17:22:16	Cliquez sur Terminer pour continuer...

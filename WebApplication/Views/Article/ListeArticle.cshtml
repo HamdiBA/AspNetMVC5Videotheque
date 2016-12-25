@@ -1,0 +1,21 @@
+﻿
+@{
+    ViewBag.Title = "ListeArticle";
+}
+
+@using GridMvc.Html;
+
+@model IEnumerable <DAL.Article>
+
+<h2>ListeArticle</h2>
+
+@Html.Grid(Model).Columns(columns =>
+        {
+            columns.Add(p => p.Nom_art);
+            columns.Add(p => p.Categorie);
+            columns.Add(p => p.Genre);
+            columns.Add(p => p.Quantite);
+            columns.Add(p => p.Prix);
+            columns.Add(p => p.Date_ajout);
+        })
+
