@@ -26,8 +26,25 @@
     <Property Name="Numéro Téléphone" Type="int" Nullable="false" />
     <Property Name="Adresse de messagerie" Type="varchar" MaxLength="100" Nullable="false" />
   </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="Nom" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Prenom" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Date de naissance" Type="date" Nullable="false" />
+    <Property Name="Adresse" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Ville" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Code Postal" Type="int" Nullable="false" />
+    <Property Name="Adresse de messagerie" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Pseudo" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Mot de passe" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Role" Type="varchar" MaxLength="100" Nullable="false" />
+  </EntityType>
   <EntityContainer Name="LocatMe_BDModelStoreContainer">
     <EntitySet Name="Article" EntityType="Self.Article" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Client" EntityType="Self.Client" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
   </EntityContainer>
 </Schema>

@@ -22,6 +22,9 @@ namespace WebApplication
 
             AutoMapper.Mapper.CreateMap<DAL.Client, WebApplication.Models.ClientEditee>();
             AutoMapper.Mapper.CreateMap<WebApplication.Models.ClientEditee, DAL.Client>();
+
+            AutoMapper.Mapper.CreateMap<DAL.User, WebApplication.Models.UserEditee>();
+            AutoMapper.Mapper.CreateMap<WebApplication.Models.UserEditee, DAL.User>();
         }
     }
 }
