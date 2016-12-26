@@ -9,6 +9,31 @@
 
 <h2>ListeArticle</h2>
 
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            $('.btn-delete-personne').click(function (event) {
+                var boutonClique = $(event.target).closest('button');
+
+                var idASupprimer = $(boutonClique).attr('data-id');
+
+                $.ajax({
+                    url: '@Url.Action("Delete")',
+                    type: 'POST',
+                    data: { id: idASupprimer },
+                    success: function (data) {
+                        if (data.Suppression == "OK") {
+                            $(boutonClique).closest("tr").fadeOut(400, function () {
+                                $(this).remove();
+                            })
+                        }
+                    }
+                })
+            });
+        });
+    </script>
+}
+
 @Html.Grid(Model).Columns(columns =>
 {
     columns.Add(p => p.Nom_art).Filterable(true);
@@ -20,5 +45,11 @@
     columns.Add().Sanitized(false)
                  .Encoded(false)
                  .RenderValueAs(p => Html.ActionLink("Editer", "EditArticle", new { id = p.ID }));
+    columns.Add().Sanitized(false)
+                 .Encoded(false)
+                 .RenderValueAs(p => "<button class='btn btn-default btn-delete-personne' data-id='" + p.ID + "'> <span class='glyphicon glyphicon-remove-circle' /> </button>");
 })
 
+<div>
+    @Html.ActionLink("Ajouter un nouveau article", "EditArticle")
+</div>

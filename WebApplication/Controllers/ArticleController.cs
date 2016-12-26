@@ -48,6 +48,7 @@ namespace WebApplication.Controllers
                 Article articleDB = contexteEF.Article.Single(p => p.ID == article.ID);
                 articleDB = AutoMapper.Mapper.Map<ArticleEditee, Article>(article, articleDB);
             }
+
             else
             {
                 var nouvelleArticle = AutoMapper.Mapper.Map<Article>(article);
@@ -60,6 +61,16 @@ namespace WebApplication.Controllers
             contexteEF.SaveChanges();
 
             return RedirectToAction("ListeArticle");
+        }
+
+        [HttpPost]
+        public JsonResult Delete(int id)
+        {
+            Article article = contexteEF.Article.Single(p => p.ID == id);
+            contexteEF.Article.Remove(article);
+            contexteEF.SaveChanges();
+
+            return Json(new { Suppression = "OK" });
         }
     }
 }
