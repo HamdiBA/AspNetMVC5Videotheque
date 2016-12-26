@@ -17,8 +17,23 @@
           <Property Name="Prix" Type="float" Nullable="false" />
           <Property Name="Date_ajout" Type="datetime" />
         </EntityType>
+        <EntityType Name="Client">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="Titre" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Nom" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Prenom" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Adresse" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Code Postal" Type="int" Nullable="false" />
+          <Property Name="Ville" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Numéro Téléphone" Type="int" Nullable="false" />
+          <Property Name="Adresse de messagerie" Type="varchar" MaxLength="100" Nullable="false" />
+        </EntityType>
         <EntityContainer Name="LocatMe_BDModelStoreContainer">
           <EntitySet Name="Article" EntityType="Self.Article" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Client" EntityType="Self.Client" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
       </Schema>
     </edmx:StorageModels>
@@ -37,8 +52,23 @@
           <Property Name="Prix" Type="Double" Nullable="false" />
           <Property Name="Date_ajout" Type="DateTime" Precision="3" />
         </EntityType>
+        <EntityType Name="Client">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="Titre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Nom" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Prenom" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Adresse" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Code_Postal" Type="Int32" Nullable="false" />
+          <Property Name="Ville" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Numéro_Téléphone" Type="Int32" Nullable="false" />
+          <Property Name="Adresse_de_messagerie" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
         <EntityContainer Name="LocatMe_BDEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Article" EntityType="Self.Article" />
+          <EntitySet Name="Client" EntityType="Self.Client" />
         </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
@@ -56,6 +86,21 @@
                 <ScalarProperty Name="Quantite" ColumnName="Quantite" />
                 <ScalarProperty Name="Prix" ColumnName="Prix" />
                 <ScalarProperty Name="Date_ajout" ColumnName="Date_ajout" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Client">
+            <EntityTypeMapping TypeName="LocatMe_BDModel.Client">
+              <MappingFragment StoreEntitySet="Client">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Titre" ColumnName="Titre" />
+                <ScalarProperty Name="Nom" ColumnName="Nom" />
+                <ScalarProperty Name="Prenom" ColumnName="Prenom" />
+                <ScalarProperty Name="Adresse" ColumnName="Adresse" />
+                <ScalarProperty Name="Code_Postal" ColumnName="Code Postal" />
+                <ScalarProperty Name="Ville" ColumnName="Ville" />
+                <ScalarProperty Name="Numéro_Téléphone" ColumnName="Numéro Téléphone" />
+                <ScalarProperty Name="Adresse_de_messagerie" ColumnName="Adresse de messagerie" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

@@ -165,11 +165,13 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\ArticleController.cs" />
+    <Compile Include="Controllers\ClientController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\ArticleEditee.cs" />
+    <Compile Include="Models\ClientEditee.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -221,6 +223,8 @@
     <Content Include="Views\Shared\_GridPager.cshtml" />
     <Content Include="Views\Shared\_Grid.cshtml" />
     <Content Include="Views\Article\EditArticle.cshtml" />
+    <Content Include="Views\Client\ListeClient.cshtml" />
+    <Content Include="Views\Client\EditClient.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -235,7 +239,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DAL\DAL.csproj">
-      <Project>{f7394340-498a-45e3-b7e5-e1f23c537d83}</Project>
+      <Project>{c42a5c98-b567-4847-9c4a-6ab49be3765e}</Project>
       <Name>DAL</Name>
     </ProjectReference>
   </ItemGroup>

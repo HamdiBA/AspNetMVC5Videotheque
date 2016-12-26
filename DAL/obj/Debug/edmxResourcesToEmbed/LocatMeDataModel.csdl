@@ -12,7 +12,22 @@
     <Property Name="Prix" Type="Double" Nullable="false" />
     <Property Name="Date_ajout" Type="DateTime" Precision="3" />
   </EntityType>
+  <EntityType Name="Client">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="Titre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Nom" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Prenom" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Adresse" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Code_Postal" Type="Int32" Nullable="false" />
+    <Property Name="Ville" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Numéro_Téléphone" Type="Int32" Nullable="false" />
+    <Property Name="Adresse_de_messagerie" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
   <EntityContainer Name="LocatMe_BDEntities" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="Article" EntityType="Self.Article" />
+    <EntitySet Name="Client" EntityType="Self.Client" />
   </EntityContainer>
 </Schema>

@@ -1,0 +1,57 @@
+﻿
+@{
+    ViewBag.Title = "ListeClient";
+}
+
+@using GridMvc.Html;
+
+@model IEnumerable<DAL.Client>
+
+<h2>ListeClient</h2>
+
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            $('.btn-delete-personne').click(function (event) {
+                var boutonClique = $(event.target).closest('button');
+
+                var idASupprimer = $(boutonClique).attr('data-id');
+
+                $.ajax({
+                    url: '@Url.Action("Delete")',
+                    type: 'POST',
+                    data: { id: idASupprimer },
+                    success: function (data) {
+                        if (data.Suppression == "OK") {
+                            $(boutonClique).closest("tr").fadeOut(400, function () {
+                                $(this).remove();
+                            })
+                        }
+                    }
+                })
+            });
+        });
+    </script>
+}
+
+@Html.Grid(Model).Columns(columns =>
+{
+    columns.Add(p => p.Titre);
+    columns.Add(p => p.Nom).Filterable(true);
+    columns.Add(p => p.Prenom).Filterable(true);
+    columns.Add(p => p.Adresse).Filterable(true);
+    columns.Add(p => p.Code_Postal);
+    columns.Add(p => p.Ville).Filterable(true);
+    columns.Add(p => p.Numéro_Téléphone).Filterable(true);
+    columns.Add(p => p.Adresse_de_messagerie).Filterable(true);
+    columns.Add().Sanitized(false)
+                 .Encoded(false)
+                 .RenderValueAs(p => Html.ActionLink("Editer", "EditClient", new { id = p.ID }));
+    columns.Add().Sanitized(false)
+                 .Encoded(false)
+                 .RenderValueAs(p => "<button class='btn btn-default btn-delete-personne' data-id='" + p.ID + "'> <span class='glyphicon glyphicon-remove-circle' /> </button>");
+})
+
+<div>
+    @Html.ActionLink("Ajouter un nouveau client", "EditClient")
+</div>

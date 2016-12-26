@@ -26,5 +26,6 @@ namespace DAL
         }
     
         public virtual DbSet<Article> Article { get; set; }
+        public virtual DbSet<Client> Client { get; set; }
     }
 }

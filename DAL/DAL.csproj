@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{F7394340-498A-45E3-B7E5-E1F23C537D83}</ProjectGuid>
+    <ProjectGuid>{C42A5C98-B567-4847-9C4A-6AB49BE3765E}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>DAL</RootNamespace>
@@ -52,6 +52,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Article.cs">
+      <DependentUpon>LocatMeDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Client.cs">
       <DependentUpon>LocatMeDataModel.tt</DependentUpon>
     </Compile>
     <Compile Include="LocatMeDataModel.Context.cs">
