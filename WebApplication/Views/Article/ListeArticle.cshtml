@@ -1,18 +1,17 @@
 ﻿
 @{
-    ViewBag.Title = "ListeArticle";
+    ViewBag.Title = "Article";
 }
 
 @using GridMvc.Html;
 
 @model IEnumerable <DAL.Article>
 
-<h2>ListeArticle</h2>
 
 @section Scripts {
     <script>
         $(document).ready(function () {
-            $('.btn-delete-personne').click(function (event) {
+            $('.btn-delete-article').click(function (event) {
                 var boutonClique = $(event.target).closest('button');
 
                 var idASupprimer = $(boutonClique).attr('data-id');
@@ -34,21 +33,28 @@
     </script>
 }
 
+
 @Html.Grid(Model).Columns(columns =>
 {
-    columns.Add(p => p.Nom_art).Filterable(true);
-    columns.Add(p => p.Categorie).Filterable(true);
-    columns.Add(p => p.Genre).Filterable(true);
-    columns.Add(p => p.Quantite).Sortable(true);
-    columns.Add(p => p.Prix).Sortable(true);
-    columns.Add(p => p.Date_ajout).Sortable(true);
+    columns.Add(p => p.Nom_art).Titled("Nom de l'article")
+                               .Filterable(true);
+    columns.Add(p => p.Categorie).Titled("Catégorie")
+                                 .Filterable(true);
+    columns.Add(p => p.Genre).Titled("Genre")
+                             .Filterable(true);
+    columns.Add(p => p.Quantite).Titled("Quantité")
+                                .Sortable(true);
+    columns.Add(p => p.Prix).Titled("Prix")
+                            .Sortable(true);
+    columns.Add(p => p.Date_ajout).Titled("Date de l'ajout")
+                                  .Sortable(true);
     columns.Add().Sanitized(false)
                  .Encoded(false)
-                 .RenderValueAs(p => Html.ActionLink("Editer", "EditArticle", new { id = p.ID }));
+                 .RenderValueAs(p => Html.ActionLink(" ", "EditArticle", new { id = p.ID }, new {@class= "glyphicon glyphicon-pencil" } ));
     columns.Add().Sanitized(false)
                  .Encoded(false)
-                 .RenderValueAs(p => "<button class='btn btn-default btn-delete-personne' data-id='" + p.ID + "'> <span class='glyphicon glyphicon-remove-circle' /> </button>");
-})
+                 .RenderValueAs(p => "<button class='btn btn-default btn-delete-article' data-id='" + p.ID + "'> <span class='glyphicon glyphicon-trash' /> </button>");
+}).WithPaging(7)
 
 <div>
     @Html.ActionLink("Ajouter un nouveau article", "EditArticle")
