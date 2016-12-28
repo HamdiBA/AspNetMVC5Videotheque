@@ -14,6 +14,12 @@ namespace DAL
     
     public partial class Article
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Article()
+        {
+            this.Location = new HashSet<Location>();
+        }
+    
         public int ID { get; set; }
         public string Nom_art { get; set; }
         public string Categorie { get; set; }
@@ -21,5 +27,8 @@ namespace DAL
         public int Quantite { get; set; }
         public double Prix { get; set; }
         public Nullable<System.DateTime> Date_ajout { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Location> Location { get; set; }
     }
 }

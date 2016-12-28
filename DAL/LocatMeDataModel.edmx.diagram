@@ -7,7 +7,11 @@
       <Diagram DiagramId="3d5777e3553446d29b8d56335620c35e" Name="Diagram1">
         <EntityTypeShape EntityType="LocatMe_BDModel.Article" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="LocatMe_BDModel.Client" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="LocatMe_BDModel.User" Width="1.5" PointX="0.75" PointY="4.75" />
+        <EntityTypeShape EntityType="LocatMe_BDModel.Location" Width="1.5" PointX="5" PointY="0.875" />
+        <AssociationConnector Association="LocatMe_BDModel.FK__Location__Articl__36B12243" />
+        <AssociationConnector Association="LocatMe_BDModel.FK__Location__Client__37A5467C" />
+        <EntityTypeShape EntityType="LocatMe_BDModel.Utilisateur" Width="1.5" PointX="3.375" PointY="5" />
+        <AssociationConnector Association="LocatMe_BDModel.FK__Location__UserID__3A81B327" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

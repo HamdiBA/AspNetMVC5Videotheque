@@ -14,6 +14,12 @@ namespace DAL
     
     public partial class Client
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Client()
+        {
+            this.Location = new HashSet<Location>();
+        }
+    
         public int ID { get; set; }
         public string Titre { get; set; }
         public string Nom { get; set; }
@@ -23,5 +29,8 @@ namespace DAL
         public string Ville { get; set; }
         public int Numéro_Téléphone { get; set; }
         public string Adresse_de_messagerie { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Location> Location { get; set; }
     }
 }

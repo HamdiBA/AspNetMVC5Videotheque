@@ -63,6 +63,7 @@
     <Build Include="Article.sql" />
     <None Include="Scripts\ScriptsIgnoredOnImport.sql" />
     <Build Include="Client.sql" />
-    <Build Include="User.sql" />
+    <Build Include="Utilisateur.sql" />
+    <Build Include="Location.sql" />
   </ItemGroup>
 </Project>

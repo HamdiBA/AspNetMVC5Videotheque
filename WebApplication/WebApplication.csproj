@@ -167,12 +167,14 @@
     <Compile Include="Controllers\ArticleController.cs" />
     <Compile Include="Controllers\ClientController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LocationController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\ArticleEditee.cs" />
     <Compile Include="Models\ClientEditee.cs" />
+    <Compile Include="Models\LocationEditee.cs" />
     <Compile Include="Models\UserEditee.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -229,6 +231,8 @@
     <Content Include="Views\Client\EditClient.cshtml" />
     <Content Include="Views\User\ListeUser.cshtml" />
     <Content Include="Views\User\EditUser.cshtml" />
+    <Content Include="Views\Location\EditLocation.cshtml" />
+    <Content Include="Views\Location\ListeLocation.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

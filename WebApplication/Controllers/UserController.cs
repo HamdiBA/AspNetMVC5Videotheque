@@ -15,7 +15,7 @@ namespace WebApplication.Controllers
         // GET: Cleint
         public ActionResult ListeUser()
         {
-            List<User> users = contexteEF.User.ToList();
+            List<Utilisateur> users = contexteEF.Utilisateur.ToList();
             return View(users);
         }
 
@@ -24,7 +24,7 @@ namespace WebApplication.Controllers
         {
             if (id.HasValue)
             {
-                User user = contexteEF.User.Single(p => p.ID == id);
+                Utilisateur user = contexteEF.Utilisateur.Single(p => p.ID == id);
                 UserEditee userEditee = AutoMapper.Mapper.Map<UserEditee>(user);
                 return View(userEditee);
             }
@@ -45,17 +45,17 @@ namespace WebApplication.Controllers
 
             if (user.ID.HasValue)
             {
-                User userDB = contexteEF.User.Single(p => p.ID == user.ID);
-                userDB = AutoMapper.Mapper.Map<UserEditee, User>(user, userDB);
+                Utilisateur userDB = contexteEF.Utilisateur.Single(p => p.ID == user.ID);
+                userDB = AutoMapper.Mapper.Map<UserEditee, Utilisateur>(user, userDB);
             }
 
             else
             {
-                var nouvelleUser = AutoMapper.Mapper.Map<User>(User);
-                int idMax = contexteEF.User.Max(p => p.ID);
+                var nouvelleUser = AutoMapper.Mapper.Map<Utilisateur>(User);
+                int idMax = contexteEF.Utilisateur.Max(p => p.ID);
                 nouvelleUser.ID = idMax + 1;
 
-                contexteEF.User.Add(nouvelleUser);
+                contexteEF.Utilisateur.Add(nouvelleUser);
             }
 
             contexteEF.SaveChanges();
@@ -66,8 +66,8 @@ namespace WebApplication.Controllers
         [HttpPost]
         public JsonResult Delete(int id)
         {
-            User user = contexteEF.User.Single(p => p.ID == id);
-            contexteEF.User.Remove(user);
+            Utilisateur user = contexteEF.Utilisateur.Single(p => p.ID == id);
+            contexteEF.Utilisateur.Remove(user);
             contexteEF.SaveChanges();
 
             return Json(new { Suppression = "OK" });

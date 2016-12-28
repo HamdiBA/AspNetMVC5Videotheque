@@ -57,6 +57,9 @@
     <Compile Include="Client.cs">
       <DependentUpon>LocatMeDataModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Location.cs">
+      <DependentUpon>LocatMeDataModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="LocatMeDataModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -73,7 +76,7 @@
       <DependentUpon>LocatMeDataModel.edmx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="User.cs">
+    <Compile Include="Utilisateur.cs">
       <DependentUpon>LocatMeDataModel.tt</DependentUpon>
     </Compile>
   </ItemGroup>

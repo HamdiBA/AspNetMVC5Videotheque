@@ -29,9 +29,22 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="User">
-      <EntityTypeMapping TypeName="LocatMe_BDModel.User">
-        <MappingFragment StoreEntitySet="User">
+    <EntitySetMapping Name="Location">
+      <EntityTypeMapping TypeName="LocatMe_BDModel.Location">
+        <MappingFragment StoreEntitySet="Location">
+          <ScalarProperty Name="EtatLocation" ColumnName="EtatLocation" />
+          <ScalarProperty Name="DateRetour" ColumnName="DateRetour" />
+          <ScalarProperty Name="DateLocation" ColumnName="DateLocation" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="ClientID" ColumnName="ClientID" />
+          <ScalarProperty Name="ArticleID" ColumnName="ArticleID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Utilisateur">
+      <EntityTypeMapping TypeName="LocatMe_BDModel.Utilisateur">
+        <MappingFragment StoreEntitySet="Utilisateur">
           <ScalarProperty Name="Role" ColumnName="Role" />
           <ScalarProperty Name="Mot_de_passe" ColumnName="Mot de passe" />
           <ScalarProperty Name="Pseudo" ColumnName="Pseudo" />

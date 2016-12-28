@@ -1,3 +1,4 @@
+C:\Users\hamdi\OneDrive\Documents\Visual Studio 2015\Projects\LocatMe\WebApplication\obj\Debug\WebApplication.csprojResolveAssemblyReference.cache
 C:\Users\hamdi\OneDrive\Documents\Visual Studio 2015\Projects\LocatMe\WebApplication\bin\ApplicationInsights.config
 C:\Users\hamdi\OneDrive\Documents\Visual Studio 2015\Projects\LocatMe\WebApplication\bin\roslyn\csc.exe
 C:\Users\hamdi\OneDrive\Documents\Visual Studio 2015\Projects\LocatMe\WebApplication\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
@@ -15,6 +16,11 @@ C:\Users\hamdi\OneDrive\Documents\Visual Studio 2015\Projects\LocatMe\WebApplica
 C:\Users\hamdi\OneDrive\Documents\Visual Studio 2015\Projects\LocatMe\WebApplication\bin\WebApplication.dll
 C:\Users\hamdi\OneDrive\Documents\Visual Studio 2015\Projects\LocatMe\WebApplication\bin\WebApplication.pdb
 C:\Users\hamdi\OneDrive\Documents\Visual Studio 2015\Projects\LocatMe\WebApplication\bin\Antlr3.Runtime.dll
+C:\Users\hamdi\OneDrive\Documents\Visual Studio 2015\Projects\LocatMe\WebApplication\bin\AutoMapper.dll
+C:\Users\hamdi\OneDrive\Documents\Visual Studio 2015\Projects\LocatMe\WebApplication\bin\DAL.dll
+C:\Users\hamdi\OneDrive\Documents\Visual Studio 2015\Projects\LocatMe\WebApplication\bin\EntityFramework.dll
+C:\Users\hamdi\OneDrive\Documents\Visual Studio 2015\Projects\LocatMe\WebApplication\bin\EntityFramework.SqlServer.dll
+C:\Users\hamdi\OneDrive\Documents\Visual Studio 2015\Projects\LocatMe\WebApplication\bin\GridMvc.dll
 C:\Users\hamdi\OneDrive\Documents\Visual Studio 2015\Projects\LocatMe\WebApplication\bin\Microsoft.AI.Agent.Intercept.dll
 C:\Users\hamdi\OneDrive\Documents\Visual Studio 2015\Projects\LocatMe\WebApplication\bin\Microsoft.AI.DependencyCollector.dll
 C:\Users\hamdi\OneDrive\Documents\Visual Studio 2015\Projects\LocatMe\WebApplication\bin\Microsoft.AI.PerfCounterCollector.dll
@@ -33,6 +39,10 @@ C:\Users\hamdi\OneDrive\Documents\Visual Studio 2015\Projects\LocatMe\WebApplica
 C:\Users\hamdi\OneDrive\Documents\Visual Studio 2015\Projects\LocatMe\WebApplication\bin\System.Web.WebPages.dll
 C:\Users\hamdi\OneDrive\Documents\Visual Studio 2015\Projects\LocatMe\WebApplication\bin\System.Web.WebPages.Razor.dll
 C:\Users\hamdi\OneDrive\Documents\Visual Studio 2015\Projects\LocatMe\WebApplication\bin\WebGrease.dll
+C:\Users\hamdi\OneDrive\Documents\Visual Studio 2015\Projects\LocatMe\WebApplication\bin\DAL.pdb
+C:\Users\hamdi\OneDrive\Documents\Visual Studio 2015\Projects\LocatMe\WebApplication\bin\AutoMapper.xml
+C:\Users\hamdi\OneDrive\Documents\Visual Studio 2015\Projects\LocatMe\WebApplication\bin\EntityFramework.xml
+C:\Users\hamdi\OneDrive\Documents\Visual Studio 2015\Projects\LocatMe\WebApplication\bin\EntityFramework.SqlServer.xml
 C:\Users\hamdi\OneDrive\Documents\Visual Studio 2015\Projects\LocatMe\WebApplication\bin\Microsoft.AI.DependencyCollector.xml
 C:\Users\hamdi\OneDrive\Documents\Visual Studio 2015\Projects\LocatMe\WebApplication\bin\Microsoft.AI.ServerTelemetryChannel.xml
 C:\Users\hamdi\OneDrive\Documents\Visual Studio 2015\Projects\LocatMe\WebApplication\bin\Microsoft.AI.Web.xml
@@ -48,6 +58,8 @@ C:\Users\hamdi\OneDrive\Documents\Visual Studio 2015\Projects\LocatMe\WebApplica
 C:\Users\hamdi\OneDrive\Documents\Visual Studio 2015\Projects\LocatMe\WebApplication\bin\System.Web.WebPages.Razor.xml
 C:\Users\hamdi\OneDrive\Documents\Visual Studio 2015\Projects\LocatMe\WebApplication\bin\Antlr3.Runtime.pdb
 C:\Users\hamdi\OneDrive\Documents\Visual Studio 2015\Projects\LocatMe\WebApplication\bin\Newtonsoft.Json.xml
+C:\Users\hamdi\OneDrive\Documents\Visual Studio 2015\Projects\LocatMe\WebApplication\bin\fr\EntityFramework.resources.dll
+C:\Users\hamdi\OneDrive\Documents\Visual Studio 2015\Projects\LocatMe\WebApplication\bin\fr\EntityFramework.SqlServer.resources.dll
 C:\Users\hamdi\OneDrive\Documents\Visual Studio 2015\Projects\LocatMe\WebApplication\bin\fr\System.Web.Helpers.resources.dll
 C:\Users\hamdi\OneDrive\Documents\Visual Studio 2015\Projects\LocatMe\WebApplication\bin\fr\System.Web.Mvc.resources.dll
 C:\Users\hamdi\OneDrive\Documents\Visual Studio 2015\Projects\LocatMe\WebApplication\bin\fr\System.Web.Optimization.resources.dll
@@ -55,17 +67,5 @@ C:\Users\hamdi\OneDrive\Documents\Visual Studio 2015\Projects\LocatMe\WebApplica
 C:\Users\hamdi\OneDrive\Documents\Visual Studio 2015\Projects\LocatMe\WebApplication\bin\fr\System.Web.WebPages.resources.dll
 C:\Users\hamdi\OneDrive\Documents\Visual Studio 2015\Projects\LocatMe\WebApplication\bin\fr\System.Web.WebPages.Deployment.resources.dll
 C:\Users\hamdi\OneDrive\Documents\Visual Studio 2015\Projects\LocatMe\WebApplication\bin\fr\System.Web.WebPages.Razor.resources.dll
-C:\Users\hamdi\OneDrive\Documents\Visual Studio 2015\Projects\LocatMe\WebApplication\obj\Debug\WebApplication.csprojResolveAssemblyReference.cache
 C:\Users\hamdi\OneDrive\Documents\Visual Studio 2015\Projects\LocatMe\WebApplication\obj\Debug\WebApplication.dll
 C:\Users\hamdi\OneDrive\Documents\Visual Studio 2015\Projects\LocatMe\WebApplication\obj\Debug\WebApplication.pdb
-C:\Users\hamdi\OneDrive\Documents\Visual Studio 2015\Projects\LocatMe\WebApplication\bin\DAL.dll
-C:\Users\hamdi\OneDrive\Documents\Visual Studio 2015\Projects\LocatMe\WebApplication\bin\EntityFramework.dll
-C:\Users\hamdi\OneDrive\Documents\Visual Studio 2015\Projects\LocatMe\WebApplication\bin\EntityFramework.SqlServer.dll
-C:\Users\hamdi\OneDrive\Documents\Visual Studio 2015\Projects\LocatMe\WebApplication\bin\GridMvc.dll
-C:\Users\hamdi\OneDrive\Documents\Visual Studio 2015\Projects\LocatMe\WebApplication\bin\DAL.pdb
-C:\Users\hamdi\OneDrive\Documents\Visual Studio 2015\Projects\LocatMe\WebApplication\bin\EntityFramework.xml
-C:\Users\hamdi\OneDrive\Documents\Visual Studio 2015\Projects\LocatMe\WebApplication\bin\EntityFramework.SqlServer.xml
-C:\Users\hamdi\OneDrive\Documents\Visual Studio 2015\Projects\LocatMe\WebApplication\bin\fr\EntityFramework.resources.dll
-C:\Users\hamdi\OneDrive\Documents\Visual Studio 2015\Projects\LocatMe\WebApplication\bin\fr\EntityFramework.SqlServer.resources.dll
-C:\Users\hamdi\OneDrive\Documents\Visual Studio 2015\Projects\LocatMe\WebApplication\bin\AutoMapper.dll
-C:\Users\hamdi\OneDrive\Documents\Visual Studio 2015\Projects\LocatMe\WebApplication\bin\AutoMapper.xml

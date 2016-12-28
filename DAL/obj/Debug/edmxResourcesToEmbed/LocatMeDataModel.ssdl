@@ -26,7 +26,19 @@
     <Property Name="Numéro Téléphone" Type="int" Nullable="false" />
     <Property Name="Adresse de messagerie" Type="varchar" MaxLength="100" Nullable="false" />
   </EntityType>
-  <EntityType Name="User">
+  <EntityType Name="Location">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="ArticleID" Type="int" Nullable="false" />
+    <Property Name="ClientID" Type="int" Nullable="false" />
+    <Property Name="UserID" Type="int" Nullable="false" />
+    <Property Name="DateLocation" Type="date" Nullable="false" />
+    <Property Name="DateRetour" Type="date" Nullable="false" />
+    <Property Name="EtatLocation" Type="varchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Utilisateur">
     <Key>
       <PropertyRef Name="ID" />
     </Key>
@@ -42,9 +54,58 @@
     <Property Name="Mot de passe" Type="varchar" MaxLength="100" Nullable="false" />
     <Property Name="Role" Type="varchar" MaxLength="100" Nullable="false" />
   </EntityType>
+  <Association Name="FK__Location__Articl__36B12243">
+    <End Role="Article" Type="Self.Article" Multiplicity="1" />
+    <End Role="Location" Type="Self.Location" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Article">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Location">
+        <PropertyRef Name="ArticleID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Location__Client__37A5467C">
+    <End Role="Client" Type="Self.Client" Multiplicity="1" />
+    <End Role="Location" Type="Self.Location" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Client">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Location">
+        <PropertyRef Name="ClientID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Location__UserID__3A81B327">
+    <End Role="Utilisateur" Type="Self.Utilisateur" Multiplicity="1" />
+    <End Role="Location" Type="Self.Location" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Utilisateur">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Location">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <EntityContainer Name="LocatMe_BDModelStoreContainer">
     <EntitySet Name="Article" EntityType="Self.Article" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Client" EntityType="Self.Client" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Location" EntityType="Self.Location" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Utilisateur" EntityType="Self.Utilisateur" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__Location__Articl__36B12243" Association="Self.FK__Location__Articl__36B12243">
+      <End Role="Article" EntitySet="Article" />
+      <End Role="Location" EntitySet="Location" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Location__Client__37A5467C" Association="Self.FK__Location__Client__37A5467C">
+      <End Role="Client" EntitySet="Client" />
+      <End Role="Location" EntitySet="Location" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Location__UserID__3A81B327" Association="Self.FK__Location__UserID__3A81B327">
+      <End Role="Utilisateur" EntitySet="Utilisateur" />
+      <End Role="Location" EntitySet="Location" />
+    </AssociationSet>
   </EntityContainer>
 </Schema>
