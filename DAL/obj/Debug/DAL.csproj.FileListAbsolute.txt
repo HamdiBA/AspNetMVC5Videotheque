@@ -10,3 +10,15 @@ C:\Users\hamdi\OneDrive\Documents\Visual Studio 2015\Projects\LocatMe\DAL\bin\De
 C:\Users\hamdi\OneDrive\Documents\Visual Studio 2015\Projects\LocatMe\DAL\obj\Debug\DAL.csprojResolveAssemblyReference.cache
 C:\Users\hamdi\OneDrive\Documents\Visual Studio 2015\Projects\LocatMe\DAL\obj\Debug\DAL.dll
 C:\Users\hamdi\OneDrive\Documents\Visual Studio 2015\Projects\LocatMe\DAL\obj\Debug\DAL.pdb
+C:\Users\hamdi\OneDrive\Documents\Visual Studio 2015\Projects\AspNetMVC5Videotheque\DAL\bin\Debug\DAL.dll.config
+C:\Users\hamdi\OneDrive\Documents\Visual Studio 2015\Projects\AspNetMVC5Videotheque\DAL\bin\Debug\DAL.dll
+C:\Users\hamdi\OneDrive\Documents\Visual Studio 2015\Projects\AspNetMVC5Videotheque\DAL\bin\Debug\DAL.pdb
+C:\Users\hamdi\OneDrive\Documents\Visual Studio 2015\Projects\AspNetMVC5Videotheque\DAL\bin\Debug\EntityFramework.dll
+C:\Users\hamdi\OneDrive\Documents\Visual Studio 2015\Projects\AspNetMVC5Videotheque\DAL\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\hamdi\OneDrive\Documents\Visual Studio 2015\Projects\AspNetMVC5Videotheque\DAL\bin\Debug\EntityFramework.xml
+C:\Users\hamdi\OneDrive\Documents\Visual Studio 2015\Projects\AspNetMVC5Videotheque\DAL\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\hamdi\OneDrive\Documents\Visual Studio 2015\Projects\AspNetMVC5Videotheque\DAL\bin\Debug\fr\EntityFramework.resources.dll
+C:\Users\hamdi\OneDrive\Documents\Visual Studio 2015\Projects\AspNetMVC5Videotheque\DAL\bin\Debug\fr\EntityFramework.SqlServer.resources.dll
+C:\Users\hamdi\OneDrive\Documents\Visual Studio 2015\Projects\AspNetMVC5Videotheque\DAL\obj\Debug\DAL.csprojResolveAssemblyReference.cache
+C:\Users\hamdi\OneDrive\Documents\Visual Studio 2015\Projects\AspNetMVC5Videotheque\DAL\obj\Debug\DAL.dll
+C:\Users\hamdi\OneDrive\Documents\Visual Studio 2015\Projects\AspNetMVC5Videotheque\DAL\obj\Debug\DAL.pdb
