@@ -28,6 +28,11 @@ namespace WebApplication
 
             AutoMapper.Mapper.CreateMap<DAL.Location, WebApplication.Models.LocationEditee>();
             AutoMapper.Mapper.CreateMap<WebApplication.Models.LocationEditee, DAL.Location>();
+
+            AutoMapper.Mapper.CreateMap<DAL.Categorie, WebApplication.Models.CategorieEditee>();
+            AutoMapper.Mapper.CreateMap<WebApplication.Models.CategorieEditee, DAL.Categorie>();
+
+
         }
     }
 }

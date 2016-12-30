@@ -54,7 +54,13 @@
     <Compile Include="Article.cs">
       <DependentUpon>LocatMeDataModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Categorie.cs">
+      <DependentUpon>LocatMeDataModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Client.cs">
+      <DependentUpon>LocatMeDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Genre.cs">
       <DependentUpon>LocatMeDataModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Location.cs">

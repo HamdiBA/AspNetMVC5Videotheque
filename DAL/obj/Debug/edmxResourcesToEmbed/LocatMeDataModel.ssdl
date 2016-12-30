@@ -4,13 +4,20 @@
     <Key>
       <PropertyRef Name="ID" />
     </Key>
-    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Nom_art" Type="varchar" MaxLength="100" Nullable="false" />
-    <Property Name="Categorie" Type="varchar" MaxLength="100" Nullable="false" />
-    <Property Name="Genre" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="CategorieID" Type="int" Nullable="false" />
+    <Property Name="GenreID" Type="int" Nullable="false" />
     <Property Name="Quantite" Type="int" Nullable="false" />
     <Property Name="Prix" Type="float" Nullable="false" />
-    <Property Name="Date_ajout" Type="datetime" />
+    <Property Name="Date_ajout" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Categorie">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nom" Type="varchar" MaxLength="100" Nullable="false" />
   </EntityType>
   <EntityType Name="Client">
     <Key>
@@ -25,6 +32,13 @@
     <Property Name="Ville" Type="varchar" MaxLength="100" Nullable="false" />
     <Property Name="Numéro Téléphone" Type="int" Nullable="false" />
     <Property Name="Adresse de messagerie" Type="varchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Genre">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="100" Nullable="false" />
   </EntityType>
   <EntityType Name="Location">
     <Key>
@@ -54,7 +68,31 @@
     <Property Name="Mot de passe" Type="varchar" MaxLength="100" Nullable="false" />
     <Property Name="Role" Type="varchar" MaxLength="100" Nullable="false" />
   </EntityType>
-  <Association Name="FK__Location__Articl__36B12243">
+  <Association Name="FK__Article__Categor__5AEE82B9">
+    <End Role="Categorie" Type="Self.Categorie" Multiplicity="1" />
+    <End Role="Article" Type="Self.Article" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Categorie">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Article">
+        <PropertyRef Name="CategorieID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Article__GenreID__5EBF139D">
+    <End Role="Genre" Type="Self.Genre" Multiplicity="1" />
+    <End Role="Article" Type="Self.Article" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Genre">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Article">
+        <PropertyRef Name="GenreID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Location__Articl__59FA5E80">
     <End Role="Article" Type="Self.Article" Multiplicity="1" />
     <End Role="Location" Type="Self.Location" Multiplicity="*" />
     <ReferentialConstraint>
@@ -66,7 +104,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Location__Client__37A5467C">
+  <Association Name="FK__Location__Client__48CFD27E">
     <End Role="Client" Type="Self.Client" Multiplicity="1" />
     <End Role="Location" Type="Self.Location" Multiplicity="*" />
     <ReferentialConstraint>
@@ -78,7 +116,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Location__UserID__3A81B327">
+  <Association Name="FK__Location__UserID__49C3F6B7">
     <End Role="Utilisateur" Type="Self.Utilisateur" Multiplicity="1" />
     <End Role="Location" Type="Self.Location" Multiplicity="*" />
     <ReferentialConstraint>
@@ -92,18 +130,28 @@
   </Association>
   <EntityContainer Name="LocatMe_BDModelStoreContainer">
     <EntitySet Name="Article" EntityType="Self.Article" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Categorie" EntityType="Self.Categorie" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Client" EntityType="Self.Client" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Genre" EntityType="Self.Genre" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Location" EntityType="Self.Location" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Utilisateur" EntityType="Self.Utilisateur" Schema="dbo" store:Type="Tables" />
-    <AssociationSet Name="FK__Location__Articl__36B12243" Association="Self.FK__Location__Articl__36B12243">
+    <AssociationSet Name="FK__Article__Categor__5AEE82B9" Association="Self.FK__Article__Categor__5AEE82B9">
+      <End Role="Categorie" EntitySet="Categorie" />
+      <End Role="Article" EntitySet="Article" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Article__GenreID__5EBF139D" Association="Self.FK__Article__GenreID__5EBF139D">
+      <End Role="Genre" EntitySet="Genre" />
+      <End Role="Article" EntitySet="Article" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Location__Articl__59FA5E80" Association="Self.FK__Location__Articl__59FA5E80">
       <End Role="Article" EntitySet="Article" />
       <End Role="Location" EntitySet="Location" />
     </AssociationSet>
-    <AssociationSet Name="FK__Location__Client__37A5467C" Association="Self.FK__Location__Client__37A5467C">
+    <AssociationSet Name="FK__Location__Client__48CFD27E" Association="Self.FK__Location__Client__48CFD27E">
       <End Role="Client" EntitySet="Client" />
       <End Role="Location" EntitySet="Location" />
     </AssociationSet>
-    <AssociationSet Name="FK__Location__UserID__3A81B327" Association="Self.FK__Location__UserID__3A81B327">
+    <AssociationSet Name="FK__Location__UserID__49C3F6B7" Association="Self.FK__Location__UserID__49C3F6B7">
       <End Role="Utilisateur" EntitySet="Utilisateur" />
       <End Role="Location" EntitySet="Location" />
     </AssociationSet>

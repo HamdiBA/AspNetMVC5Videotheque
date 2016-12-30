@@ -22,8 +22,8 @@ namespace DAL
         public System.DateTime DateRetour { get; set; }
         public string EtatLocation { get; set; }
     
-        public virtual Article Article { get; set; }
         public virtual Client Client { get; set; }
         public virtual Utilisateur Utilisateur { get; set; }
+        public virtual Article Article { get; set; }
     }
 }

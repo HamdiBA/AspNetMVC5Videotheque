@@ -65,5 +65,7 @@
     <Build Include="Client.sql" />
     <Build Include="Utilisateur.sql" />
     <Build Include="Location.sql" />
+    <Build Include="Categorie.sql" />
+    <Build Include="Genre.sql" />
   </ItemGroup>
 </Project>

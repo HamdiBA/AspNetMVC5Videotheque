@@ -165,6 +165,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\ArticleController.cs" />
+    <Compile Include="Controllers\CategorieController.cs" />
     <Compile Include="Controllers\ClientController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LocationController.cs" />
@@ -173,8 +174,10 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\ArticleEditee.cs" />
+    <Compile Include="Models\CategorieEditee.cs" />
     <Compile Include="Models\ClientEditee.cs" />
     <Compile Include="Models\LocationEditee.cs" />
+    <Compile Include="Models\tabViewModel.cs" />
     <Compile Include="Models\UserEditee.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -233,6 +236,8 @@
     <Content Include="Views\User\EditUser.cshtml" />
     <Content Include="Views\Location\EditLocation.cshtml" />
     <Content Include="Views\Location\ListeLocation.cshtml" />
+    <Content Include="Views\Categorie\ListeCategorie.cshtml" />
+    <Content Include="Views\Categorie\EditCategorie.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

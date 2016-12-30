@@ -36,14 +36,20 @@
 
 @Html.Grid(Model).Columns(columns =>
 {
-    columns.Add(p => p.Titre);
-    columns.Add(p => p.Nom).Filterable(true);
-    columns.Add(p => p.Prenom).Filterable(true);
-    columns.Add(p => p.Adresse).Filterable(true);
-    columns.Add(p => p.Code_Postal);
-    columns.Add(p => p.Ville).Filterable(true);
-    columns.Add(p => p.Numéro_Téléphone).Filterable(true);
-    columns.Add(p => p.Adresse_de_messagerie).Filterable(true);
+    columns.Add(p => p.Titre).Titled("Civilité");
+    columns.Add(p => p.Nom).Titled("Nom")
+                           .Filterable(true);
+    columns.Add(p => p.Prenom).Titled("Prénom")
+                              .Filterable(true);
+    columns.Add(p => p.Adresse).Titled("Adresse")
+                               .Filterable(true);
+    columns.Add(p => p.Code_Postal).Titled("Code Postal");
+    columns.Add(p => p.Ville).Titled("Ville")
+                             .Filterable(true);
+    columns.Add(p => p.Numéro_Téléphone).Titled("Téléphone")
+                                        .Filterable(true);
+    columns.Add(p => p.Adresse_de_messagerie).Titled("Email")
+                                             .Filterable(true);
     columns.Add().Sanitized(false)
                  .Encoded(false)
                  .RenderValueAs(p => Html.ActionLink("Editer", "EditClient", new { id = p.ID }));

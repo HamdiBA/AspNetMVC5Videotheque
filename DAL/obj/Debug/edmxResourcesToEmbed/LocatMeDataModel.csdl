@@ -1,18 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="LocatMe_BDModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-  <EntityType Name="Article">
-    <Key>
-      <PropertyRef Name="ID" />
-    </Key>
-    <Property Name="ID" Type="Int32" Nullable="false" />
-    <Property Name="Nom_art" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="Categorie" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="Genre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="Quantite" Type="Int32" Nullable="false" />
-    <Property Name="Prix" Type="Double" Nullable="false" />
-    <Property Name="Date_ajout" Type="DateTime" Precision="3" />
-    <NavigationProperty Name="Location" Relationship="LocatMe_BDModel.FK__Location__Articl__36B12243" FromRole="Article" ToRole="Location" />
-  </EntityType>
   <EntityType Name="Client">
     <Key>
       <PropertyRef Name="ID" />
@@ -29,13 +16,8 @@
     <NavigationProperty Name="Location" Relationship="LocatMe_BDModel.FK__Location__Client__37A5467C" FromRole="Client" ToRole="Location" />
   </EntityType>
   <EntityContainer Name="LocatMe_BDEntities" annotation:LazyLoadingEnabled="true">
-    <EntitySet Name="Article" EntityType="Self.Article" />
     <EntitySet Name="Client" EntityType="Self.Client" />
     <EntitySet Name="Location" EntityType="LocatMe_BDModel.Location" />
-    <AssociationSet Name="FK__Location__Articl__36B12243" Association="LocatMe_BDModel.FK__Location__Articl__36B12243">
-      <End Role="Article" EntitySet="Article" />
-      <End Role="Location" EntitySet="Location" />
-    </AssociationSet>
     <AssociationSet Name="FK__Location__Client__37A5467C" Association="LocatMe_BDModel.FK__Location__Client__37A5467C">
       <End Role="Client" EntitySet="Client" />
       <End Role="Location" EntitySet="Location" />
@@ -44,6 +26,21 @@
     <AssociationSet Name="FK__Location__UserID__3A81B327" Association="LocatMe_BDModel.FK__Location__UserID__3A81B327">
       <End Role="Utilisateur" EntitySet="Utilisateur" />
       <End Role="Location" EntitySet="Location" />
+    </AssociationSet>
+    <EntitySet Name="Categorie" EntityType="LocatMe_BDModel.Categorie" />
+    <EntitySet Name="Article" EntityType="LocatMe_BDModel.Article" />
+    <AssociationSet Name="FK__Article__Categor__5AEE82B9" Association="LocatMe_BDModel.FK__Article__Categor__5AEE82B9">
+      <End Role="Categorie" EntitySet="Categorie" />
+      <End Role="Article" EntitySet="Article" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Location__Articl__59FA5E80" Association="LocatMe_BDModel.FK__Location__Articl__59FA5E80">
+      <End Role="Article" EntitySet="Article" />
+      <End Role="Location" EntitySet="Location" />
+    </AssociationSet>
+    <EntitySet Name="Genre" EntityType="LocatMe_BDModel.Genre" />
+    <AssociationSet Name="FK__Article__GenreID__5EBF139D" Association="LocatMe_BDModel.FK__Article__GenreID__5EBF139D">
+      <End Role="Genre" EntitySet="Genre" />
+      <End Role="Article" EntitySet="Article" />
     </AssociationSet>
   </EntityContainer>
   <EntityType Name="Location">
@@ -57,22 +54,10 @@
     <Property Name="DateLocation" Type="DateTime" Nullable="false" Precision="0" />
     <Property Name="DateRetour" Type="DateTime" Nullable="false" Precision="0" />
     <Property Name="EtatLocation" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
-    <NavigationProperty Name="Article" Relationship="LocatMe_BDModel.FK__Location__Articl__36B12243" FromRole="Location" ToRole="Article" />
     <NavigationProperty Name="Client" Relationship="LocatMe_BDModel.FK__Location__Client__37A5467C" FromRole="Location" ToRole="Client" />
     <NavigationProperty Name="Utilisateur" Relationship="LocatMe_BDModel.FK__Location__UserID__3A81B327" FromRole="Location" ToRole="Utilisateur" />
+    <NavigationProperty Name="Article" Relationship="LocatMe_BDModel.FK__Location__Articl__59FA5E80" FromRole="Location" ToRole="Article" />
   </EntityType>
-  <Association Name="FK__Location__Articl__36B12243">
-    <End Type="LocatMe_BDModel.Article" Role="Article" Multiplicity="1" />
-    <End Type="LocatMe_BDModel.Location" Role="Location" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Article">
-        <PropertyRef Name="ID" />
-      </Principal>
-      <Dependent Role="Location">
-        <PropertyRef Name="ArticleID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="FK__Location__Client__37A5467C">
     <End Type="LocatMe_BDModel.Client" Role="Client" Multiplicity="1" />
     <End Type="LocatMe_BDModel.Location" Role="Location" Multiplicity="*" />
@@ -111,6 +96,73 @@
       </Principal>
       <Dependent Role="Location">
         <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Categorie">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nom" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Article" Relationship="LocatMe_BDModel.FK__Article__Categor__5AEE82B9" FromRole="Categorie" ToRole="Article" />
+  </EntityType>
+  <EntityType Name="Article">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nom_art" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="CategorieID" Type="Int32" Nullable="false" />
+    <Property Name="GenreID" Type="Int32" Nullable="false" />
+    <Property Name="Quantite" Type="Int32" Nullable="false" />
+    <Property Name="Prix" Type="Double" Nullable="false" />
+    <Property Name="Date_ajout" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="Categorie" Relationship="LocatMe_BDModel.FK__Article__Categor__5AEE82B9" FromRole="Article" ToRole="Categorie" />
+    <NavigationProperty Name="Location" Relationship="LocatMe_BDModel.FK__Location__Articl__59FA5E80" FromRole="Article" ToRole="Location" />
+    <NavigationProperty Name="Genre" Relationship="LocatMe_BDModel.FK__Article__GenreID__5EBF139D" FromRole="Article" ToRole="Genre" />
+  </EntityType>
+  <Association Name="FK__Article__Categor__5AEE82B9">
+    <End Type="LocatMe_BDModel.Categorie" Role="Categorie" Multiplicity="1" />
+    <End Type="LocatMe_BDModel.Article" Role="Article" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Categorie">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Article">
+        <PropertyRef Name="CategorieID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Location__Articl__59FA5E80">
+    <End Type="LocatMe_BDModel.Article" Role="Article" Multiplicity="1" />
+    <End Type="LocatMe_BDModel.Location" Role="Location" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Article">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Location">
+        <PropertyRef Name="ArticleID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Genre">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Article" Relationship="LocatMe_BDModel.FK__Article__GenreID__5EBF139D" FromRole="Genre" ToRole="Article" />
+  </EntityType>
+  <Association Name="FK__Article__GenreID__5EBF139D">
+    <End Type="LocatMe_BDModel.Genre" Role="Genre" Multiplicity="1" />
+    <End Type="LocatMe_BDModel.Article" Role="Article" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Genre">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Article">
+        <PropertyRef Name="GenreID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

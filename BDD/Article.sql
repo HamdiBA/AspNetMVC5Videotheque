@@ -1,11 +1,13 @@
 ﻿CREATE TABLE [dbo].[Article]
 (
-	[ID] INT NOT NULL PRIMARY KEY,
+	[ID] INT NOT NULL IDENTITY(1,1) PRIMARY KEY,
 	[Nom_art] VARCHAR(100) NOT NULL,
-	[Categorie] VARCHAR(100) NOT NULL,
-	[Genre] VARCHAR(100) NOT NULL,
+	[CategorieID] INT NOT NULL,
+	[GenreID] INT NOT NULL,
 	[Quantite] INT NOT NULL,
 	[Prix] FLOAT NOT NULL,
-	[Date_ajout] DATETIME DEFAULT(getdate())
+	[Date_ajout] DATETIME NOT NULL,
+	FOREIGN KEY (CategorieID) REFERENCES Categorie(ID),
+	FOREIGN KEY (GenreID) REFERENCES Genre(ID)
 
 )

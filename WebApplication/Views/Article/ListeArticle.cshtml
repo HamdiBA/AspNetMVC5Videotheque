@@ -38,9 +38,9 @@
 {
     columns.Add(p => p.Nom_art).Titled("Nom de l'article")
                                .Filterable(true);
-    columns.Add(p => p.Categorie).Titled("Catégorie")
+    columns.Add(p => p.CategorieID).Titled("Catégorie")
                                  .Filterable(true);
-    columns.Add(p => p.Genre).Titled("Genre")
+    columns.Add(p => p.GenreID).Titled("Genre")
                              .Filterable(true);
     columns.Add(p => p.Quantite).Titled("Quantité")
                                 .Sortable(true);
@@ -58,4 +58,6 @@
 
 <div>
     @Html.ActionLink("Ajouter un nouveau article", "EditArticle")
+</div><div>
+    @Html.ActionLink("Liste des catégorie", "ListeCategorie", "Categorie")
 </div>

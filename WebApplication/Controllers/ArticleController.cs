@@ -22,6 +22,10 @@ namespace WebApplication.Controllers
         [HttpGet]
         public ActionResult EditArticle(int? id)
         {
+
+            ViewBag.Category = new SelectList(contexteEF.Categorie,"ID","Nom");
+            ViewBag.Genre = new SelectList(contexteEF.Genre, "ID", "Name");
+
             if (id.HasValue)
             {
                 Article article = contexteEF.Article.Single(p => p.ID == id);
@@ -52,8 +56,8 @@ namespace WebApplication.Controllers
             else
             {
                 var nouvelleArticle = AutoMapper.Mapper.Map<Article>(article);
-                int idMax = contexteEF.Article.Max(p => p.ID);
-                nouvelleArticle.ID = idMax + 1;
+                //int idMax = contexteEF.Article.Max(p => p.ID);
+                //nouvelleArticle.ID = idMax + 1;
 
                 contexteEF.Article.Add(nouvelleArticle);
             }
