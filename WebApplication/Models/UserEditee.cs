@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
@@ -10,6 +11,10 @@ namespace WebApplication.Models
         public int? ID { get; set; }
         public string Nom { get; set; }
         public string Prenom { get; set; }
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString =
+       "{0:yyyy-MM-dd}",
+        ApplyFormatInEditMode = true)]
         public System.DateTime? Date_de_naissance { get; set; }
         public string Adresse { get; set; }
         public string Ville { get; set; }

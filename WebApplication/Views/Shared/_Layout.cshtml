@@ -91,6 +91,7 @@
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/gridmvc")
     @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/jqueryui")
     @RenderSection("scripts", required: false)
     <script>
     $("#menu-toggle").click(function(e) {
@@ -98,5 +99,23 @@
         $("#wrapper").toggleClass("toggled");
     });
     </script>
+    @*<script>
+
+        $(function () {
+
+            $(".jqueryui-marker-datapicker").datapicker({
+
+                dataFormat: "yy-mm-dd",
+                changeYear: true,
+                showOn: "Button"
+            }).css("display", "inline-block")
+            .next("button").button({
+                icons: { primary: "ui-icon-calendar" },
+                label: "Select a date",
+                text: false
+            });
+        });
+
+    </script>*@
 </body>
 </html>

@@ -32,6 +32,9 @@ namespace WebApplication
             AutoMapper.Mapper.CreateMap<DAL.Categorie, WebApplication.Models.CategorieEditee>();
             AutoMapper.Mapper.CreateMap<WebApplication.Models.CategorieEditee, DAL.Categorie>();
 
+            AutoMapper.Mapper.CreateMap<DAL.Genre, WebApplication.Models.GenreEditee>();
+            AutoMapper.Mapper.CreateMap<WebApplication.Models.GenreEditee, DAL.Genre>();
+
 
         }
     }

@@ -1,0 +1,52 @@
+﻿@{
+    ViewBag.Title = "Genre";
+}
+
+@using GridMvc.Html;
+
+@model IEnumerable<DAL.Genre>
+
+
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            $('.btn-delete-genre').click(function (event) {
+                var boutonClique = $(event.target).closest('button');
+
+                var idASupprimer = $(boutonClique).attr('data-id');
+
+                $.ajax({
+                    url: '@Url.Action("Delete")',
+                    type: 'POST',
+                    data: { id: idASupprimer },
+                    success: function (data) {
+                        if (data.Suppression == "OK") {
+                            $(boutonClique).closest("tr").fadeOut(400, function () {
+                                $(this).remove();
+                            })
+                        }
+                    }
+                })
+            });
+        });
+    </script>
+}
+
+
+@Html.Grid(Model).Columns(columns =>
+{
+    columns.Add(g => g.ID).Titled("ID")
+                               .Filterable(true);
+    columns.Add(g => g.Name).Titled("Nom")
+                                 .Filterable(true);
+    columns.Add().Sanitized(false)
+                 .Encoded(false)
+                 .RenderValueAs(g => Html.ActionLink(" ", "EditCategorie", new { id = g.ID }, new { @class = "glyphicon glyphicon-pencil" }));
+    columns.Add().Sanitized(false)
+                 .Encoded(false)
+                 .RenderValueAs(g => "<button class='btn btn-default btn-delete-categorie' data-id='" + g.ID + "'> <span class='glyphicon glyphicon-trash' /> </button>");
+}).WithPaging(7)
+
+<div>
+    @Html.ActionLink("Ajouter un nouveau genre", "EditGenre")
+</div>
