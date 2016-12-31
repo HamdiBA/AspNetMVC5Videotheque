@@ -51,9 +51,9 @@ namespace WebApplication.Controllers
 
             else
             {
-                var nouvelleUser = AutoMapper.Mapper.Map<Utilisateur>(User);
-                int idMax = contexteEF.Utilisateur.Max(p => p.ID);
-                nouvelleUser.ID = idMax + 1;
+                var nouvelleUser = AutoMapper.Mapper.Map<Utilisateur>(user);
+                //int idMax = contexteEF.Utilisateur.Max(p => p.ID);
+                //nouvelleUser.ID = idMax + 1;
 
                 contexteEF.Utilisateur.Add(nouvelleUser);
             }

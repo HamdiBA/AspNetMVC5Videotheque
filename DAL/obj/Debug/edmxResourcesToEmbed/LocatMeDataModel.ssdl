@@ -56,7 +56,7 @@
     <Key>
       <PropertyRef Name="ID" />
     </Key>
-    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Nom" Type="varchar" MaxLength="100" Nullable="false" />
     <Property Name="Prenom" Type="varchar" MaxLength="100" Nullable="false" />
     <Property Name="Date de naissance" Type="date" Nullable="false" />
@@ -116,7 +116,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Location__UserID__49C3F6B7">
+  <Association Name="FK__Location__UserID__619B8048">
     <End Role="Utilisateur" Type="Self.Utilisateur" Multiplicity="1" />
     <End Role="Location" Type="Self.Location" Multiplicity="*" />
     <ReferentialConstraint>
@@ -151,7 +151,7 @@
       <End Role="Client" EntitySet="Client" />
       <End Role="Location" EntitySet="Location" />
     </AssociationSet>
-    <AssociationSet Name="FK__Location__UserID__49C3F6B7" Association="Self.FK__Location__UserID__49C3F6B7">
+    <AssociationSet Name="FK__Location__UserID__619B8048" Association="Self.FK__Location__UserID__619B8048">
       <End Role="Utilisateur" EntitySet="Utilisateur" />
       <End Role="Location" EntitySet="Location" />
     </AssociationSet>

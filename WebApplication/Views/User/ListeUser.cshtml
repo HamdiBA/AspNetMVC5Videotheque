@@ -7,12 +7,12 @@
 
 @model IEnumerable<DAL.Utilisateur>
 
-<h2>ListeUser</h2>
+
 
 @section Scripts {
     <script>
         $(document).ready(function () {
-            $('.btn-delete-personne').click(function (event) {
+            $('.btn-delete-user').click(function (event) {
                 var boutonClique = $(event.target).closest('button');
 
                 var idASupprimer = $(boutonClique).attr('data-id');
@@ -36,22 +36,30 @@
 
 @Html.Grid(Model).Columns(columns =>
 {
-    columns.Add(p => p.Nom);
-    columns.Add(p => p.Prenom).Filterable(true);
-    columns.Add(p => p.Date_de_naissance).Filterable(true);
-    columns.Add(p => p.Adresse).Filterable(true);
-    columns.Add(p => p.Code_Postal);
-    columns.Add(p => p.Ville).Filterable(true);
-    columns.Add(p => p.Adresse_de_messagerie).Filterable(true);
-    columns.Add(p => p.Pseudo).Filterable(true);
-    columns.Add(p => p.Mot_de_passe).Filterable(true);
-    columns.Add(p => p.Role).Filterable(true);
+    columns.Add(p => p.Nom).Titled("Nom");
+    columns.Add(p => p.Prenom).Titled("Prénom")
+                              .Filterable(true);
+    columns.Add(p => p.Date_de_naissance).Titled("Date de naissance")
+                                         .Filterable(true);
+    columns.Add(p => p.Adresse).Titled("Adresse")
+                               .Filterable(true);
+    columns.Add(p => p.Code_Postal).Titled("Code Postal");
+    columns.Add(p => p.Ville).Titled("Ville")
+                             .Filterable(true);
+    columns.Add(p => p.Adresse_de_messagerie).Titled("Email")
+                                             .Filterable(true);
+    columns.Add(p => p.Pseudo).Titled("Pseudo")
+                              .Filterable(true);
+    columns.Add(p => p.Mot_de_passe).Titled("Mot de passe")
+                                    .Filterable(true);
+    columns.Add(p => p.Role).Titled("Rôle")
+                            .Filterable(true);
     columns.Add().Sanitized(false)
                  .Encoded(false)
                  .RenderValueAs(p => Html.ActionLink("Editer", "EditUser", new { id = p.ID }));
     columns.Add().Sanitized(false)
                  .Encoded(false)
-                 .RenderValueAs(p => "<button class='btn btn-default btn-delete-personne' data-id='" + p.ID + "'> <span class='glyphicon glyphicon-remove-circle' /> </button>");
+                 .RenderValueAs(p => "<button class='btn btn-default btn-delete-user' data-id='" + p.ID + "'> <span class='glyphicon glyphicon-remove-circle' /> </button>");
 })
 
 <div>

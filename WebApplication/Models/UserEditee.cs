@@ -13,8 +13,8 @@ namespace WebApplication.Models
         public string Prenom { get; set; }
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString =
-       "{0:yyyy-MM-dd}",
-        ApplyFormatInEditMode = true)]
+        "{0:yyyy-MM-dd}",
+       ApplyFormatInEditMode = true)]
         public System.DateTime? Date_de_naissance { get; set; }
         public string Adresse { get; set; }
         public string Ville { get; set; }
@@ -23,5 +23,6 @@ namespace WebApplication.Models
         public string Pseudo { get; set; }
         public string Mot_de_passe { get; set; }
         public string Role { get; set; }
+       
     }
 }

@@ -29,23 +29,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Utilisateur">
-      <EntityTypeMapping TypeName="LocatMe_BDModel.Utilisateur">
-        <MappingFragment StoreEntitySet="Utilisateur">
-          <ScalarProperty Name="Role" ColumnName="Role" />
-          <ScalarProperty Name="Mot_de_passe" ColumnName="Mot de passe" />
-          <ScalarProperty Name="Pseudo" ColumnName="Pseudo" />
-          <ScalarProperty Name="Adresse_de_messagerie" ColumnName="Adresse de messagerie" />
-          <ScalarProperty Name="Code_Postal" ColumnName="Code Postal" />
-          <ScalarProperty Name="Ville" ColumnName="Ville" />
-          <ScalarProperty Name="Adresse" ColumnName="Adresse" />
-          <ScalarProperty Name="Date_de_naissance" ColumnName="Date de naissance" />
-          <ScalarProperty Name="Prenom" ColumnName="Prenom" />
-          <ScalarProperty Name="Nom" ColumnName="Nom" />
-          <ScalarProperty Name="ID" ColumnName="ID" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="Categorie">
       <EntityTypeMapping TypeName="LocatMe_BDModel.Categorie">
         <MappingFragment StoreEntitySet="Categorie">
@@ -71,6 +54,23 @@
       <EntityTypeMapping TypeName="LocatMe_BDModel.Genre">
         <MappingFragment StoreEntitySet="Genre">
           <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Utilisateur">
+      <EntityTypeMapping TypeName="LocatMe_BDModel.Utilisateur">
+        <MappingFragment StoreEntitySet="Utilisateur">
+          <ScalarProperty Name="Role" ColumnName="Role" />
+          <ScalarProperty Name="Mot_de_passe" ColumnName="Mot de passe" />
+          <ScalarProperty Name="Pseudo" ColumnName="Pseudo" />
+          <ScalarProperty Name="Adresse_de_messagerie" ColumnName="Adresse de messagerie" />
+          <ScalarProperty Name="Code_Postal" ColumnName="Code Postal" />
+          <ScalarProperty Name="Ville" ColumnName="Ville" />
+          <ScalarProperty Name="Adresse" ColumnName="Adresse" />
+          <ScalarProperty Name="Date_de_naissance" ColumnName="Date de naissance" />
+          <ScalarProperty Name="Prenom" ColumnName="Prenom" />
+          <ScalarProperty Name="Nom" ColumnName="Nom" />
           <ScalarProperty Name="ID" ColumnName="ID" />
         </MappingFragment>
       </EntityTypeMapping>

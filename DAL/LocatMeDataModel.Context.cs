@@ -27,9 +27,9 @@ namespace DAL
     
         public virtual DbSet<Client> Client { get; set; }
         public virtual DbSet<Location> Location { get; set; }
-        public virtual DbSet<Utilisateur> Utilisateur { get; set; }
         public virtual DbSet<Categorie> Categorie { get; set; }
         public virtual DbSet<Article> Article { get; set; }
         public virtual DbSet<Genre> Genre { get; set; }
+        public virtual DbSet<Utilisateur> Utilisateur { get; set; }
     }
 }

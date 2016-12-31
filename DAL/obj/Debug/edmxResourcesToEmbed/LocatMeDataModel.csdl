@@ -22,11 +22,6 @@
       <End Role="Client" EntitySet="Client" />
       <End Role="Location" EntitySet="Location" />
     </AssociationSet>
-    <EntitySet Name="Utilisateur" EntityType="LocatMe_BDModel.Utilisateur" />
-    <AssociationSet Name="FK__Location__UserID__3A81B327" Association="LocatMe_BDModel.FK__Location__UserID__3A81B327">
-      <End Role="Utilisateur" EntitySet="Utilisateur" />
-      <End Role="Location" EntitySet="Location" />
-    </AssociationSet>
     <EntitySet Name="Categorie" EntityType="LocatMe_BDModel.Categorie" />
     <EntitySet Name="Article" EntityType="LocatMe_BDModel.Article" />
     <AssociationSet Name="FK__Article__Categor__5AEE82B9" Association="LocatMe_BDModel.FK__Article__Categor__5AEE82B9">
@@ -42,6 +37,11 @@
       <End Role="Genre" EntitySet="Genre" />
       <End Role="Article" EntitySet="Article" />
     </AssociationSet>
+    <EntitySet Name="Utilisateur" EntityType="LocatMe_BDModel.Utilisateur" />
+    <AssociationSet Name="FK__Location__UserID__619B8048" Association="LocatMe_BDModel.FK__Location__UserID__619B8048">
+      <End Role="Utilisateur" EntitySet="Utilisateur" />
+      <End Role="Location" EntitySet="Location" />
+    </AssociationSet>
   </EntityContainer>
   <EntityType Name="Location">
     <Key>
@@ -55,8 +55,8 @@
     <Property Name="DateRetour" Type="DateTime" Nullable="false" Precision="0" />
     <Property Name="EtatLocation" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="Client" Relationship="LocatMe_BDModel.FK__Location__Client__37A5467C" FromRole="Location" ToRole="Client" />
-    <NavigationProperty Name="Utilisateur" Relationship="LocatMe_BDModel.FK__Location__UserID__3A81B327" FromRole="Location" ToRole="Utilisateur" />
     <NavigationProperty Name="Article" Relationship="LocatMe_BDModel.FK__Location__Articl__59FA5E80" FromRole="Location" ToRole="Article" />
+    <NavigationProperty Name="Utilisateur" Relationship="LocatMe_BDModel.FK__Location__UserID__619B8048" FromRole="Location" ToRole="Utilisateur" />
   </EntityType>
   <Association Name="FK__Location__Client__37A5467C">
     <End Type="LocatMe_BDModel.Client" Role="Client" Multiplicity="1" />
@@ -67,35 +67,6 @@
       </Principal>
       <Dependent Role="Location">
         <PropertyRef Name="ClientID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <EntityType Name="Utilisateur">
-    <Key>
-      <PropertyRef Name="ID" />
-    </Key>
-    <Property Name="ID" Type="Int32" Nullable="false" />
-    <Property Name="Nom" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
-    <Property Name="Prenom" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
-    <Property Name="Date_de_naissance" Type="DateTime" Nullable="false" Precision="0" />
-    <Property Name="Adresse" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
-    <Property Name="Ville" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
-    <Property Name="Code_Postal" Type="Int32" Nullable="false" />
-    <Property Name="Adresse_de_messagerie" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
-    <Property Name="Pseudo" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
-    <Property Name="Mot_de_passe" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
-    <Property Name="Role" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
-    <NavigationProperty Name="Location" Relationship="LocatMe_BDModel.FK__Location__UserID__3A81B327" FromRole="Utilisateur" ToRole="Location" />
-  </EntityType>
-  <Association Name="FK__Location__UserID__3A81B327">
-    <End Type="LocatMe_BDModel.Utilisateur" Role="Utilisateur" Multiplicity="1" />
-    <End Type="LocatMe_BDModel.Location" Role="Location" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Utilisateur">
-        <PropertyRef Name="ID" />
-      </Principal>
-      <Dependent Role="Location">
-        <PropertyRef Name="UserID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -163,6 +134,35 @@
       </Principal>
       <Dependent Role="Article">
         <PropertyRef Name="GenreID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Utilisateur">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nom" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Prenom" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Date_de_naissance" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Adresse" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Ville" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Code_Postal" Type="Int32" Nullable="false" />
+    <Property Name="Adresse_de_messagerie" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Pseudo" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Mot_de_passe" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Role" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Location" Relationship="LocatMe_BDModel.FK__Location__UserID__619B8048" FromRole="Utilisateur" ToRole="Location" />
+  </EntityType>
+  <Association Name="FK__Location__UserID__619B8048">
+    <End Type="LocatMe_BDModel.Utilisateur" Role="Utilisateur" Multiplicity="1" />
+    <End Type="LocatMe_BDModel.Location" Role="Location" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Utilisateur">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Location">
+        <PropertyRef Name="UserID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

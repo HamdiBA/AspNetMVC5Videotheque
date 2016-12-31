@@ -52,8 +52,8 @@ namespace WebApplication.Controllers
             else
             {
                 var nouvelleClient = AutoMapper.Mapper.Map<Client>(client);
-                int idMax = contexteEF.Client.Max(p => p.ID);
-                nouvelleClient.ID = idMax + 1;
+                //int idMax = contexteEF.Client.Max(p => p.ID);
+                //nouvelleClient.ID = idMax + 1;
 
                 contexteEF.Client.Add(nouvelleClient);
             }
