@@ -19,6 +19,8 @@ namespace WebApplication.Controllers
             return View(articles);
         }
 
+
+        [Authorize(Roles = "Administrateur")]
         [HttpGet]
         public ActionResult EditArticle(int? id)
         {
@@ -39,6 +41,7 @@ namespace WebApplication.Controllers
             }
         }
 
+        [Authorize(Roles = "Administrateur")]
         [HttpPost]
         public ActionResult EditArticle(ArticleEditee article)
         {
@@ -67,6 +70,8 @@ namespace WebApplication.Controllers
             return RedirectToAction("ListeArticle");
         }
 
+
+        [Authorize(Roles = "Administrateur")]
         [HttpPost]
         public JsonResult Delete(int id)
         {
