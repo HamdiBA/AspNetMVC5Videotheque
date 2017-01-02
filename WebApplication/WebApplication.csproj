@@ -179,7 +179,6 @@
     <Compile Include="Models\ClientEditee.cs" />
     <Compile Include="Models\GenreEditee.cs" />
     <Compile Include="Models\LocationEditee.cs" />
-    <Compile Include="Models\tabViewModel.cs" />
     <Compile Include="Models\UserEditee.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="MyRoleProvider\SiteRole.cs" />
@@ -274,18 +273,18 @@
     <Content Include="Views\Article\ListeArticle.cshtml" />
     <Content Include="Views\Shared\_GridPager.cshtml" />
     <Content Include="Views\Shared\_Grid.cshtml" />
-    <Content Include="Views\Article\EditArticle.cshtml" />
     <Content Include="Views\Client\ListeClient.cshtml" />
-    <Content Include="Views\Client\EditClient.cshtml" />
     <Content Include="Views\User\ListeUser.cshtml" />
-    <Content Include="Views\User\EditUser.cshtml" />
-    <Content Include="Views\Location\EditLocation.cshtml" />
     <Content Include="Views\Location\ListeLocation.cshtml" />
     <Content Include="Views\Categorie\ListeCategorie.cshtml" />
-    <Content Include="Views\Categorie\EditCategorie.cshtml" />
     <Content Include="Views\Genre\ListeGenre.cshtml" />
     <Content Include="Views\Genre\EditGenre.cshtml" />
     <Content Include="Views\Home\Login.cshtml" />
+    <Content Include="Views\Categorie\EditCategorie.cshtml" />
+    <Content Include="Views\Client\EditClient.cshtml" />
+    <Content Include="Views\Location\EditLocation.cshtml" />
+    <Content Include="Views\User\EditUser.cshtml" />
+    <Content Include="Views\Article\EditArticle.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -12,7 +12,7 @@
 @section Scripts {
     <script>
         $(document).ready(function () {
-            $('.btn-delete-personne').click(function (event) {
+            $('.btn-delete-customer').click(function (event) {
                 var boutonClique = $(event.target).closest('button');
 
                 var idASupprimer = $(boutonClique).attr('data-id');
@@ -36,26 +36,27 @@
 
 @Html.Grid(Model).Columns(columns =>
 {
-    columns.Add(p => p.Titre).Titled("Civilité");
-    columns.Add(p => p.Nom).Titled("Nom")
+    columns.Add(c => c.CustomerID).Titled("Civilité");
+    columns.Add(c => c.Civility).Titled("Civilité");
+    columns.Add(c => c.Name).Titled("Nom")
                            .Filterable(true);
-    columns.Add(p => p.Prenom).Titled("Prénom")
+    columns.Add(c => c.LastName).Titled("Prénom")
                               .Filterable(true);
-    columns.Add(p => p.Adresse).Titled("Adresse")
+    columns.Add(c => c.Address).Titled("Adresse")
                                .Filterable(true);
-    columns.Add(p => p.Code_Postal).Titled("Code Postal");
-    columns.Add(p => p.Ville).Titled("Ville")
+    columns.Add(c => c.PostalCode).Titled("Code Postal");
+    columns.Add(c => c.City).Titled("Ville")
                              .Filterable(true);
-    columns.Add(p => p.Numéro_Téléphone).Titled("Téléphone")
+    columns.Add(c => c.Phone).Titled("Téléphone")
                                         .Filterable(true);
-    columns.Add(p => p.Adresse_de_messagerie).Titled("Email")
+    columns.Add(c => c.Email).Titled("Email")
                                              .Filterable(true);
     columns.Add().Sanitized(false)
                  .Encoded(false)
-                 .RenderValueAs(p => Html.ActionLink("Editer", "EditClient", new { id = p.ID }));
+                 .RenderValueAs(c => Html.ActionLink("Editer", "EditClient", new { id = c.CustomerID }));
     columns.Add().Sanitized(false)
                  .Encoded(false)
-                 .RenderValueAs(p => "<button class='btn btn-default btn-delete-personne' data-id='" + p.ID + "'> <span class='glyphicon glyphicon-remove-circle' /> </button>");
+                 .RenderValueAs(c => "<button class='btn btn-default btn-delete-customer' data-id='" + c.CustomerID + "'> <span class='glyphicon glyphicon-remove-circle' /> </button>");
 })
 
 <div>

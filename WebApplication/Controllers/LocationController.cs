@@ -23,14 +23,14 @@ namespace WebApplication.Controllers
         public ActionResult EditLocation(int? id)
         {
 
-            ViewBag.Article = new SelectList(contexteEF.Article, "ID", "Nom_art");
-            ViewBag.Client = new SelectList(contexteEF.Client, "ID", "Nom");
-            ViewBag.User = new SelectList(contexteEF.Utilisateur, "ID", "Nom");
+            ViewBag.Article = new SelectList(contexteEF.Article, "ArticleID", "ArticleName");
+            ViewBag.Customer = new SelectList(contexteEF.Client, "CustomerID", "Name");
+            ViewBag.User = new SelectList(contexteEF.Utilisateur, "UserID", "Name");
 
 
             if (id.HasValue)
             {
-                Location location = contexteEF.Location.Single(p => p.ID == id);
+                Location location = contexteEF.Location.Single(l => l.LocationID == id);
                 LocationEditee locationEditee = AutoMapper.Mapper.Map<LocationEditee>(location);
                 return View(locationEditee);
             }
@@ -49,17 +49,17 @@ namespace WebApplication.Controllers
                 return View(location);
             }
 
-            if (location.ID.HasValue)
+            if (location.LocationID.HasValue)
             {
-                Location locationDB = contexteEF.Location.Single(p => p.ID == location.ID);
+                Location locationDB = contexteEF.Location.Single(l => l.LocationID == location.LocationID);
                 locationDB = AutoMapper.Mapper.Map<LocationEditee, Location>(location, locationDB);
             }
 
             else
             {
                 var nouvelleLocation = AutoMapper.Mapper.Map<Location>(location);
-                //int idMax = contexteEF.Location.Max(p => p.ID);
-                //nouvelleLocation.ID = idMax + 1;
+                //int idMax = contexteEF.Location.Max(l => l.LocationID);
+                //nouvelleLocation.LocationID = idMax + 1;
 
                 contexteEF.Location.Add(nouvelleLocation);
             }
@@ -72,7 +72,7 @@ namespace WebApplication.Controllers
         [HttpPost]
         public JsonResult Delete(int id)
         {
-            Location location = contexteEF.Location.Single(p => p.ID == id);
+            Location location = contexteEF.Location.Single(l => l.LocationID == id);
             contexteEF.Location.Remove(location);
             contexteEF.SaveChanges();
 

@@ -26,7 +26,7 @@ namespace WebApplication.Controllers
 
             if (id.HasValue)
             {
-                Categorie categorie = contexteEF.Categorie.Single(ca => ca.ID == id);
+                Categorie categorie = contexteEF.Categorie.Single(ca => ca.CategoryID == id);
                 CategorieEditee categorieEditee = AutoMapper.Mapper.Map<CategorieEditee>(categorie);
                 return View(categorieEditee);
             }
@@ -45,9 +45,9 @@ namespace WebApplication.Controllers
                 return View(categorie);
             }
 
-            if (categorie.ID.HasValue)
+            if (categorie.CategoryID.HasValue)
             {
-                Categorie categorieDB = contexteEF.Categorie.Single(ca => ca.ID == categorie.ID);
+                Categorie categorieDB = contexteEF.Categorie.Single(ca => ca.CategoryID == categorie.CategoryID);
                 categorieDB = AutoMapper.Mapper.Map<CategorieEditee, Categorie>(categorie, categorieDB);
             }
 
@@ -68,7 +68,7 @@ namespace WebApplication.Controllers
         [HttpPost]
         public JsonResult Delete(int id)
         {
-            Categorie categorie = contexteEF.Categorie.Single(ca => ca.ID == id);
+            Categorie categorie = contexteEF.Categorie.Single(ca => ca.CategoryID == id);
             contexteEF.Categorie.Remove(categorie);
             contexteEF.SaveChanges();
 

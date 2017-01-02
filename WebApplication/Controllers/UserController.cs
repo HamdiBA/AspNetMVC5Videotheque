@@ -24,7 +24,7 @@ namespace WebApplication.Controllers
         {
             if (id.HasValue)
             {
-                Utilisateur user = contexteEF.Utilisateur.Single(p => p.ID == id);
+                Utilisateur user = contexteEF.Utilisateur.Single(u => u.UserID == id);
                 UserEditee userEditee = AutoMapper.Mapper.Map<UserEditee>(user);
                 return View(userEditee);
             }
@@ -43,17 +43,17 @@ namespace WebApplication.Controllers
                 return View(user);
             }
 
-            if (user.ID.HasValue)
+            if (user.UserID.HasValue)
             {
-                Utilisateur userDB = contexteEF.Utilisateur.Single(p => p.ID == user.ID);
+                Utilisateur userDB = contexteEF.Utilisateur.Single(u => u.UserID == user.UserID);
                 userDB = AutoMapper.Mapper.Map<UserEditee, Utilisateur>(user, userDB);
             }
 
             else
             {
                 var nouvelleUser = AutoMapper.Mapper.Map<Utilisateur>(user);
-                //int idMax = contexteEF.Utilisateur.Max(p => p.ID);
-                //nouvelleUser.ID = idMax + 1;
+                //int idMax = contexteEF.Utilisateur.Max(u => u.UserID);
+                //nouvelleUser.UserID = idMax + 1;
 
                 contexteEF.Utilisateur.Add(nouvelleUser);
             }
@@ -66,7 +66,7 @@ namespace WebApplication.Controllers
         [HttpPost]
         public JsonResult Delete(int id)
         {
-            Utilisateur user = contexteEF.Utilisateur.Single(p => p.ID == id);
+            Utilisateur user = contexteEF.Utilisateur.Single(u => u.UserID == id);
             contexteEF.Utilisateur.Remove(user);
             contexteEF.SaveChanges();
 

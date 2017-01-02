@@ -26,10 +26,10 @@ namespace WebApplication.Controllers
         public ActionResult Login(Utilisateur model, string returnUrl)
         {
             LocatMe_BDEntities contexteEF = new LocatMe_BDEntities();
-            var dataItem = contexteEF.Utilisateur.Where(x => x.Pseudo == model.Pseudo && x.Mot_de_passe == model.Mot_de_passe).First();
+            var dataItem = contexteEF.Utilisateur.Where(x => x.UserName == model.UserName && x.Password == model.Password).First();
             if (dataItem != null)
             {
-                FormsAuthentication.SetAuthCookie(dataItem.Pseudo, false);
+                FormsAuthentication.SetAuthCookie(dataItem.UserName, false);
                 if (Url.IsLocalUrl(returnUrl) && returnUrl.Length > 1 && returnUrl.StartsWith("/")
                          && !returnUrl.StartsWith("//") && !returnUrl.StartsWith("/\\"))
                 {

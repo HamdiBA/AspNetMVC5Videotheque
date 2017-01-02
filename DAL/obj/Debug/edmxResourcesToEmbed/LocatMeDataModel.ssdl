@@ -2,126 +2,130 @@
 <Schema Namespace="LocatMe_BDModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
   <EntityType Name="Article">
     <Key>
-      <PropertyRef Name="ID" />
+      <PropertyRef Name="ArticleID" />
     </Key>
-    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Nom_art" Type="varchar" MaxLength="100" Nullable="false" />
-    <Property Name="CategorieID" Type="int" Nullable="false" />
+    <Property Name="ArticleID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ArticleName" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="CategoryID" Type="int" Nullable="false" />
     <Property Name="GenreID" Type="int" Nullable="false" />
-    <Property Name="Quantite" Type="int" Nullable="false" />
-    <Property Name="Prix" Type="float" Nullable="false" />
-    <Property Name="Date_ajout" Type="datetime" Nullable="false" />
+    <Property Name="Duration" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="ReleaseDate" Type="date" Nullable="false" />
+    <Property Name="Director" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Note" Type="float" Nullable="false" />
+    <Property Name="Quantity" Type="int" Nullable="false" />
+    <Property Name="Price" Type="float" Nullable="false" />
+    <Property Name="DateAdded" Type="datetime" Nullable="false" />
   </EntityType>
   <EntityType Name="Categorie">
     <Key>
-      <PropertyRef Name="ID" />
+      <PropertyRef Name="CategoryID" />
     </Key>
-    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Nom" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="CategoryID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CategoryName" Type="varchar" MaxLength="100" Nullable="false" />
   </EntityType>
   <EntityType Name="Client">
     <Key>
-      <PropertyRef Name="ID" />
+      <PropertyRef Name="CustomerID" />
     </Key>
-    <Property Name="ID" Type="int" Nullable="false" />
-    <Property Name="Titre" Type="varchar" MaxLength="100" Nullable="false" />
-    <Property Name="Nom" Type="varchar" MaxLength="100" Nullable="false" />
-    <Property Name="Prenom" Type="varchar" MaxLength="100" Nullable="false" />
-    <Property Name="Adresse" Type="varchar" MaxLength="100" Nullable="false" />
-    <Property Name="Code Postal" Type="int" Nullable="false" />
-    <Property Name="Ville" Type="varchar" MaxLength="100" Nullable="false" />
-    <Property Name="Numéro Téléphone" Type="int" Nullable="false" />
-    <Property Name="Adresse de messagerie" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="CustomerID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Civility" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="LastName" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Address" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="PostalCode" Type="int" Nullable="false" />
+    <Property Name="City" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Phone" Type="int" Nullable="false" />
+    <Property Name="Email" Type="varchar" MaxLength="100" Nullable="false" />
   </EntityType>
   <EntityType Name="Genre">
     <Key>
-      <PropertyRef Name="ID" />
+      <PropertyRef Name="GenreID" />
     </Key>
-    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Name" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="GenreID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="GenreName" Type="varchar" MaxLength="100" Nullable="false" />
   </EntityType>
   <EntityType Name="Location">
     <Key>
-      <PropertyRef Name="ID" />
+      <PropertyRef Name="LocationID" />
     </Key>
-    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="LocationID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="ArticleID" Type="int" Nullable="false" />
-    <Property Name="ClientID" Type="int" Nullable="false" />
+    <Property Name="CustomerID" Type="int" Nullable="false" />
     <Property Name="UserID" Type="int" Nullable="false" />
     <Property Name="DateLocation" Type="date" Nullable="false" />
-    <Property Name="DateRetour" Type="date" Nullable="false" />
+    <Property Name="DateBack" Type="date" Nullable="false" />
     <Property Name="EtatLocation" Type="varchar" MaxLength="100" Nullable="false" />
   </EntityType>
   <EntityType Name="Utilisateur">
     <Key>
-      <PropertyRef Name="ID" />
+      <PropertyRef Name="UserID" />
     </Key>
-    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Nom" Type="varchar" MaxLength="100" Nullable="false" />
-    <Property Name="Prenom" Type="varchar" MaxLength="100" Nullable="false" />
-    <Property Name="Date de naissance" Type="date" Nullable="false" />
-    <Property Name="Adresse" Type="varchar" MaxLength="100" Nullable="false" />
-    <Property Name="Ville" Type="varchar" MaxLength="100" Nullable="false" />
-    <Property Name="Code Postal" Type="int" Nullable="false" />
-    <Property Name="Adresse de messagerie" Type="varchar" MaxLength="100" Nullable="false" />
-    <Property Name="Pseudo" Type="varchar" MaxLength="100" Nullable="false" />
-    <Property Name="Mot de passe" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="UserID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="LastName" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="BirthDate" Type="date" Nullable="false" />
+    <Property Name="Address" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="City" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="PostalCode" Type="int" Nullable="false" />
+    <Property Name="Email" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="UserName" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Password" Type="varchar" MaxLength="100" Nullable="false" />
     <Property Name="Role" Type="varchar" MaxLength="100" Nullable="false" />
   </EntityType>
-  <Association Name="FK__Article__Categor__5AEE82B9">
+  <Association Name="FK__Article__Categor__00200768">
     <End Role="Categorie" Type="Self.Categorie" Multiplicity="1" />
     <End Role="Article" Type="Self.Article" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Categorie">
-        <PropertyRef Name="ID" />
+        <PropertyRef Name="CategoryID" />
       </Principal>
       <Dependent Role="Article">
-        <PropertyRef Name="CategorieID" />
+        <PropertyRef Name="CategoryID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Article__GenreID__5EBF139D">
+  <Association Name="FK__Article__GenreID__01142BA1">
     <End Role="Genre" Type="Self.Genre" Multiplicity="1" />
     <End Role="Article" Type="Self.Article" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Genre">
-        <PropertyRef Name="ID" />
+        <PropertyRef Name="GenreID" />
       </Principal>
       <Dependent Role="Article">
         <PropertyRef Name="GenreID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Location__Articl__59FA5E80">
+  <Association Name="FK__Location__Articl__02084FDA">
     <End Role="Article" Type="Self.Article" Multiplicity="1" />
     <End Role="Location" Type="Self.Location" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Article">
-        <PropertyRef Name="ID" />
+        <PropertyRef Name="ArticleID" />
       </Principal>
       <Dependent Role="Location">
         <PropertyRef Name="ArticleID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Location__Client__48CFD27E">
+  <Association Name="FK__Location__Custom__02FC7413">
     <End Role="Client" Type="Self.Client" Multiplicity="1" />
     <End Role="Location" Type="Self.Location" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Client">
-        <PropertyRef Name="ID" />
+        <PropertyRef Name="CustomerID" />
       </Principal>
       <Dependent Role="Location">
-        <PropertyRef Name="ClientID" />
+        <PropertyRef Name="CustomerID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Location__UserID__619B8048">
+  <Association Name="FK__Location__UserID__03F0984C">
     <End Role="Utilisateur" Type="Self.Utilisateur" Multiplicity="1" />
     <End Role="Location" Type="Self.Location" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Utilisateur">
-        <PropertyRef Name="ID" />
+        <PropertyRef Name="UserID" />
       </Principal>
       <Dependent Role="Location">
         <PropertyRef Name="UserID" />
@@ -135,23 +139,23 @@
     <EntitySet Name="Genre" EntityType="Self.Genre" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Location" EntityType="Self.Location" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Utilisateur" EntityType="Self.Utilisateur" Schema="dbo" store:Type="Tables" />
-    <AssociationSet Name="FK__Article__Categor__5AEE82B9" Association="Self.FK__Article__Categor__5AEE82B9">
+    <AssociationSet Name="FK__Article__Categor__00200768" Association="Self.FK__Article__Categor__00200768">
       <End Role="Categorie" EntitySet="Categorie" />
       <End Role="Article" EntitySet="Article" />
     </AssociationSet>
-    <AssociationSet Name="FK__Article__GenreID__5EBF139D" Association="Self.FK__Article__GenreID__5EBF139D">
+    <AssociationSet Name="FK__Article__GenreID__01142BA1" Association="Self.FK__Article__GenreID__01142BA1">
       <End Role="Genre" EntitySet="Genre" />
       <End Role="Article" EntitySet="Article" />
     </AssociationSet>
-    <AssociationSet Name="FK__Location__Articl__59FA5E80" Association="Self.FK__Location__Articl__59FA5E80">
+    <AssociationSet Name="FK__Location__Articl__02084FDA" Association="Self.FK__Location__Articl__02084FDA">
       <End Role="Article" EntitySet="Article" />
       <End Role="Location" EntitySet="Location" />
     </AssociationSet>
-    <AssociationSet Name="FK__Location__Client__48CFD27E" Association="Self.FK__Location__Client__48CFD27E">
+    <AssociationSet Name="FK__Location__Custom__02FC7413" Association="Self.FK__Location__Custom__02FC7413">
       <End Role="Client" EntitySet="Client" />
       <End Role="Location" EntitySet="Location" />
     </AssociationSet>
-    <AssociationSet Name="FK__Location__UserID__619B8048" Association="Self.FK__Location__UserID__619B8048">
+    <AssociationSet Name="FK__Location__UserID__03F0984C" Association="Self.FK__Location__UserID__03F0984C">
       <End Role="Utilisateur" EntitySet="Utilisateur" />
       <End Role="Location" EntitySet="Location" />
     </AssociationSet>

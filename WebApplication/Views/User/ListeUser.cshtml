@@ -36,30 +36,31 @@
 
 @Html.Grid(Model).Columns(columns =>
 {
-    columns.Add(p => p.Nom).Titled("Nom");
-    columns.Add(p => p.Prenom).Titled("Prénom")
+    columns.Add(u => u.UserID).Titled("ID");
+    columns.Add(u => u.Name).Titled("Nom");
+    columns.Add(u => u.LastName).Titled("Prénom")
                               .Filterable(true);
-    columns.Add(p => p.Date_de_naissance).Titled("Date de naissance")
+    columns.Add(u => u.BirthDate).Titled("Date de naissance")
                                          .Filterable(true);
-    columns.Add(p => p.Adresse).Titled("Adresse")
+    columns.Add(u => u.Address).Titled("Adresse")
                                .Filterable(true);
-    columns.Add(p => p.Code_Postal).Titled("Code Postal");
-    columns.Add(p => p.Ville).Titled("Ville")
+    columns.Add(u => u.PostalCode).Titled("Code Postal");
+    columns.Add(u => u.City).Titled("Ville")
                              .Filterable(true);
-    columns.Add(p => p.Adresse_de_messagerie).Titled("Email")
+    columns.Add(u => u.Email).Titled("Email")
                                              .Filterable(true);
-    columns.Add(p => p.Pseudo).Titled("Pseudo")
+    columns.Add(u => u.UserName).Titled("Pseudo")
                               .Filterable(true);
-    columns.Add(p => p.Mot_de_passe).Titled("Mot de passe")
+    columns.Add(u => u.Password).Titled("Mot de passe")
                                     .Filterable(true);
-    columns.Add(p => p.Role).Titled("Rôle")
+    columns.Add(u => u.Role).Titled("Rôle")
                             .Filterable(true);
     columns.Add().Sanitized(false)
                  .Encoded(false)
-                 .RenderValueAs(p => Html.ActionLink("Editer", "EditUser", new { id = p.ID }));
+                 .RenderValueAs(u => Html.ActionLink("Editer", "EditUser", new { id = u.UserID }));
     columns.Add().Sanitized(false)
                  .Encoded(false)
-                 .RenderValueAs(p => "<button class='btn btn-default btn-delete-user' data-id='" + p.ID + "'> <span class='glyphicon glyphicon-remove-circle' /> </button>");
+                 .RenderValueAs(u => "<button class='btn btn-default btn-delete-user' data-id='" + u.UserID + "'> <span class='glyphicon glyphicon-remove-circle' /> </button>");
 })
 
 <div>

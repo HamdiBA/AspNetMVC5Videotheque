@@ -1,18 +1,51 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
   <EntityContainerMapping StorageEntityContainer="LocatMe_BDModelStoreContainer" CdmEntityContainer="LocatMe_BDEntities">
+    <EntitySetMapping Name="Article">
+      <EntityTypeMapping TypeName="LocatMe_BDModel.Article">
+        <MappingFragment StoreEntitySet="Article">
+          <ScalarProperty Name="DateAdded" ColumnName="DateAdded" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="Note" ColumnName="Note" />
+          <ScalarProperty Name="Director" ColumnName="Director" />
+          <ScalarProperty Name="ReleaseDate" ColumnName="ReleaseDate" />
+          <ScalarProperty Name="Duration" ColumnName="Duration" />
+          <ScalarProperty Name="GenreID" ColumnName="GenreID" />
+          <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+          <ScalarProperty Name="ArticleName" ColumnName="ArticleName" />
+          <ScalarProperty Name="ArticleID" ColumnName="ArticleID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Categorie">
+      <EntityTypeMapping TypeName="LocatMe_BDModel.Categorie">
+        <MappingFragment StoreEntitySet="Categorie">
+          <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+          <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="Client">
       <EntityTypeMapping TypeName="LocatMe_BDModel.Client">
         <MappingFragment StoreEntitySet="Client">
-          <ScalarProperty Name="ID" ColumnName="ID" />
-          <ScalarProperty Name="Titre" ColumnName="Titre" />
-          <ScalarProperty Name="Nom" ColumnName="Nom" />
-          <ScalarProperty Name="Prenom" ColumnName="Prenom" />
-          <ScalarProperty Name="Adresse" ColumnName="Adresse" />
-          <ScalarProperty Name="Code_Postal" ColumnName="Code Postal" />
-          <ScalarProperty Name="Ville" ColumnName="Ville" />
-          <ScalarProperty Name="Numéro_Téléphone" ColumnName="Numéro Téléphone" />
-          <ScalarProperty Name="Adresse_de_messagerie" ColumnName="Adresse de messagerie" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="PostalCode" ColumnName="PostalCode" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Civility" ColumnName="Civility" />
+          <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Genre">
+      <EntityTypeMapping TypeName="LocatMe_BDModel.Genre">
+        <MappingFragment StoreEntitySet="Genre">
+          <ScalarProperty Name="GenreName" ColumnName="GenreName" />
+          <ScalarProperty Name="GenreID" ColumnName="GenreID" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -20,41 +53,12 @@
       <EntityTypeMapping TypeName="LocatMe_BDModel.Location">
         <MappingFragment StoreEntitySet="Location">
           <ScalarProperty Name="EtatLocation" ColumnName="EtatLocation" />
-          <ScalarProperty Name="DateRetour" ColumnName="DateRetour" />
+          <ScalarProperty Name="DateBack" ColumnName="DateBack" />
           <ScalarProperty Name="DateLocation" ColumnName="DateLocation" />
           <ScalarProperty Name="UserID" ColumnName="UserID" />
-          <ScalarProperty Name="ClientID" ColumnName="ClientID" />
+          <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
           <ScalarProperty Name="ArticleID" ColumnName="ArticleID" />
-          <ScalarProperty Name="ID" ColumnName="ID" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Categorie">
-      <EntityTypeMapping TypeName="LocatMe_BDModel.Categorie">
-        <MappingFragment StoreEntitySet="Categorie">
-          <ScalarProperty Name="Nom" ColumnName="Nom" />
-          <ScalarProperty Name="ID" ColumnName="ID" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Article">
-      <EntityTypeMapping TypeName="LocatMe_BDModel.Article">
-        <MappingFragment StoreEntitySet="Article">
-          <ScalarProperty Name="Date_ajout" ColumnName="Date_ajout" />
-          <ScalarProperty Name="Prix" ColumnName="Prix" />
-          <ScalarProperty Name="Quantite" ColumnName="Quantite" />
-          <ScalarProperty Name="GenreID" ColumnName="GenreID" />
-          <ScalarProperty Name="CategorieID" ColumnName="CategorieID" />
-          <ScalarProperty Name="Nom_art" ColumnName="Nom_art" />
-          <ScalarProperty Name="ID" ColumnName="ID" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Genre">
-      <EntityTypeMapping TypeName="LocatMe_BDModel.Genre">
-        <MappingFragment StoreEntitySet="Genre">
-          <ScalarProperty Name="Name" ColumnName="Name" />
-          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="LocationID" ColumnName="LocationID" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -62,16 +66,16 @@
       <EntityTypeMapping TypeName="LocatMe_BDModel.Utilisateur">
         <MappingFragment StoreEntitySet="Utilisateur">
           <ScalarProperty Name="Role" ColumnName="Role" />
-          <ScalarProperty Name="Mot_de_passe" ColumnName="Mot de passe" />
-          <ScalarProperty Name="Pseudo" ColumnName="Pseudo" />
-          <ScalarProperty Name="Adresse_de_messagerie" ColumnName="Adresse de messagerie" />
-          <ScalarProperty Name="Code_Postal" ColumnName="Code Postal" />
-          <ScalarProperty Name="Ville" ColumnName="Ville" />
-          <ScalarProperty Name="Adresse" ColumnName="Adresse" />
-          <ScalarProperty Name="Date_de_naissance" ColumnName="Date de naissance" />
-          <ScalarProperty Name="Prenom" ColumnName="Prenom" />
-          <ScalarProperty Name="Nom" ColumnName="Nom" />
-          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="PostalCode" ColumnName="PostalCode" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="BirthDate" ColumnName="BirthDate" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

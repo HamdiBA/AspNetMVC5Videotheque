@@ -25,12 +25,12 @@ namespace WebApplication.Controllers
         public ActionResult EditArticle(int? id)
         {
 
-            ViewBag.Category = new SelectList(contexteEF.Categorie,"ID","Nom");
-            ViewBag.Genre = new SelectList(contexteEF.Genre, "ID", "Name");
+            ViewBag.Category = new SelectList(contexteEF.Categorie,"CategoryID","CategoryName");
+            ViewBag.Genre = new SelectList(contexteEF.Genre, "GenreID", "GenreName");
 
             if (id.HasValue)
             {
-                Article article = contexteEF.Article.Single(p => p.ID == id);
+                Article article = contexteEF.Article.Single(a => a.ArticleID == id);
                 ArticleEditee articleEditee = AutoMapper.Mapper.Map<ArticleEditee>(article);
                 return View(articleEditee);
             }
@@ -50,17 +50,17 @@ namespace WebApplication.Controllers
                 return View(article);
             }
 
-            if (article.ID.HasValue)
+            if (article.ArticleID.HasValue)
             {
-                Article articleDB = contexteEF.Article.Single(p => p.ID == article.ID);
+                Article articleDB = contexteEF.Article.Single(a => a.ArticleID == article.ArticleID);
                 articleDB = AutoMapper.Mapper.Map<ArticleEditee, Article>(article, articleDB);
             }
 
             else
             {
                 var nouvelleArticle = AutoMapper.Mapper.Map<Article>(article);
-                //int idMax = contexteEF.Article.Max(p => p.ID);
-                //nouvelleArticle.ID = idMax + 1;
+                //int idMax = contexteEF.Article.Max(p => p.ArticleID);
+                //nouvelleArticle.ArticleID = idMax + 1;
 
                 contexteEF.Article.Add(nouvelleArticle);
             }
@@ -75,7 +75,7 @@ namespace WebApplication.Controllers
         [HttpPost]
         public JsonResult Delete(int id)
         {
-            Article article = contexteEF.Article.Single(p => p.ID == id);
+            Article article = contexteEF.Article.Single(a => a.ArticleID == id);
             contexteEF.Article.Remove(article);
             contexteEF.SaveChanges();
 

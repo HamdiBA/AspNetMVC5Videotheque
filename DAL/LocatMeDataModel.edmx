@@ -7,126 +7,130 @@
     <Schema Namespace="LocatMe_BDModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Article">
           <Key>
-            <PropertyRef Name="ID" />
+            <PropertyRef Name="ArticleID" />
           </Key>
-          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Nom_art" Type="varchar" MaxLength="100" Nullable="false" />
-          <Property Name="CategorieID" Type="int" Nullable="false" />
+          <Property Name="ArticleID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ArticleName" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="CategoryID" Type="int" Nullable="false" />
           <Property Name="GenreID" Type="int" Nullable="false" />
-          <Property Name="Quantite" Type="int" Nullable="false" />
-          <Property Name="Prix" Type="float" Nullable="false" />
-          <Property Name="Date_ajout" Type="datetime" Nullable="false" />
+          <Property Name="Duration" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="ReleaseDate" Type="date" Nullable="false" />
+          <Property Name="Director" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Note" Type="float" Nullable="false" />
+          <Property Name="Quantity" Type="int" Nullable="false" />
+          <Property Name="Price" Type="float" Nullable="false" />
+          <Property Name="DateAdded" Type="datetime" Nullable="false" />
         </EntityType>
         <EntityType Name="Categorie">
           <Key>
-            <PropertyRef Name="ID" />
+            <PropertyRef Name="CategoryID" />
           </Key>
-          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Nom" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="CategoryID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CategoryName" Type="varchar" MaxLength="100" Nullable="false" />
         </EntityType>
         <EntityType Name="Client">
           <Key>
-            <PropertyRef Name="ID" />
+            <PropertyRef Name="CustomerID" />
           </Key>
-          <Property Name="ID" Type="int" Nullable="false" />
-          <Property Name="Titre" Type="varchar" MaxLength="100" Nullable="false" />
-          <Property Name="Nom" Type="varchar" MaxLength="100" Nullable="false" />
-          <Property Name="Prenom" Type="varchar" MaxLength="100" Nullable="false" />
-          <Property Name="Adresse" Type="varchar" MaxLength="100" Nullable="false" />
-          <Property Name="Code Postal" Type="int" Nullable="false" />
-          <Property Name="Ville" Type="varchar" MaxLength="100" Nullable="false" />
-          <Property Name="Numéro Téléphone" Type="int" Nullable="false" />
-          <Property Name="Adresse de messagerie" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="CustomerID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Civility" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="LastName" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Address" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="PostalCode" Type="int" Nullable="false" />
+          <Property Name="City" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Phone" Type="int" Nullable="false" />
+          <Property Name="Email" Type="varchar" MaxLength="100" Nullable="false" />
         </EntityType>
         <EntityType Name="Genre">
           <Key>
-            <PropertyRef Name="ID" />
+            <PropertyRef Name="GenreID" />
           </Key>
-          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Name" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="GenreID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="GenreName" Type="varchar" MaxLength="100" Nullable="false" />
         </EntityType>
         <EntityType Name="Location">
           <Key>
-            <PropertyRef Name="ID" />
+            <PropertyRef Name="LocationID" />
           </Key>
-          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="LocationID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="ArticleID" Type="int" Nullable="false" />
-          <Property Name="ClientID" Type="int" Nullable="false" />
+          <Property Name="CustomerID" Type="int" Nullable="false" />
           <Property Name="UserID" Type="int" Nullable="false" />
           <Property Name="DateLocation" Type="date" Nullable="false" />
-          <Property Name="DateRetour" Type="date" Nullable="false" />
+          <Property Name="DateBack" Type="date" Nullable="false" />
           <Property Name="EtatLocation" Type="varchar" MaxLength="100" Nullable="false" />
         </EntityType>
         <EntityType Name="Utilisateur">
           <Key>
-            <PropertyRef Name="ID" />
+            <PropertyRef Name="UserID" />
           </Key>
-          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Nom" Type="varchar" MaxLength="100" Nullable="false" />
-          <Property Name="Prenom" Type="varchar" MaxLength="100" Nullable="false" />
-          <Property Name="Date de naissance" Type="date" Nullable="false" />
-          <Property Name="Adresse" Type="varchar" MaxLength="100" Nullable="false" />
-          <Property Name="Ville" Type="varchar" MaxLength="100" Nullable="false" />
-          <Property Name="Code Postal" Type="int" Nullable="false" />
-          <Property Name="Adresse de messagerie" Type="varchar" MaxLength="100" Nullable="false" />
-          <Property Name="Pseudo" Type="varchar" MaxLength="100" Nullable="false" />
-          <Property Name="Mot de passe" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="UserID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="LastName" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="BirthDate" Type="date" Nullable="false" />
+          <Property Name="Address" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="City" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="PostalCode" Type="int" Nullable="false" />
+          <Property Name="Email" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="UserName" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Password" Type="varchar" MaxLength="100" Nullable="false" />
           <Property Name="Role" Type="varchar" MaxLength="100" Nullable="false" />
         </EntityType>
-        <Association Name="FK__Article__Categor__5AEE82B9">
+        <Association Name="FK__Article__Categor__00200768">
           <End Role="Categorie" Type="Self.Categorie" Multiplicity="1" />
           <End Role="Article" Type="Self.Article" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Categorie">
-              <PropertyRef Name="ID" />
+              <PropertyRef Name="CategoryID" />
             </Principal>
             <Dependent Role="Article">
-              <PropertyRef Name="CategorieID" />
+              <PropertyRef Name="CategoryID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Article__GenreID__5EBF139D">
+        <Association Name="FK__Article__GenreID__01142BA1">
           <End Role="Genre" Type="Self.Genre" Multiplicity="1" />
           <End Role="Article" Type="Self.Article" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Genre">
-              <PropertyRef Name="ID" />
+              <PropertyRef Name="GenreID" />
             </Principal>
             <Dependent Role="Article">
               <PropertyRef Name="GenreID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Location__Articl__59FA5E80">
+        <Association Name="FK__Location__Articl__02084FDA">
           <End Role="Article" Type="Self.Article" Multiplicity="1" />
           <End Role="Location" Type="Self.Location" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Article">
-              <PropertyRef Name="ID" />
+              <PropertyRef Name="ArticleID" />
             </Principal>
             <Dependent Role="Location">
               <PropertyRef Name="ArticleID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Location__Client__48CFD27E">
+        <Association Name="FK__Location__Custom__02FC7413">
           <End Role="Client" Type="Self.Client" Multiplicity="1" />
           <End Role="Location" Type="Self.Location" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Client">
-              <PropertyRef Name="ID" />
+              <PropertyRef Name="CustomerID" />
             </Principal>
             <Dependent Role="Location">
-              <PropertyRef Name="ClientID" />
+              <PropertyRef Name="CustomerID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Location__UserID__619B8048">
+        <Association Name="FK__Location__UserID__03F0984C">
           <End Role="Utilisateur" Type="Self.Utilisateur" Multiplicity="1" />
           <End Role="Location" Type="Self.Location" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Utilisateur">
-              <PropertyRef Name="ID" />
+              <PropertyRef Name="UserID" />
             </Principal>
             <Dependent Role="Location">
               <PropertyRef Name="UserID" />
@@ -140,23 +144,23 @@
           <EntitySet Name="Genre" EntityType="Self.Genre" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Location" EntityType="Self.Location" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Utilisateur" EntityType="Self.Utilisateur" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK__Article__Categor__5AEE82B9" Association="Self.FK__Article__Categor__5AEE82B9">
+          <AssociationSet Name="FK__Article__Categor__00200768" Association="Self.FK__Article__Categor__00200768">
             <End Role="Categorie" EntitySet="Categorie" />
             <End Role="Article" EntitySet="Article" />
           </AssociationSet>
-          <AssociationSet Name="FK__Article__GenreID__5EBF139D" Association="Self.FK__Article__GenreID__5EBF139D">
+          <AssociationSet Name="FK__Article__GenreID__01142BA1" Association="Self.FK__Article__GenreID__01142BA1">
             <End Role="Genre" EntitySet="Genre" />
             <End Role="Article" EntitySet="Article" />
           </AssociationSet>
-          <AssociationSet Name="FK__Location__Articl__59FA5E80" Association="Self.FK__Location__Articl__59FA5E80">
+          <AssociationSet Name="FK__Location__Articl__02084FDA" Association="Self.FK__Location__Articl__02084FDA">
             <End Role="Article" EntitySet="Article" />
             <End Role="Location" EntitySet="Location" />
           </AssociationSet>
-          <AssociationSet Name="FK__Location__Client__48CFD27E" Association="Self.FK__Location__Client__48CFD27E">
+          <AssociationSet Name="FK__Location__Custom__02FC7413" Association="Self.FK__Location__Custom__02FC7413">
             <End Role="Client" EntitySet="Client" />
             <End Role="Location" EntitySet="Location" />
           </AssociationSet>
-          <AssociationSet Name="FK__Location__UserID__619B8048" Association="Self.FK__Location__UserID__619B8048">
+          <AssociationSet Name="FK__Location__UserID__03F0984C" Association="Self.FK__Location__UserID__03F0984C">
             <End Role="Utilisateur" EntitySet="Utilisateur" />
             <End Role="Location" EntitySet="Location" />
           </AssociationSet>
@@ -165,190 +169,227 @@
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="LocatMe_BDModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityType Name="Client">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" />
-          <Property Name="Titre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Nom" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Prenom" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Adresse" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Code_Postal" Type="Int32" Nullable="false" />
-          <Property Name="Ville" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Numéro_Téléphone" Type="Int32" Nullable="false" />
-          <Property Name="Adresse_de_messagerie" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="Location" Relationship="LocatMe_BDModel.FK__Location__Client__37A5467C" FromRole="Client" ToRole="Location" />
-        </EntityType>
         <EntityContainer Name="LocatMe_BDEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="Client" EntityType="Self.Client" />
-          <EntitySet Name="Location" EntityType="LocatMe_BDModel.Location" />
-          <AssociationSet Name="FK__Location__Client__37A5467C" Association="LocatMe_BDModel.FK__Location__Client__37A5467C">
-            <End Role="Client" EntitySet="Client" />
-            <End Role="Location" EntitySet="Location" />
-          </AssociationSet>
-          <EntitySet Name="Categorie" EntityType="LocatMe_BDModel.Categorie" />
           <EntitySet Name="Article" EntityType="LocatMe_BDModel.Article" />
-          <AssociationSet Name="FK__Article__Categor__5AEE82B9" Association="LocatMe_BDModel.FK__Article__Categor__5AEE82B9">
+          <EntitySet Name="Categorie" EntityType="LocatMe_BDModel.Categorie" />
+          <EntitySet Name="Client" EntityType="LocatMe_BDModel.Client" />
+          <EntitySet Name="Genre" EntityType="LocatMe_BDModel.Genre" />
+          <EntitySet Name="Location" EntityType="LocatMe_BDModel.Location" />
+          <EntitySet Name="Utilisateur" EntityType="LocatMe_BDModel.Utilisateur" />
+          <AssociationSet Name="FK__Article__Categor__00200768" Association="LocatMe_BDModel.FK__Article__Categor__00200768">
             <End Role="Categorie" EntitySet="Categorie" />
             <End Role="Article" EntitySet="Article" />
           </AssociationSet>
-          <AssociationSet Name="FK__Location__Articl__59FA5E80" Association="LocatMe_BDModel.FK__Location__Articl__59FA5E80">
-            <End Role="Article" EntitySet="Article" />
-            <End Role="Location" EntitySet="Location" />
-          </AssociationSet>
-          <EntitySet Name="Genre" EntityType="LocatMe_BDModel.Genre" />
-          <AssociationSet Name="FK__Article__GenreID__5EBF139D" Association="LocatMe_BDModel.FK__Article__GenreID__5EBF139D">
+          <AssociationSet Name="FK__Article__GenreID__01142BA1" Association="LocatMe_BDModel.FK__Article__GenreID__01142BA1">
             <End Role="Genre" EntitySet="Genre" />
             <End Role="Article" EntitySet="Article" />
           </AssociationSet>
-          <EntitySet Name="Utilisateur" EntityType="LocatMe_BDModel.Utilisateur" />
-          <AssociationSet Name="FK__Location__UserID__619B8048" Association="LocatMe_BDModel.FK__Location__UserID__619B8048">
+          <AssociationSet Name="FK__Location__Articl__02084FDA" Association="LocatMe_BDModel.FK__Location__Articl__02084FDA">
+            <End Role="Article" EntitySet="Article" />
+            <End Role="Location" EntitySet="Location" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Location__Custom__02FC7413" Association="LocatMe_BDModel.FK__Location__Custom__02FC7413">
+            <End Role="Client" EntitySet="Client" />
+            <End Role="Location" EntitySet="Location" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Location__UserID__03F0984C" Association="LocatMe_BDModel.FK__Location__UserID__03F0984C">
             <End Role="Utilisateur" EntitySet="Utilisateur" />
             <End Role="Location" EntitySet="Location" />
           </AssociationSet>
         </EntityContainer>
-        <EntityType Name="Location">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" />
-          <Property Name="ArticleID" Type="Int32" Nullable="false" />
-          <Property Name="ClientID" Type="Int32" Nullable="false" />
-          <Property Name="UserID" Type="Int32" Nullable="false" />
-          <Property Name="DateLocation" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="DateRetour" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="EtatLocation" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Client" Relationship="LocatMe_BDModel.FK__Location__Client__37A5467C" FromRole="Location" ToRole="Client" />
-          <NavigationProperty Name="Article" Relationship="LocatMe_BDModel.FK__Location__Articl__59FA5E80" FromRole="Location" ToRole="Article" />
-          <NavigationProperty Name="Utilisateur" Relationship="LocatMe_BDModel.FK__Location__UserID__619B8048" FromRole="Location" ToRole="Utilisateur" />
-        </EntityType>
-        <Association Name="FK__Location__Client__37A5467C">
-          <End Type="LocatMe_BDModel.Client" Role="Client" Multiplicity="1" />
-          <End Type="LocatMe_BDModel.Location" Role="Location" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Client">
-              <PropertyRef Name="ID" />
-            </Principal>
-            <Dependent Role="Location">
-              <PropertyRef Name="ClientID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <EntityType Name="Categorie">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Nom" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Article" Relationship="LocatMe_BDModel.FK__Article__Categor__5AEE82B9" FromRole="Categorie" ToRole="Article" />
-        </EntityType>
         <EntityType Name="Article">
           <Key>
-            <PropertyRef Name="ID" />
+            <PropertyRef Name="ArticleID" />
           </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Nom_art" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="CategorieID" Type="Int32" Nullable="false" />
+          <Property Name="ArticleID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ArticleName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="CategoryID" Type="Int32" Nullable="false" />
           <Property Name="GenreID" Type="Int32" Nullable="false" />
-          <Property Name="Quantite" Type="Int32" Nullable="false" />
-          <Property Name="Prix" Type="Double" Nullable="false" />
-          <Property Name="Date_ajout" Type="DateTime" Nullable="false" Precision="3" />
-          <NavigationProperty Name="Categorie" Relationship="LocatMe_BDModel.FK__Article__Categor__5AEE82B9" FromRole="Article" ToRole="Categorie" />
-          <NavigationProperty Name="Location" Relationship="LocatMe_BDModel.FK__Location__Articl__59FA5E80" FromRole="Article" ToRole="Location" />
-          <NavigationProperty Name="Genre" Relationship="LocatMe_BDModel.FK__Article__GenreID__5EBF139D" FromRole="Article" ToRole="Genre" />
+          <Property Name="Duration" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="ReleaseDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Director" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Note" Type="Double" Nullable="false" />
+          <Property Name="Quantity" Type="Int32" Nullable="false" />
+          <Property Name="Price" Type="Double" Nullable="false" />
+          <Property Name="DateAdded" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Categorie" Relationship="LocatMe_BDModel.FK__Article__Categor__00200768" FromRole="Article" ToRole="Categorie" />
+          <NavigationProperty Name="Genre" Relationship="LocatMe_BDModel.FK__Article__GenreID__01142BA1" FromRole="Article" ToRole="Genre" />
+          <NavigationProperty Name="Location" Relationship="LocatMe_BDModel.FK__Location__Articl__02084FDA" FromRole="Article" ToRole="Location" />
         </EntityType>
-        <Association Name="FK__Article__Categor__5AEE82B9">
+        <EntityType Name="Categorie">
+          <Key>
+            <PropertyRef Name="CategoryID" />
+          </Key>
+          <Property Name="CategoryID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CategoryName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Article" Relationship="LocatMe_BDModel.FK__Article__Categor__00200768" FromRole="Categorie" ToRole="Article" />
+        </EntityType>
+        <EntityType Name="Client">
+          <Key>
+            <PropertyRef Name="CustomerID" />
+          </Key>
+          <Property Name="CustomerID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Civility" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="LastName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Address" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="PostalCode" Type="Int32" Nullable="false" />
+          <Property Name="City" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Phone" Type="Int32" Nullable="false" />
+          <Property Name="Email" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Location" Relationship="LocatMe_BDModel.FK__Location__Custom__02FC7413" FromRole="Client" ToRole="Location" />
+        </EntityType>
+        <EntityType Name="Genre">
+          <Key>
+            <PropertyRef Name="GenreID" />
+          </Key>
+          <Property Name="GenreID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="GenreName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Article" Relationship="LocatMe_BDModel.FK__Article__GenreID__01142BA1" FromRole="Genre" ToRole="Article" />
+        </EntityType>
+        <EntityType Name="Location">
+          <Key>
+            <PropertyRef Name="LocationID" />
+          </Key>
+          <Property Name="LocationID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ArticleID" Type="Int32" Nullable="false" />
+          <Property Name="CustomerID" Type="Int32" Nullable="false" />
+          <Property Name="UserID" Type="Int32" Nullable="false" />
+          <Property Name="DateLocation" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="DateBack" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="EtatLocation" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Article" Relationship="LocatMe_BDModel.FK__Location__Articl__02084FDA" FromRole="Location" ToRole="Article" />
+          <NavigationProperty Name="Client" Relationship="LocatMe_BDModel.FK__Location__Custom__02FC7413" FromRole="Location" ToRole="Client" />
+          <NavigationProperty Name="Utilisateur" Relationship="LocatMe_BDModel.FK__Location__UserID__03F0984C" FromRole="Location" ToRole="Utilisateur" />
+        </EntityType>
+        <EntityType Name="Utilisateur">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="UserID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="LastName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="BirthDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Address" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="City" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="PostalCode" Type="Int32" Nullable="false" />
+          <Property Name="Email" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="UserName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Password" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Role" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Location" Relationship="LocatMe_BDModel.FK__Location__UserID__03F0984C" FromRole="Utilisateur" ToRole="Location" />
+        </EntityType>
+        <Association Name="FK__Article__Categor__00200768">
           <End Type="LocatMe_BDModel.Categorie" Role="Categorie" Multiplicity="1" />
           <End Type="LocatMe_BDModel.Article" Role="Article" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Categorie">
-              <PropertyRef Name="ID" />
+              <PropertyRef Name="CategoryID" />
             </Principal>
             <Dependent Role="Article">
-              <PropertyRef Name="CategorieID" />
+              <PropertyRef Name="CategoryID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Location__Articl__59FA5E80">
-          <End Type="LocatMe_BDModel.Article" Role="Article" Multiplicity="1" />
-          <End Type="LocatMe_BDModel.Location" Role="Location" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Article">
-              <PropertyRef Name="ID" />
-            </Principal>
-            <Dependent Role="Location">
-              <PropertyRef Name="ArticleID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <EntityType Name="Genre">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Article" Relationship="LocatMe_BDModel.FK__Article__GenreID__5EBF139D" FromRole="Genre" ToRole="Article" />
-        </EntityType>
-        <Association Name="FK__Article__GenreID__5EBF139D">
+        <Association Name="FK__Article__GenreID__01142BA1">
           <End Type="LocatMe_BDModel.Genre" Role="Genre" Multiplicity="1" />
           <End Type="LocatMe_BDModel.Article" Role="Article" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Genre">
-              <PropertyRef Name="ID" />
+              <PropertyRef Name="GenreID" />
             </Principal>
             <Dependent Role="Article">
               <PropertyRef Name="GenreID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityType Name="Utilisateur">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Nom" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="Prenom" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="Date_de_naissance" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="Adresse" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="Ville" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="Code_Postal" Type="Int32" Nullable="false" />
-          <Property Name="Adresse_de_messagerie" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="Pseudo" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="Mot_de_passe" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="Role" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Location" Relationship="LocatMe_BDModel.FK__Location__UserID__619B8048" FromRole="Utilisateur" ToRole="Location" />
-        </EntityType>
-        <Association Name="FK__Location__UserID__619B8048">
+        <Association Name="FK__Location__Articl__02084FDA">
+          <End Type="LocatMe_BDModel.Article" Role="Article" Multiplicity="1" />
+          <End Type="LocatMe_BDModel.Location" Role="Location" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Article">
+              <PropertyRef Name="ArticleID" />
+            </Principal>
+            <Dependent Role="Location">
+              <PropertyRef Name="ArticleID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Location__Custom__02FC7413">
+          <End Type="LocatMe_BDModel.Client" Role="Client" Multiplicity="1" />
+          <End Type="LocatMe_BDModel.Location" Role="Location" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Client">
+              <PropertyRef Name="CustomerID" />
+            </Principal>
+            <Dependent Role="Location">
+              <PropertyRef Name="CustomerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Location__UserID__03F0984C">
           <End Type="LocatMe_BDModel.Utilisateur" Role="Utilisateur" Multiplicity="1" />
           <End Type="LocatMe_BDModel.Location" Role="Location" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Utilisateur">
-              <PropertyRef Name="ID" />
+              <PropertyRef Name="UserID" />
             </Principal>
             <Dependent Role="Location">
               <PropertyRef Name="UserID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-      </Schema>
+        </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="LocatMe_BDModelStoreContainer" CdmEntityContainer="LocatMe_BDEntities">
+          <EntitySetMapping Name="Article">
+            <EntityTypeMapping TypeName="LocatMe_BDModel.Article">
+              <MappingFragment StoreEntitySet="Article">
+                <ScalarProperty Name="DateAdded" ColumnName="DateAdded" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="Note" ColumnName="Note" />
+                <ScalarProperty Name="Director" ColumnName="Director" />
+                <ScalarProperty Name="ReleaseDate" ColumnName="ReleaseDate" />
+                <ScalarProperty Name="Duration" ColumnName="Duration" />
+                <ScalarProperty Name="GenreID" ColumnName="GenreID" />
+                <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+                <ScalarProperty Name="ArticleName" ColumnName="ArticleName" />
+                <ScalarProperty Name="ArticleID" ColumnName="ArticleID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Categorie">
+            <EntityTypeMapping TypeName="LocatMe_BDModel.Categorie">
+              <MappingFragment StoreEntitySet="Categorie">
+                <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+                <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="Client">
             <EntityTypeMapping TypeName="LocatMe_BDModel.Client">
               <MappingFragment StoreEntitySet="Client">
-                <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="Titre" ColumnName="Titre" />
-                <ScalarProperty Name="Nom" ColumnName="Nom" />
-                <ScalarProperty Name="Prenom" ColumnName="Prenom" />
-                <ScalarProperty Name="Adresse" ColumnName="Adresse" />
-                <ScalarProperty Name="Code_Postal" ColumnName="Code Postal" />
-                <ScalarProperty Name="Ville" ColumnName="Ville" />
-                <ScalarProperty Name="Numéro_Téléphone" ColumnName="Numéro Téléphone" />
-                <ScalarProperty Name="Adresse_de_messagerie" ColumnName="Adresse de messagerie" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="PostalCode" ColumnName="PostalCode" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Civility" ColumnName="Civility" />
+                <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Genre">
+            <EntityTypeMapping TypeName="LocatMe_BDModel.Genre">
+              <MappingFragment StoreEntitySet="Genre">
+                <ScalarProperty Name="GenreName" ColumnName="GenreName" />
+                <ScalarProperty Name="GenreID" ColumnName="GenreID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -356,41 +397,12 @@
             <EntityTypeMapping TypeName="LocatMe_BDModel.Location">
               <MappingFragment StoreEntitySet="Location">
                 <ScalarProperty Name="EtatLocation" ColumnName="EtatLocation" />
-                <ScalarProperty Name="DateRetour" ColumnName="DateRetour" />
+                <ScalarProperty Name="DateBack" ColumnName="DateBack" />
                 <ScalarProperty Name="DateLocation" ColumnName="DateLocation" />
                 <ScalarProperty Name="UserID" ColumnName="UserID" />
-                <ScalarProperty Name="ClientID" ColumnName="ClientID" />
+                <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
                 <ScalarProperty Name="ArticleID" ColumnName="ArticleID" />
-                <ScalarProperty Name="ID" ColumnName="ID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Categorie">
-            <EntityTypeMapping TypeName="LocatMe_BDModel.Categorie">
-              <MappingFragment StoreEntitySet="Categorie">
-                <ScalarProperty Name="Nom" ColumnName="Nom" />
-                <ScalarProperty Name="ID" ColumnName="ID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Article">
-            <EntityTypeMapping TypeName="LocatMe_BDModel.Article">
-              <MappingFragment StoreEntitySet="Article">
-                <ScalarProperty Name="Date_ajout" ColumnName="Date_ajout" />
-                <ScalarProperty Name="Prix" ColumnName="Prix" />
-                <ScalarProperty Name="Quantite" ColumnName="Quantite" />
-                <ScalarProperty Name="GenreID" ColumnName="GenreID" />
-                <ScalarProperty Name="CategorieID" ColumnName="CategorieID" />
-                <ScalarProperty Name="Nom_art" ColumnName="Nom_art" />
-                <ScalarProperty Name="ID" ColumnName="ID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Genre">
-            <EntityTypeMapping TypeName="LocatMe_BDModel.Genre">
-              <MappingFragment StoreEntitySet="Genre">
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="LocationID" ColumnName="LocationID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -398,16 +410,16 @@
             <EntityTypeMapping TypeName="LocatMe_BDModel.Utilisateur">
               <MappingFragment StoreEntitySet="Utilisateur">
                 <ScalarProperty Name="Role" ColumnName="Role" />
-                <ScalarProperty Name="Mot_de_passe" ColumnName="Mot de passe" />
-                <ScalarProperty Name="Pseudo" ColumnName="Pseudo" />
-                <ScalarProperty Name="Adresse_de_messagerie" ColumnName="Adresse de messagerie" />
-                <ScalarProperty Name="Code_Postal" ColumnName="Code Postal" />
-                <ScalarProperty Name="Ville" ColumnName="Ville" />
-                <ScalarProperty Name="Adresse" ColumnName="Adresse" />
-                <ScalarProperty Name="Date_de_naissance" ColumnName="Date de naissance" />
-                <ScalarProperty Name="Prenom" ColumnName="Prenom" />
-                <ScalarProperty Name="Nom" ColumnName="Nom" />
-                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="PostalCode" ColumnName="PostalCode" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="BirthDate" ColumnName="BirthDate" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

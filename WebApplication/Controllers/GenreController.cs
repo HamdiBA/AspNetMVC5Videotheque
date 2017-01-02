@@ -26,7 +26,7 @@ namespace WebApplication.Controllers
 
             if (id.HasValue)
             {
-                Genre genre = contexteEF.Genre.Single(g => g.ID == id);
+                Genre genre = contexteEF.Genre.Single(g => g.GenreID == id);
                 GenreEditee genreEditee = AutoMapper.Mapper.Map<GenreEditee>(genre);
                 return View(genreEditee);
             }
@@ -45,9 +45,9 @@ namespace WebApplication.Controllers
                 return View(genre);
             }
 
-            if (genre.ID.HasValue)
+            if (genre.GenreID.HasValue)
             {
-                Genre genreDB = contexteEF.Genre.Single(g => g.ID == genre.ID);
+                Genre genreDB = contexteEF.Genre.Single(g => g.GenreID == genre.GenreID);
                 genreDB = AutoMapper.Mapper.Map<GenreEditee, Genre>(genre, genreDB);
             }
 
@@ -68,7 +68,7 @@ namespace WebApplication.Controllers
         [HttpPost]
         public JsonResult Delete(int id)
         {
-            Genre genre = contexteEF.Genre.Single(g => g.ID == id);
+            Genre genre = contexteEF.Genre.Single(g => g.GenreID == id);
             contexteEF.Genre.Remove(genre);
             contexteEF.SaveChanges();
 

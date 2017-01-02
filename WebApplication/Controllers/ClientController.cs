@@ -24,7 +24,7 @@ namespace WebApplication.Controllers
         {
             if (id.HasValue)
             {
-                Client client = contexteEF.Client.Single(p => p.ID == id);
+                Client client = contexteEF.Client.Single(c => c.CustomerID == id);
                 ClientEditee clientEditee = AutoMapper.Mapper.Map<ClientEditee>(client);
                 return View(clientEditee);
             }
@@ -43,17 +43,17 @@ namespace WebApplication.Controllers
                 return View(client);
             }
 
-            if (client.ID.HasValue)
+            if (client.CustomerID.HasValue)
             {
-                Client clientDB = contexteEF.Client.Single(p => p.ID == client.ID);
+                Client clientDB = contexteEF.Client.Single(c => c.CustomerID == client.CustomerID);
                 clientDB = AutoMapper.Mapper.Map<ClientEditee, Client>(client, clientDB);
             }
 
             else
             {
                 var nouvelleClient = AutoMapper.Mapper.Map<Client>(client);
-                //int idMax = contexteEF.Client.Max(p => p.ID);
-                //nouvelleClient.ID = idMax + 1;
+                //int idMax = contexteEF.Client.Max(p => p.CustomerID);
+                //nouvelleClient.CustomerID = idMax + 1;
 
                 contexteEF.Client.Add(nouvelleClient);
             }
@@ -66,7 +66,7 @@ namespace WebApplication.Controllers
         [HttpPost]
         public JsonResult Delete(int id)
         {
-            Client client = contexteEF.Client.Single(p => p.ID == id);
+            Client client = contexteEF.Client.Single(c => c.CustomerID == id);
             contexteEF.Client.Remove(client);
             contexteEF.SaveChanges();
 

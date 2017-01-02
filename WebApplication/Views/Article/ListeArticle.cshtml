@@ -36,24 +36,29 @@
 
 @Html.Grid(Model).Columns(columns =>
 {
-    columns.Add(p => p.Nom_art).Titled("Nom de l'article")
+    columns.Add(a => a.ArticleID).Titled("ID");
+    columns.Add(p => p.ArticleName).Titled("Nom")
                                .Filterable(true);
-    columns.Add(p => p.CategorieID).Titled("Catégorie")
+    columns.Add(p => p.CategoryID).Titled("Catégorie")
                                  .Filterable(true);
     columns.Add(p => p.GenreID).Titled("Genre")
                              .Filterable(true);
-    columns.Add(p => p.Quantite).Titled("Quantité")
+    columns.Add(p => p.Duration).Titled("Durée");
+    columns.Add(p => p.ReleaseDate).Titled("Date de sortie");
+    columns.Add(p => p.Director).Titled("Réalisateur");
+    columns.Add(p => p.Note).Titled("Note");
+    columns.Add(p => p.Quantity).Titled("Quantité")
                                 .Sortable(true);
-    columns.Add(p => p.Prix).Titled("Prix")
+    columns.Add(p => p.Price).Titled("Prix")
                             .Sortable(true);
-    columns.Add(p => p.Date_ajout).Titled("Date de l'ajout")
+    columns.Add(p => p.DateAdded).Titled("Date de l'ajout")
                                   .Sortable(true);
     columns.Add().Sanitized(false)
                  .Encoded(false)
-                 .RenderValueAs(p => Html.ActionLink(" ", "EditArticle", new { id = p.ID }, new {@class= "glyphicon glyphicon-pencil" } ));
+                 .RenderValueAs(p => Html.ActionLink(" ", "EditArticle", new { id = p.ArticleID }, new {@class= "glyphicon glyphicon-pencil" } ));
     columns.Add().Sanitized(false)
                  .Encoded(false)
-                 .RenderValueAs(p => "<button class='btn btn-default btn-delete-article' data-id='" + p.ID + "'> <span class='glyphicon glyphicon-trash' /> </button>");
+                 .RenderValueAs(p => "<button class='btn btn-default btn-delete-article' data-id='" + p.ArticleID + "'> <span class='glyphicon glyphicon-trash' /> </button>");
 }).WithPaging(7)
 
 <div>

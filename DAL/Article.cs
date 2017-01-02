@@ -20,17 +20,21 @@ namespace DAL
             this.Location = new HashSet<Location>();
         }
     
-        public int ID { get; set; }
-        public string Nom_art { get; set; }
-        public int CategorieID { get; set; }
+        public int ArticleID { get; set; }
+        public string ArticleName { get; set; }
+        public int CategoryID { get; set; }
         public int GenreID { get; set; }
-        public int Quantite { get; set; }
-        public double Prix { get; set; }
-        public System.DateTime Date_ajout { get; set; }
+        public string Duration { get; set; }
+        public System.DateTime ReleaseDate { get; set; }
+        public string Director { get; set; }
+        public double Note { get; set; }
+        public int Quantity { get; set; }
+        public double Price { get; set; }
+        public System.DateTime DateAdded { get; set; }
     
         public virtual Categorie Categorie { get; set; }
+        public virtual Genre Genre { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Location> Location { get; set; }
-        public virtual Genre Genre { get; set; }
     }
 }

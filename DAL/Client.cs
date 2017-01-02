@@ -20,15 +20,15 @@ namespace DAL
             this.Location = new HashSet<Location>();
         }
     
-        public int ID { get; set; }
-        public string Titre { get; set; }
-        public string Nom { get; set; }
-        public string Prenom { get; set; }
-        public string Adresse { get; set; }
-        public int Code_Postal { get; set; }
-        public string Ville { get; set; }
-        public int Numéro_Téléphone { get; set; }
-        public string Adresse_de_messagerie { get; set; }
+        public int CustomerID { get; set; }
+        public string Civility { get; set; }
+        public string Name { get; set; }
+        public string LastName { get; set; }
+        public string Address { get; set; }
+        public int PostalCode { get; set; }
+        public string City { get; set; }
+        public int Phone { get; set; }
+        public string Email { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Location> Location { get; set; }

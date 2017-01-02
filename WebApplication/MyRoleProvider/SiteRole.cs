@@ -49,7 +49,7 @@ namespace WebApplication.MyRoleProvider
         public override string[] GetRolesForUser(string pseudo)
         {
             LocatMe_BDEntities contexteEF = new LocatMe_BDEntities();
-            string data = contexteEF.Utilisateur.Where(x => x.Pseudo == pseudo).FirstOrDefault().Role;
+            string data = contexteEF.Utilisateur.Where(x => x.UserName == pseudo).FirstOrDefault().Role;
             string[] result = { data };
             return result;
         }

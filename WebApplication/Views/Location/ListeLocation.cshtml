@@ -11,7 +11,7 @@
 @section Scripts {
     <script>
         $(document).ready(function () {
-            $('.btn-delete-personne').click(function (event) {
+            $('.btn-delete-location').click(function (event) {
                 var boutonClique = $(event.target).closest('button');
 
                 var idASupprimer = $(boutonClique).attr('data-id');
@@ -35,18 +35,21 @@
 
 @Html.Grid(Model).Columns(columns =>
 {
-    columns.Add(p => p.ArticleID);
-    columns.Add(p => p.ClientID);
-    columns.Add(p => p.UserID);
-    columns.Add(p => p.DateLocation);
-    columns.Add(p => p.DateRetour);
-    columns.Add(p => p.EtatLocation);
+    columns.Add(l => l.LocationID).SetWidth(110);
+    columns.Add(l => l.ArticleID).SetWidth(110);
+    columns.Add(l => l.CustomerID).SetWidth(110);
+    columns.Add(l => l.UserID).SetWidth(110);
+    columns.Add(l => l.DateLocation).SetWidth(110);
+    columns.Add(l => l.DateBack).SetWidth(110);
+    columns.Add(l => l.EtatLocation).SetWidth(110);
     columns.Add().Sanitized(false)
                  .Encoded(false)
-                 .RenderValueAs(p => Html.ActionLink("Editer", "EditLocation", new { id = p.ID }));
+                 .SetWidth(110)
+                 .RenderValueAs(l => Html.ActionLink("Editer", "EditLocation", new { id = l.LocationID }));
     columns.Add().Sanitized(false)
                  .Encoded(false)
-                 .RenderValueAs(p => "<button class='btn btn-default btn-delete-personne' data-id='" + p.ID + "'> <span class='glyphicon glyphicon-remove-circle' /> </button>");
+                 .SetWidth(110)
+                 .RenderValueAs(l => "<button class='btn btn-default btn-delete-personne' data-id='" + l.LocationID + "'> <span class='glyphicon glyphicon-remove-circle' /> </button>");
 
 })
 

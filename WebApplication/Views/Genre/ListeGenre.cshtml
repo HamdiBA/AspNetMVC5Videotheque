@@ -35,16 +35,16 @@
 
 @Html.Grid(Model).Columns(columns =>
 {
-    columns.Add(g => g.ID).Titled("ID")
+    columns.Add(g => g.GenreID).Titled("ID")
                                .Filterable(true);
-    columns.Add(g => g.Name).Titled("Nom")
+    columns.Add(g => g.GenreName).Titled("Nom")
                                  .Filterable(true);
     columns.Add().Sanitized(false)
                  .Encoded(false)
-                 .RenderValueAs(g => Html.ActionLink(" ", "EditCategorie", new { id = g.ID }, new { @class = "glyphicon glyphicon-pencil" }));
+                 .RenderValueAs(g => Html.ActionLink(" ", "EditCategorie", new { id = g.GenreID }, new { @class = "glyphicon glyphicon-pencil" }));
     columns.Add().Sanitized(false)
                  .Encoded(false)
-                 .RenderValueAs(g => "<button class='btn btn-default btn-delete-categorie' data-id='" + g.ID + "'> <span class='glyphicon glyphicon-trash' /> </button>");
+                 .RenderValueAs(g => "<button class='btn btn-default btn-delete-categorie' data-id='" + g.GenreID + "'> <span class='glyphicon glyphicon-trash' /> </button>");
 }).WithPaging(7)
 
 <div>
