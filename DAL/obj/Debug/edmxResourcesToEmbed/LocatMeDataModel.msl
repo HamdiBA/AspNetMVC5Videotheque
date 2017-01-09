@@ -41,6 +41,16 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="Facture">
+      <EntityTypeMapping TypeName="LocatMe_BDModel.Facture">
+        <MappingFragment StoreEntitySet="Facture">
+          <ScalarProperty Name="CompanyAdDress" ColumnName="CompanyAdDress" />
+          <ScalarProperty Name="CompnayName" ColumnName="CompnayName" />
+          <ScalarProperty Name="LocationID" ColumnName="LocationID" />
+          <ScalarProperty Name="FactureID" ColumnName="FactureID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="Genre">
       <EntityTypeMapping TypeName="LocatMe_BDModel.Genre">
         <MappingFragment StoreEntitySet="Genre">
@@ -53,6 +63,7 @@
       <EntityTypeMapping TypeName="LocatMe_BDModel.Location">
         <MappingFragment StoreEntitySet="Location">
           <ScalarProperty Name="EtatLocation" ColumnName="EtatLocation" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
           <ScalarProperty Name="DateBack" ColumnName="DateBack" />
           <ScalarProperty Name="DateLocation" ColumnName="DateLocation" />
           <ScalarProperty Name="UserID" ColumnName="UserID" />

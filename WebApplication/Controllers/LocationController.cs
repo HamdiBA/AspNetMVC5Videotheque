@@ -15,8 +15,18 @@ namespace WebApplication.Controllers
         // GET: Location
         public ActionResult ListeLocation()
         {
-            List<Location> locations = contexteEF.Location.ToList();
-            return View(locations);
+            //List<Location> locations = contexteEF.Location.GroupBy(a => a.LocationID).Select(b => b.FirstOrDefault()).ToList();
+
+            var factures = (from f in contexteEF.Facture
+                            group f by new { f.LocationID, f.FactureID } into locationGroup
+                            select new
+                            {
+                                locationGroup.Key.LocationID,
+                                locationGroup.Key.FactureID,
+                                NumberInGroup = locationGroup.Count()
+                            }).ToList();
+
+            return View(factures);
         }
 
         [HttpGet]

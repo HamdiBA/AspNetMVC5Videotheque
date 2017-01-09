@@ -19,6 +19,7 @@ namespace WebApplication.Controllers
 
         public ActionResult Login()
         {
+           
             return View();
         }
 
@@ -51,6 +52,9 @@ namespace WebApplication.Controllers
         [Authorize]
         public ActionResult SignOut()
         {
+            Session.Clear();
+            Session.Abandon();
+            Session.RemoveAll();
             FormsAuthentication.SignOut();
             return RedirectToAction("Login", "Home");
         }

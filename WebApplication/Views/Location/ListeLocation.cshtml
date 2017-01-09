@@ -41,6 +41,7 @@
     columns.Add(l => l.UserID).SetWidth(110);
     columns.Add(l => l.DateLocation).SetWidth(110);
     columns.Add(l => l.DateBack).SetWidth(110);
+    columns.Add(l => l.Quantity).SetWidth(110);
     columns.Add(l => l.EtatLocation).SetWidth(110);
     columns.Add().Sanitized(false)
                  .Encoded(false)
@@ -49,7 +50,7 @@
     columns.Add().Sanitized(false)
                  .Encoded(false)
                  .SetWidth(110)
-                 .RenderValueAs(l => "<button class='btn btn-default btn-delete-personne' data-id='" + l.LocationID + "'> <span class='glyphicon glyphicon-remove-circle' /> </button>");
+                 .RenderValueAs(l => "<button class='btn btn-default btn-delete-location' data-id='" + l.LocationID + "'> <span class='glyphicon glyphicon-remove-circle' /> </button>");
 
 })
 

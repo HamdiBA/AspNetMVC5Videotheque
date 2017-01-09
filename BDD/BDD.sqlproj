@@ -65,5 +65,6 @@
     <Build Include="Location.sql" />
     <Build Include="Categorie.sql" />
     <Build Include="Genre.sql" />
+    <Build Include="Facture.sql" />
   </ItemGroup>
 </Project>

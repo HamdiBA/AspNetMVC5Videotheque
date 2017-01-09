@@ -140,3 +140,4 @@ C:\Users\hamdi\OneDrive\Documents\Visual Studio 2015\Projects\AspNetMVC5Videothe
 C:\Users\hamdi\OneDrive\Documents\Visual Studio 2015\Projects\AspNetMVC5Videotheque\WebApplication\obj\Debug\WebApplication.csprojResolveAssemblyReference.cache
 C:\Users\hamdi\OneDrive\Documents\Visual Studio 2015\Projects\AspNetMVC5Videotheque\WebApplication\obj\Debug\WebApplication.dll
 C:\Users\hamdi\OneDrive\Documents\Visual Studio 2015\Projects\AspNetMVC5Videotheque\WebApplication\obj\Debug\WebApplication.pdb
+C:\Users\hamdi\OneDrive\Documents\Visual Studio 2015\Projects\AspNetMVC5Videotheque\WebApplication\bin\Rotativa.dll

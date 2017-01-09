@@ -1,0 +1,63 @@
+﻿
+@{
+    ViewBag.Title = "Facture";
+}
+
+@using GridMvc.Html;
+
+@model IEnumerable <DAL.Facture>
+
+
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            $('.btn-delete-facture').click(function (event) {
+                var boutonClique = $(event.target).closest('button');
+
+                var idASupprimer = $(boutonClique).attr('data-id');
+
+                $.ajax({
+                    url: '@Url.Action("Delete")',
+                    type: 'POST',
+                    data: { id: idASupprimer },
+                    success: function (data) {
+                        if (data.Suppression == "OK") {
+                            $(boutonClique).closest("tr").fadeOut(400, function () {
+                                $(this).remove();
+                            })
+                        }
+                    }
+                })
+            });
+        });
+    </script>
+}
+
+
+@Html.Grid(Model).Columns(columns =>
+{
+    columns.Add(f => f.FactureID);
+    columns.Add(f => f.LocationID);
+    columns.Add(f => f.CompanyAdDress);
+    columns.Add(f => f.CompnayName);
+
+
+    columns.Add().Sanitized(false)
+                 .Encoded(false)
+                 .RenderValueAs(f => Html.ActionLink(" ", "GeneratePDF", new { id = f.FactureID }, new { @class = "glyphicon glyphicon-print" }));
+
+    columns.Add().Sanitized(false)
+                 .Encoded(false)
+                 .RenderValueAs(f => Html.ActionLink(" ", "ViewFacture", new { id = f.FactureID }, new { @class = "glyphicon glyphicon-zoom-in" }));
+
+    columns.Add().Sanitized(false)
+                 .Encoded(false)
+                 .RenderValueAs(f => Html.ActionLink(" ", "EditFacture", new { id = f.FactureID }, new { @class = "glyphicon glyphicon-pencil" }));
+    columns.Add().Sanitized(false)
+                 .Encoded(false)
+                 .RenderValueAs(f => "<button class='btn btn-default btn-delete-facture' data-id='" + f.FactureID + "'> <span class='glyphicon glyphicon-trash' /> </button>");
+}).WithPaging(7)
+
+<div>
+    @Html.ActionLink("Ajouter un nouveau article", "EditFacture")
+</div>

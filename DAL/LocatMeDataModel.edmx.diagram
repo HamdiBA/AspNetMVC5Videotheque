@@ -6,16 +6,18 @@
     <edmx:Diagrams>
       <Diagram DiagramId="3d5777e3553446d29b8d56335620c35e" Name="Diagram1">
         <EntityTypeShape EntityType="LocatMe_BDModel.Article" Width="1.5" PointX="3" PointY="1" />
-        <EntityTypeShape EntityType="LocatMe_BDModel.Categorie" Width="1.5" PointX="0.75" PointY="6.125" />
-        <EntityTypeShape EntityType="LocatMe_BDModel.Client" Width="1.5" PointX="3" PointY="6.5" />
-        <EntityTypeShape EntityType="LocatMe_BDModel.Genre" Width="1.5" PointX="0.75" PointY="2.125" />
-        <EntityTypeShape EntityType="LocatMe_BDModel.Location" Width="1.5" PointX="5.25" PointY="1.375" />
-        <EntityTypeShape EntityType="LocatMe_BDModel.Utilisateur" Width="1.5" PointX="3" PointY="10.25" />
+        <EntityTypeShape EntityType="LocatMe_BDModel.Categorie" Width="1.5" PointX="0.75" PointY="2.125" />
+        <EntityTypeShape EntityType="LocatMe_BDModel.Client" Width="1.5" PointX="3" PointY="11" />
+        <EntityTypeShape EntityType="LocatMe_BDModel.Facture" Width="1.5" PointX="7.5" PointY="1.875" />
+        <EntityTypeShape EntityType="LocatMe_BDModel.Genre" Width="1.5" PointX="0.75" PointY="6.125" />
+        <EntityTypeShape EntityType="LocatMe_BDModel.Location" Width="1.5" PointX="5.25" PointY="1.25" />
+        <EntityTypeShape EntityType="LocatMe_BDModel.Utilisateur" Width="1.5" PointX="3" PointY="7" />
         <AssociationConnector Association="LocatMe_BDModel.FK__Article__Categor__00200768" />
         <AssociationConnector Association="LocatMe_BDModel.FK__Article__GenreID__01142BA1" />
-        <AssociationConnector Association="LocatMe_BDModel.FK__Location__Articl__02084FDA" />
-        <AssociationConnector Association="LocatMe_BDModel.FK__Location__Custom__02FC7413" />
-        <AssociationConnector Association="LocatMe_BDModel.FK__Location__UserID__03F0984C" />
+        <AssociationConnector Association="LocatMe_BDModel.FK__Location__Articl__2A164134" />
+        <AssociationConnector Association="LocatMe_BDModel.FK__Location__Custom__2B0A656D" />
+        <AssociationConnector Association="LocatMe_BDModel.FK__Facture__Locatio__29221CFB" />
+        <AssociationConnector Association="LocatMe_BDModel.FK__Location__UserID__2BFE89A6" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

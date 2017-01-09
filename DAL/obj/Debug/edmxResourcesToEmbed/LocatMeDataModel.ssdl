@@ -37,6 +37,15 @@
     <Property Name="Phone" Type="int" Nullable="false" />
     <Property Name="Email" Type="varchar" MaxLength="100" Nullable="false" />
   </EntityType>
+  <EntityType Name="Facture">
+    <Key>
+      <PropertyRef Name="FactureID" />
+    </Key>
+    <Property Name="FactureID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="LocationID" Type="int" />
+    <Property Name="CompnayName" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="CompanyAdDress" Type="varchar" MaxLength="100" Nullable="false" />
+  </EntityType>
   <EntityType Name="Genre">
     <Key>
       <PropertyRef Name="GenreID" />
@@ -54,6 +63,7 @@
     <Property Name="UserID" Type="int" Nullable="false" />
     <Property Name="DateLocation" Type="date" Nullable="false" />
     <Property Name="DateBack" Type="date" Nullable="false" />
+    <Property Name="Quantity" Type="int" Nullable="false" />
     <Property Name="EtatLocation" Type="varchar" MaxLength="100" Nullable="false" />
   </EntityType>
   <EntityType Name="Utilisateur">
@@ -96,7 +106,19 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Location__Articl__02084FDA">
+  <Association Name="FK__Facture__Locatio__29221CFB">
+    <End Role="Location" Type="Self.Location" Multiplicity="0..1" />
+    <End Role="Facture" Type="Self.Facture" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Location">
+        <PropertyRef Name="LocationID" />
+      </Principal>
+      <Dependent Role="Facture">
+        <PropertyRef Name="LocationID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Location__Articl__2A164134">
     <End Role="Article" Type="Self.Article" Multiplicity="1" />
     <End Role="Location" Type="Self.Location" Multiplicity="*" />
     <ReferentialConstraint>
@@ -108,7 +130,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Location__Custom__02FC7413">
+  <Association Name="FK__Location__Custom__2B0A656D">
     <End Role="Client" Type="Self.Client" Multiplicity="1" />
     <End Role="Location" Type="Self.Location" Multiplicity="*" />
     <ReferentialConstraint>
@@ -120,7 +142,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Location__UserID__03F0984C">
+  <Association Name="FK__Location__UserID__2BFE89A6">
     <End Role="Utilisateur" Type="Self.Utilisateur" Multiplicity="1" />
     <End Role="Location" Type="Self.Location" Multiplicity="*" />
     <ReferentialConstraint>
@@ -136,6 +158,7 @@
     <EntitySet Name="Article" EntityType="Self.Article" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Categorie" EntityType="Self.Categorie" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Client" EntityType="Self.Client" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Facture" EntityType="Self.Facture" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Genre" EntityType="Self.Genre" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Location" EntityType="Self.Location" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Utilisateur" EntityType="Self.Utilisateur" Schema="dbo" store:Type="Tables" />
@@ -147,15 +170,19 @@
       <End Role="Genre" EntitySet="Genre" />
       <End Role="Article" EntitySet="Article" />
     </AssociationSet>
-    <AssociationSet Name="FK__Location__Articl__02084FDA" Association="Self.FK__Location__Articl__02084FDA">
+    <AssociationSet Name="FK__Facture__Locatio__29221CFB" Association="Self.FK__Facture__Locatio__29221CFB">
+      <End Role="Location" EntitySet="Location" />
+      <End Role="Facture" EntitySet="Facture" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Location__Articl__2A164134" Association="Self.FK__Location__Articl__2A164134">
       <End Role="Article" EntitySet="Article" />
       <End Role="Location" EntitySet="Location" />
     </AssociationSet>
-    <AssociationSet Name="FK__Location__Custom__02FC7413" Association="Self.FK__Location__Custom__02FC7413">
+    <AssociationSet Name="FK__Location__Custom__2B0A656D" Association="Self.FK__Location__Custom__2B0A656D">
       <End Role="Client" EntitySet="Client" />
       <End Role="Location" EntitySet="Location" />
     </AssociationSet>
-    <AssociationSet Name="FK__Location__UserID__03F0984C" Association="Self.FK__Location__UserID__03F0984C">
+    <AssociationSet Name="FK__Location__UserID__2BFE89A6" Association="Self.FK__Location__UserID__2BFE89A6">
       <End Role="Utilisateur" EntitySet="Utilisateur" />
       <End Role="Location" EntitySet="Location" />
     </AssociationSet>

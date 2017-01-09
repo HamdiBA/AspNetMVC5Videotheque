@@ -23,54 +23,103 @@
                 </li>
                 @if (User.Identity.IsAuthenticated)
                 {
-                <li>
-                    @Html.ActionLink("Accueil", "Index", "Home")
-                </li>
-                <li>
-                    @Html.ActionLink("Articles", "ListeArticle", "Article")
-                </li>
-                <li>
-                    @Html.ActionLink("Clients", "ListeClient", "CLient")
-                </li>
-                <li>
-                    @Html.ActionLink("Users", "ListeUser", "User")
-                </li>
-                <li>
-                    @Html.ActionLink("Location", "ListeLocation", "Location")
-                </li>
+                    <li>
+                        <a href="@Url.Action("Index", "Home")">
+                            <span class="glyphicon glyphicon-home" style="padding-right:10px" aria-hidden="true"></span>
+                            <b>ACCUEIL</b>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("ListeArticle", "Article")">
+                            <span class="glyphicon glyphicon-list-alt" style="padding-right:10px" aria-hidden="true"></span>
+                            <b>ARTICLES</b>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("ListeClient", "CLient")">
+                            <span class="glyphicon glyphicon-asterisk" style="padding-right:10px" aria-hidden="true"></span>
+                            <b>CLIENTS</b>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("ListeUser", "User")">
+                            <span class="glyphicon glyphicon-user" style="padding-right:10px" aria-hidden="true"></span>
+                            <b>USERS</b>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("ListeLocation", "Location")">
+                            <span class="glyphicon glyphicon-shopping-cart" style="padding-right:10px" aria-hidden="true"></span>
+                            <b>LOCATIONS</b>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("ListeFacture", "Facture")">
+                            <span class="glyphicon glyphicon-print" style="padding-right:10px" aria-hidden="true"></span>
+                            <b>FACTURES</b>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("ListeTopArticle", "TopArticle")">
+                            <span class="glyphicon glyphicon-stats" style="padding-right:10px" aria-hidden="true"></span>
+                            <b>TOP ARTICLES</b>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("Profil", "Profile")">
+                            <span class="glyphicon glyphicon-stats" style="padding-right:10px" aria-hidden="true"></span>
+                            <b>MON PROFILE</b>
+                        </a>
+                    </li>
                 }
 
                 <li>
                     @if (User.Identity.IsAuthenticated)
                     {
-                       <a href="@Url.Action("SignOut", "Home")">Déconnexion</a>
+                        <a href="@Url.Action("SignOut", "Home")">
+                            <span class="glyphicon glyphicon-log-out" style="padding-right:10px" aria-hidden="true"></span>
+                            <b>DECONNEXION</b>
+                        </a>
                     }
                     else
                     {
-                       @Html.ActionLink("Connexion", "Login", "Home")
+                        <a href="@Url.Action("Login", "Home")">
+                            <span class="glyphicon glyphicon-log-in" style="padding-right:10px" aria-hidden="true"></span>
+                            <b>CONNEXION</b>
+                        </a>
                     }
                 </li>
-                
+
             </ul>
         </div>
-        <!-- /#sidebar-wrapper -->
-        <!-- Page Content -->
-        <nav class="navbar navbar-default">
-            <div class="container-fluid">
+        <nav class="navbar navbar-default" role="navigation">
+            <div class="container">
+                <!-- Brand and toggle get grouped for better mobile display -->
                 <div class="navbar-header">
                     <a class="navbar-brand" href="#menu-toggle" id="menu-toggle">
                         <span class="glyphicon glyphicon-th-large" aria-hidden="true"></span>
                     </a>
-                    <a class="navbar-brand">@ViewBag.Title</a>
-
-                    @if (User.Identity.IsAuthenticated)
-                    {
-                        <a class="navbar-brand text-right">Welcome @(User.Identity.IsAuthenticated ? HttpContext.Current.User.Identity.Name : " ")</a>
-                        
-                    }    
                 </div>
-            </div>
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="navbar-brand-centered">
+                    <ul class="nav navbar-nav">
+                        <li><a><b>@ViewBag.Title</b></a></li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            @if (User.Identity.IsAuthenticated)
+                            {
+                                <a class="navbar-brand">
+                                    Bonjour @(User.Identity.IsAuthenticated ?
+                        HttpContext.Current.User.Identity.Name : " ")
+                                </a>
+                            }
+                        </li>
+                    </ul>
+                </div><!-- /.navbar-collapse -->
+            </div><!-- /.container-fluid -->
         </nav>
+       
         <div id="page-content-wrapper">
             <div class="container-fluid">
                 <div class="row">
@@ -117,28 +166,28 @@
     @Scripts.Render("~/bundles/jqueryui")
     @RenderSection("scripts", required: false)
     <script>
-    $("#menu-toggle").click(function(e) {
-        e.preventDefault();
-        $("#wrapper").toggleClass("toggled");
-    });
+        $("#menu-toggle").click(function (e) {
+            e.preventDefault();
+            $("#wrapper").toggleClass("toggled");
+        });
     </script>
     @*<script>
 
-        $(function () {
+            $(function () {
 
-            $(".jqueryui-marker-datapicker").datapicker({
+                $(".jqueryui-marker-datapicker").datapicker({
 
-                dataFormat: "yy-mm-dd",
-                changeYear: true,
-                showOn: "Button"
-            }).css("display", "inline-block")
-            .next("button").button({
-                icons: { primary: "ui-icon-calendar" },
-                label: "Select a date",
-                text: false
+                    dataFormat: "yy-mm-dd",
+                    changeYear: true,
+                    showOn: "Button"
+                }).css("display", "inline-block")
+                .next("button").button({
+                    icons: { primary: "ui-icon-calendar" },
+                    label: "Select a date",
+                    text: false
+                });
             });
-        });
 
-    </script>*@
+        </script>*@
 </body>
 </html>

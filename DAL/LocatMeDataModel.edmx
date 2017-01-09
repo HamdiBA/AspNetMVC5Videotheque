@@ -42,6 +42,15 @@
           <Property Name="Phone" Type="int" Nullable="false" />
           <Property Name="Email" Type="varchar" MaxLength="100" Nullable="false" />
         </EntityType>
+        <EntityType Name="Facture">
+          <Key>
+            <PropertyRef Name="FactureID" />
+          </Key>
+          <Property Name="FactureID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="LocationID" Type="int" />
+          <Property Name="CompnayName" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="CompanyAdDress" Type="varchar" MaxLength="100" Nullable="false" />
+        </EntityType>
         <EntityType Name="Genre">
           <Key>
             <PropertyRef Name="GenreID" />
@@ -59,6 +68,7 @@
           <Property Name="UserID" Type="int" Nullable="false" />
           <Property Name="DateLocation" Type="date" Nullable="false" />
           <Property Name="DateBack" Type="date" Nullable="false" />
+          <Property Name="Quantity" Type="int" Nullable="false" />
           <Property Name="EtatLocation" Type="varchar" MaxLength="100" Nullable="false" />
         </EntityType>
         <EntityType Name="Utilisateur">
@@ -101,7 +111,19 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Location__Articl__02084FDA">
+        <Association Name="FK__Facture__Locatio__29221CFB">
+          <End Role="Location" Type="Self.Location" Multiplicity="0..1" />
+          <End Role="Facture" Type="Self.Facture" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Location">
+              <PropertyRef Name="LocationID" />
+            </Principal>
+            <Dependent Role="Facture">
+              <PropertyRef Name="LocationID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Location__Articl__2A164134">
           <End Role="Article" Type="Self.Article" Multiplicity="1" />
           <End Role="Location" Type="Self.Location" Multiplicity="*" />
           <ReferentialConstraint>
@@ -113,7 +135,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Location__Custom__02FC7413">
+        <Association Name="FK__Location__Custom__2B0A656D">
           <End Role="Client" Type="Self.Client" Multiplicity="1" />
           <End Role="Location" Type="Self.Location" Multiplicity="*" />
           <ReferentialConstraint>
@@ -125,7 +147,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Location__UserID__03F0984C">
+        <Association Name="FK__Location__UserID__2BFE89A6">
           <End Role="Utilisateur" Type="Self.Utilisateur" Multiplicity="1" />
           <End Role="Location" Type="Self.Location" Multiplicity="*" />
           <ReferentialConstraint>
@@ -141,6 +163,7 @@
           <EntitySet Name="Article" EntityType="Self.Article" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Categorie" EntityType="Self.Categorie" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Client" EntityType="Self.Client" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Facture" EntityType="Self.Facture" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Genre" EntityType="Self.Genre" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Location" EntityType="Self.Location" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Utilisateur" EntityType="Self.Utilisateur" Schema="dbo" store:Type="Tables" />
@@ -152,15 +175,19 @@
             <End Role="Genre" EntitySet="Genre" />
             <End Role="Article" EntitySet="Article" />
           </AssociationSet>
-          <AssociationSet Name="FK__Location__Articl__02084FDA" Association="Self.FK__Location__Articl__02084FDA">
+          <AssociationSet Name="FK__Facture__Locatio__29221CFB" Association="Self.FK__Facture__Locatio__29221CFB">
+            <End Role="Location" EntitySet="Location" />
+            <End Role="Facture" EntitySet="Facture" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Location__Articl__2A164134" Association="Self.FK__Location__Articl__2A164134">
             <End Role="Article" EntitySet="Article" />
             <End Role="Location" EntitySet="Location" />
           </AssociationSet>
-          <AssociationSet Name="FK__Location__Custom__02FC7413" Association="Self.FK__Location__Custom__02FC7413">
+          <AssociationSet Name="FK__Location__Custom__2B0A656D" Association="Self.FK__Location__Custom__2B0A656D">
             <End Role="Client" EntitySet="Client" />
             <End Role="Location" EntitySet="Location" />
           </AssociationSet>
-          <AssociationSet Name="FK__Location__UserID__03F0984C" Association="Self.FK__Location__UserID__03F0984C">
+          <AssociationSet Name="FK__Location__UserID__2BFE89A6" Association="Self.FK__Location__UserID__2BFE89A6">
             <End Role="Utilisateur" EntitySet="Utilisateur" />
             <End Role="Location" EntitySet="Location" />
           </AssociationSet>
@@ -173,6 +200,7 @@
           <EntitySet Name="Article" EntityType="LocatMe_BDModel.Article" />
           <EntitySet Name="Categorie" EntityType="LocatMe_BDModel.Categorie" />
           <EntitySet Name="Client" EntityType="LocatMe_BDModel.Client" />
+          <EntitySet Name="Facture" EntityType="LocatMe_BDModel.Facture" />
           <EntitySet Name="Genre" EntityType="LocatMe_BDModel.Genre" />
           <EntitySet Name="Location" EntityType="LocatMe_BDModel.Location" />
           <EntitySet Name="Utilisateur" EntityType="LocatMe_BDModel.Utilisateur" />
@@ -184,15 +212,19 @@
             <End Role="Genre" EntitySet="Genre" />
             <End Role="Article" EntitySet="Article" />
           </AssociationSet>
-          <AssociationSet Name="FK__Location__Articl__02084FDA" Association="LocatMe_BDModel.FK__Location__Articl__02084FDA">
+          <AssociationSet Name="FK__Location__Articl__2A164134" Association="LocatMe_BDModel.FK__Location__Articl__2A164134">
             <End Role="Article" EntitySet="Article" />
             <End Role="Location" EntitySet="Location" />
           </AssociationSet>
-          <AssociationSet Name="FK__Location__Custom__02FC7413" Association="LocatMe_BDModel.FK__Location__Custom__02FC7413">
+          <AssociationSet Name="FK__Location__Custom__2B0A656D" Association="LocatMe_BDModel.FK__Location__Custom__2B0A656D">
             <End Role="Client" EntitySet="Client" />
             <End Role="Location" EntitySet="Location" />
           </AssociationSet>
-          <AssociationSet Name="FK__Location__UserID__03F0984C" Association="LocatMe_BDModel.FK__Location__UserID__03F0984C">
+          <AssociationSet Name="FK__Facture__Locatio__29221CFB" Association="LocatMe_BDModel.FK__Facture__Locatio__29221CFB">
+            <End Role="Location" EntitySet="Location" />
+            <End Role="Facture" EntitySet="Facture" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Location__UserID__2BFE89A6" Association="LocatMe_BDModel.FK__Location__UserID__2BFE89A6">
             <End Role="Utilisateur" EntitySet="Utilisateur" />
             <End Role="Location" EntitySet="Location" />
           </AssociationSet>
@@ -214,7 +246,7 @@
           <Property Name="DateAdded" Type="DateTime" Nullable="false" Precision="3" />
           <NavigationProperty Name="Categorie" Relationship="LocatMe_BDModel.FK__Article__Categor__00200768" FromRole="Article" ToRole="Categorie" />
           <NavigationProperty Name="Genre" Relationship="LocatMe_BDModel.FK__Article__GenreID__01142BA1" FromRole="Article" ToRole="Genre" />
-          <NavigationProperty Name="Location" Relationship="LocatMe_BDModel.FK__Location__Articl__02084FDA" FromRole="Article" ToRole="Location" />
+          <NavigationProperty Name="Location" Relationship="LocatMe_BDModel.FK__Location__Articl__2A164134" FromRole="Article" ToRole="Location" />
         </EntityType>
         <EntityType Name="Categorie">
           <Key>
@@ -237,7 +269,17 @@
           <Property Name="City" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="Phone" Type="Int32" Nullable="false" />
           <Property Name="Email" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Location" Relationship="LocatMe_BDModel.FK__Location__Custom__02FC7413" FromRole="Client" ToRole="Location" />
+          <NavigationProperty Name="Location" Relationship="LocatMe_BDModel.FK__Location__Custom__2B0A656D" FromRole="Client" ToRole="Location" />
+        </EntityType>
+        <EntityType Name="Facture">
+          <Key>
+            <PropertyRef Name="FactureID" />
+          </Key>
+          <Property Name="FactureID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="LocationID" Type="Int32" />
+          <Property Name="CompnayName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="CompanyAdDress" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Location" Relationship="LocatMe_BDModel.FK__Facture__Locatio__29221CFB" FromRole="Facture" ToRole="Location" />
         </EntityType>
         <EntityType Name="Genre">
           <Key>
@@ -257,10 +299,12 @@
           <Property Name="UserID" Type="Int32" Nullable="false" />
           <Property Name="DateLocation" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="DateBack" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Quantity" Type="Int32" Nullable="false" />
           <Property Name="EtatLocation" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Article" Relationship="LocatMe_BDModel.FK__Location__Articl__02084FDA" FromRole="Location" ToRole="Article" />
-          <NavigationProperty Name="Client" Relationship="LocatMe_BDModel.FK__Location__Custom__02FC7413" FromRole="Location" ToRole="Client" />
-          <NavigationProperty Name="Utilisateur" Relationship="LocatMe_BDModel.FK__Location__UserID__03F0984C" FromRole="Location" ToRole="Utilisateur" />
+          <NavigationProperty Name="Article" Relationship="LocatMe_BDModel.FK__Location__Articl__2A164134" FromRole="Location" ToRole="Article" />
+          <NavigationProperty Name="Client" Relationship="LocatMe_BDModel.FK__Location__Custom__2B0A656D" FromRole="Location" ToRole="Client" />
+          <NavigationProperty Name="Facture" Relationship="LocatMe_BDModel.FK__Facture__Locatio__29221CFB" FromRole="Location" ToRole="Facture" />
+          <NavigationProperty Name="Utilisateur" Relationship="LocatMe_BDModel.FK__Location__UserID__2BFE89A6" FromRole="Location" ToRole="Utilisateur" />
         </EntityType>
         <EntityType Name="Utilisateur">
           <Key>
@@ -277,7 +321,7 @@
           <Property Name="UserName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="Password" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="Role" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Location" Relationship="LocatMe_BDModel.FK__Location__UserID__03F0984C" FromRole="Utilisateur" ToRole="Location" />
+          <NavigationProperty Name="Location" Relationship="LocatMe_BDModel.FK__Location__UserID__2BFE89A6" FromRole="Utilisateur" ToRole="Location" />
         </EntityType>
         <Association Name="FK__Article__Categor__00200768">
           <End Type="LocatMe_BDModel.Categorie" Role="Categorie" Multiplicity="1" />
@@ -303,7 +347,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Location__Articl__02084FDA">
+        <Association Name="FK__Location__Articl__2A164134">
           <End Type="LocatMe_BDModel.Article" Role="Article" Multiplicity="1" />
           <End Type="LocatMe_BDModel.Location" Role="Location" Multiplicity="*" />
           <ReferentialConstraint>
@@ -315,7 +359,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Location__Custom__02FC7413">
+        <Association Name="FK__Location__Custom__2B0A656D">
           <End Type="LocatMe_BDModel.Client" Role="Client" Multiplicity="1" />
           <End Type="LocatMe_BDModel.Location" Role="Location" Multiplicity="*" />
           <ReferentialConstraint>
@@ -327,7 +371,19 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Location__UserID__03F0984C">
+        <Association Name="FK__Facture__Locatio__29221CFB">
+          <End Type="LocatMe_BDModel.Location" Role="Location" Multiplicity="0..1" />
+          <End Type="LocatMe_BDModel.Facture" Role="Facture" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Location">
+              <PropertyRef Name="LocationID" />
+            </Principal>
+            <Dependent Role="Facture">
+              <PropertyRef Name="LocationID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Location__UserID__2BFE89A6">
           <End Type="LocatMe_BDModel.Utilisateur" Role="Utilisateur" Multiplicity="1" />
           <End Type="LocatMe_BDModel.Location" Role="Location" Multiplicity="*" />
           <ReferentialConstraint>
@@ -385,6 +441,16 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="Facture">
+            <EntityTypeMapping TypeName="LocatMe_BDModel.Facture">
+              <MappingFragment StoreEntitySet="Facture">
+                <ScalarProperty Name="CompanyAdDress" ColumnName="CompanyAdDress" />
+                <ScalarProperty Name="CompnayName" ColumnName="CompnayName" />
+                <ScalarProperty Name="LocationID" ColumnName="LocationID" />
+                <ScalarProperty Name="FactureID" ColumnName="FactureID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="Genre">
             <EntityTypeMapping TypeName="LocatMe_BDModel.Genre">
               <MappingFragment StoreEntitySet="Genre">
@@ -397,6 +463,7 @@
             <EntityTypeMapping TypeName="LocatMe_BDModel.Location">
               <MappingFragment StoreEntitySet="Location">
                 <ScalarProperty Name="EtatLocation" ColumnName="EtatLocation" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
                 <ScalarProperty Name="DateBack" ColumnName="DateBack" />
                 <ScalarProperty Name="DateLocation" ColumnName="DateLocation" />
                 <ScalarProperty Name="UserID" ColumnName="UserID" />

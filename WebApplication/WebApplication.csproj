@@ -93,6 +93,10 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Rotativa, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Rotativa.1.6.4\lib\net40\Rotativa.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -167,16 +171,21 @@
     <Compile Include="Controllers\ArticleController.cs" />
     <Compile Include="Controllers\CategorieController.cs" />
     <Compile Include="Controllers\ClientController.cs" />
+    <Compile Include="Controllers\FactureController.cs" />
     <Compile Include="Controllers\GenreController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LocationController.cs" />
+    <Compile Include="Controllers\ProfileController.cs" />
+    <Compile Include="Controllers\TopArticleController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="HttpConfiguration.cs" />
     <Compile Include="Models\ArticleEditee.cs" />
     <Compile Include="Models\CategorieEditee.cs" />
     <Compile Include="Models\ClientEditee.cs" />
+    <Compile Include="Models\FactureEditee.cs" />
     <Compile Include="Models\GenreEditee.cs" />
     <Compile Include="Models\LocationEditee.cs" />
     <Compile Include="Models\UserEditee.cs" />
@@ -232,6 +241,7 @@
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
+    <Content Include="Rotativa\wkhtmltopdf.exe" />
     <Content Include="Scripts\ai.0.22.9-build00167.js" />
     <Content Include="Scripts\ai.0.22.9-build00167.min.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -243,6 +253,7 @@
     <Content Include="Scripts\gridmvc.js" />
     <Content Include="Scripts\gridmvc.lang.ru.js" />
     <Content Include="Scripts\gridmvc.min.js" />
+    <Content Include="App_Browsers\qt.browser" />
     <None Include="Scripts\jquery-1.12.4.intellisense.js" />
     <Content Include="Scripts\jquery-1.12.4.js" />
     <Content Include="Scripts\jquery-1.12.4.min.js" />
@@ -282,9 +293,15 @@
     <Content Include="Views\Home\Login.cshtml" />
     <Content Include="Views\Categorie\EditCategorie.cshtml" />
     <Content Include="Views\Client\EditClient.cshtml" />
-    <Content Include="Views\Location\EditLocation.cshtml" />
     <Content Include="Views\User\EditUser.cshtml" />
     <Content Include="Views\Article\EditArticle.cshtml" />
+    <Content Include="Views\Location\EditLocation.cshtml" />
+    <Content Include="Views\Facture\ListeFacture.cshtml" />
+    <Content Include="Views\Facture\EditFacture.cshtml" />
+    <Content Include="Views\Facture\ViewFacture.cshtml" />
+    <Content Include="Views\TopArticle\ListeTopArticle.cshtml" />
+    <Content Include="Views\Profile\Profil.cshtml" />
+    <Content Include="Views\Profile\EditProfil.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -9,6 +9,7 @@ namespace WebApplication.Models
 {
     public class LocationEditee
     {
+
         public int? LocationID { get; set; }
         public int? ArticleID { get; set; }
         public int? CustomerID { get; set; }
@@ -19,10 +20,9 @@ namespace WebApplication.Models
         "{0:yyyy-MM-dd}",
         ApplyFormatInEditMode = true)]
         public System.DateTime? DateBack { get; set; }
+        public int Quantity { get; set; }
         public string EtatLocation { get; set; }
 
-        public virtual Article Article { get; set; }
-        public virtual Client Client { get; set; }
-        public virtual Utilisateur Utilisateur { get; set; }
+        
     }
 }

@@ -17,6 +17,7 @@ namespace WebApplication
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
 
+
             AutoMapper.Mapper.CreateMap<DAL.Article, WebApplication.Models.ArticleEditee>();
             AutoMapper.Mapper.CreateMap<WebApplication.Models.ArticleEditee, DAL.Article>();
 
@@ -25,6 +26,9 @@ namespace WebApplication
 
             AutoMapper.Mapper.CreateMap<DAL.Utilisateur, WebApplication.Models.UserEditee>();
             AutoMapper.Mapper.CreateMap<WebApplication.Models.UserEditee, DAL.Utilisateur>();
+
+            AutoMapper.Mapper.CreateMap<DAL.Facture, WebApplication.Models.FactureEditee>();
+            AutoMapper.Mapper.CreateMap<WebApplication.Models.FactureEditee, DAL.Facture>();
 
             AutoMapper.Mapper.CreateMap<DAL.Location, WebApplication.Models.LocationEditee>();
             AutoMapper.Mapper.CreateMap<WebApplication.Models.LocationEditee, DAL.Location>();
@@ -35,7 +39,16 @@ namespace WebApplication
             AutoMapper.Mapper.CreateMap<DAL.Genre, WebApplication.Models.GenreEditee>();
             AutoMapper.Mapper.CreateMap<WebApplication.Models.GenreEditee, DAL.Genre>();
 
+            
 
+
+        }
+
+        protected void Application_BeginRequest()
+        {
+            Response.Cache.SetCacheability(HttpCacheability.NoCache);
+            Response.Cache.SetExpires(DateTime.UtcNow.AddHours(-1));
+            Response.Cache.SetNoStore();
         }
     }
 }

@@ -1,6 +1,6 @@
 ﻿CREATE TABLE [dbo].[Article]
 (
-	[ArticleID] INT  IDENTITY(1,1) NOT NULL PRIMARY KEY,
+	[ArticleID] INT IDENTITY(1,1) NOT NULL PRIMARY KEY,
 	[ArticleName] VARCHAR(100) NOT NULL,
 	[CategoryID] INT NOT NULL,
 	[GenreID] INT NOT NULL,

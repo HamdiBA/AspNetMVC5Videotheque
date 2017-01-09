@@ -1,0 +1,20 @@
+﻿
+
+@{
+    ViewBag.Title = "ListeTopLocation";
+}
+
+@using GridMvc.Html;
+@model IEnumerable<WebApplication.Models.LocationEditee>
+
+
+
+@Html.Grid(Model).Columns(columns =>
+{
+
+    columns.Add(l => l.ArticleID).SetWidth(110);
+    columns.Add(l => l.Quantity).Titled("Sum");
+
+})
+
+

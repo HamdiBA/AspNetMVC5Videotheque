@@ -6,6 +6,7 @@
 	[UserID] INT NOT NULL,
 	[DateLocation] DATE NOT NULL,
 	[DateBack] DATE NOT NULL,
+	[Quantity] INT NOT NULL,
 	[EtatLocation] VARCHAR(100) NOT NULL,
 	FOREIGN KEY (ArticleID) REFERENCES Article(ArticleID),
 	FOREIGN KEY (CustomerID) REFERENCES Client(CustomerID),

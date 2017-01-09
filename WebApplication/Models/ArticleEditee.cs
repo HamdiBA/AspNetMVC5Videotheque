@@ -24,6 +24,6 @@ namespace WebApplication.Models
         public double? Price { get; set; }
         public System.DateTime? DateAdded { get; set; }
 
-
+       
     }
 }
