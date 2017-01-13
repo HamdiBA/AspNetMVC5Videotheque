@@ -14,12 +14,6 @@ namespace DAL
     
     public partial class Location
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Location()
-        {
-            this.Facture = new HashSet<Facture>();
-        }
-    
         public int LocationID { get; set; }
         public int ArticleID { get; set; }
         public int CustomerID { get; set; }
@@ -31,10 +25,6 @@ namespace DAL
     
         public virtual Article Article { get; set; }
         public virtual Client Client { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Facture> Facture { get; set; }
         public virtual Utilisateur Utilisateur { get; set; }
-
-       
     }
 }

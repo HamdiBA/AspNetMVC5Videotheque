@@ -30,6 +30,7 @@ namespace DAL
         public double Note { get; set; }
         public int Quantity { get; set; }
         public double Price { get; set; }
+        public string Status { get; set; }
         public System.DateTime DateAdded { get; set; }
     
         public virtual Categorie Categorie { get; set; }

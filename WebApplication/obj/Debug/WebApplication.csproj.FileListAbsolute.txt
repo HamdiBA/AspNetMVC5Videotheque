@@ -98,9 +98,16 @@ C:\Users\hamdi\OneDrive\Documents\Visual Studio 2015\Projects\AspNetMVC5Videothe
 C:\Users\hamdi\OneDrive\Documents\Visual Studio 2015\Projects\AspNetMVC5Videotheque\WebApplication\bin\Microsoft.AI.Web.dll
 C:\Users\hamdi\OneDrive\Documents\Visual Studio 2015\Projects\AspNetMVC5Videotheque\WebApplication\bin\Microsoft.AI.WindowsServer.dll
 C:\Users\hamdi\OneDrive\Documents\Visual Studio 2015\Projects\AspNetMVC5Videotheque\WebApplication\bin\Microsoft.ApplicationInsights.dll
+C:\Users\hamdi\OneDrive\Documents\Visual Studio 2015\Projects\AspNetMVC5Videotheque\WebApplication\bin\Microsoft.AspNet.SignalR.Core.dll
+C:\Users\hamdi\OneDrive\Documents\Visual Studio 2015\Projects\AspNetMVC5Videotheque\WebApplication\bin\Microsoft.AspNet.SignalR.SystemWeb.dll
 C:\Users\hamdi\OneDrive\Documents\Visual Studio 2015\Projects\AspNetMVC5Videotheque\WebApplication\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\hamdi\OneDrive\Documents\Visual Studio 2015\Projects\AspNetMVC5Videotheque\WebApplication\bin\Microsoft.Owin.dll
+C:\Users\hamdi\OneDrive\Documents\Visual Studio 2015\Projects\AspNetMVC5Videotheque\WebApplication\bin\Microsoft.Owin.Host.SystemWeb.dll
+C:\Users\hamdi\OneDrive\Documents\Visual Studio 2015\Projects\AspNetMVC5Videotheque\WebApplication\bin\Microsoft.Owin.Security.dll
 C:\Users\hamdi\OneDrive\Documents\Visual Studio 2015\Projects\AspNetMVC5Videotheque\WebApplication\bin\Microsoft.Web.Infrastructure.dll
 C:\Users\hamdi\OneDrive\Documents\Visual Studio 2015\Projects\AspNetMVC5Videotheque\WebApplication\bin\Newtonsoft.Json.dll
+C:\Users\hamdi\OneDrive\Documents\Visual Studio 2015\Projects\AspNetMVC5Videotheque\WebApplication\bin\Owin.dll
+C:\Users\hamdi\OneDrive\Documents\Visual Studio 2015\Projects\AspNetMVC5Videotheque\WebApplication\bin\Rotativa.dll
 C:\Users\hamdi\OneDrive\Documents\Visual Studio 2015\Projects\AspNetMVC5Videotheque\WebApplication\bin\System.Web.Helpers.dll
 C:\Users\hamdi\OneDrive\Documents\Visual Studio 2015\Projects\AspNetMVC5Videotheque\WebApplication\bin\System.Web.Mvc.dll
 C:\Users\hamdi\OneDrive\Documents\Visual Studio 2015\Projects\AspNetMVC5Videotheque\WebApplication\bin\System.Web.Optimization.dll
@@ -118,7 +125,12 @@ C:\Users\hamdi\OneDrive\Documents\Visual Studio 2015\Projects\AspNetMVC5Videothe
 C:\Users\hamdi\OneDrive\Documents\Visual Studio 2015\Projects\AspNetMVC5Videotheque\WebApplication\bin\Microsoft.AI.Web.xml
 C:\Users\hamdi\OneDrive\Documents\Visual Studio 2015\Projects\AspNetMVC5Videotheque\WebApplication\bin\Microsoft.AI.WindowsServer.xml
 C:\Users\hamdi\OneDrive\Documents\Visual Studio 2015\Projects\AspNetMVC5Videotheque\WebApplication\bin\Microsoft.ApplicationInsights.xml
+C:\Users\hamdi\OneDrive\Documents\Visual Studio 2015\Projects\AspNetMVC5Videotheque\WebApplication\bin\Microsoft.AspNet.SignalR.Core.xml
+C:\Users\hamdi\OneDrive\Documents\Visual Studio 2015\Projects\AspNetMVC5Videotheque\WebApplication\bin\Microsoft.AspNet.SignalR.SystemWeb.xml
 C:\Users\hamdi\OneDrive\Documents\Visual Studio 2015\Projects\AspNetMVC5Videotheque\WebApplication\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\hamdi\OneDrive\Documents\Visual Studio 2015\Projects\AspNetMVC5Videotheque\WebApplication\bin\Microsoft.Owin.xml
+C:\Users\hamdi\OneDrive\Documents\Visual Studio 2015\Projects\AspNetMVC5Videotheque\WebApplication\bin\Microsoft.Owin.Host.SystemWeb.xml
+C:\Users\hamdi\OneDrive\Documents\Visual Studio 2015\Projects\AspNetMVC5Videotheque\WebApplication\bin\Microsoft.Owin.Security.xml
 C:\Users\hamdi\OneDrive\Documents\Visual Studio 2015\Projects\AspNetMVC5Videotheque\WebApplication\bin\System.Web.Helpers.xml
 C:\Users\hamdi\OneDrive\Documents\Visual Studio 2015\Projects\AspNetMVC5Videotheque\WebApplication\bin\System.Web.Mvc.xml
 C:\Users\hamdi\OneDrive\Documents\Visual Studio 2015\Projects\AspNetMVC5Videotheque\WebApplication\bin\System.Web.Optimization.xml
@@ -140,4 +152,3 @@ C:\Users\hamdi\OneDrive\Documents\Visual Studio 2015\Projects\AspNetMVC5Videothe
 C:\Users\hamdi\OneDrive\Documents\Visual Studio 2015\Projects\AspNetMVC5Videotheque\WebApplication\obj\Debug\WebApplication.csprojResolveAssemblyReference.cache
 C:\Users\hamdi\OneDrive\Documents\Visual Studio 2015\Projects\AspNetMVC5Videotheque\WebApplication\obj\Debug\WebApplication.dll
 C:\Users\hamdi\OneDrive\Documents\Visual Studio 2015\Projects\AspNetMVC5Videotheque\WebApplication\obj\Debug\WebApplication.pdb
-C:\Users\hamdi\OneDrive\Documents\Visual Studio 2015\Projects\AspNetMVC5Videotheque\WebApplication\bin\Rotativa.dll

@@ -19,6 +19,6 @@ C:\Users\hamdi\OneDrive\Documents\Visual Studio 2015\Projects\AspNetMVC5Videothe
 C:\Users\hamdi\OneDrive\Documents\Visual Studio 2015\Projects\AspNetMVC5Videotheque\DAL\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\hamdi\OneDrive\Documents\Visual Studio 2015\Projects\AspNetMVC5Videotheque\DAL\bin\Debug\fr\EntityFramework.resources.dll
 C:\Users\hamdi\OneDrive\Documents\Visual Studio 2015\Projects\AspNetMVC5Videotheque\DAL\bin\Debug\fr\EntityFramework.SqlServer.resources.dll
-C:\Users\hamdi\OneDrive\Documents\Visual Studio 2015\Projects\AspNetMVC5Videotheque\DAL\obj\Debug\DAL.csprojResolveAssemblyReference.cache
 C:\Users\hamdi\OneDrive\Documents\Visual Studio 2015\Projects\AspNetMVC5Videotheque\DAL\obj\Debug\DAL.dll
 C:\Users\hamdi\OneDrive\Documents\Visual Studio 2015\Projects\AspNetMVC5Videotheque\DAL\obj\Debug\DAL.pdb
+C:\Users\hamdi\OneDrive\Documents\Visual Studio 2015\Projects\AspNetMVC5Videotheque\DAL\obj\Debug\DAL.csprojResolveAssemblyReference.cache

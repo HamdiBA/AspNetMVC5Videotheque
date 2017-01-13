@@ -1,13 +1,15 @@
 ﻿
 @{
-    ViewBag.Title = "ListeClient";
+    ViewBag.Title = "Liste des clients";
+
+    <link rel="stylesheet" href="~/Content/style.css" />
 }
 
 @using GridMvc.Html;
 
 @model IEnumerable<DAL.Client>
 
-<h2>ListeClient</h2>
+
 
 @section Scripts {
     <script>
@@ -34,15 +36,27 @@
     </script>
 }
 
+<div class="row">
+    <div class="col-lg-3">
+        <a href="@Url.Action("EditClient","Client")" class="btn btn-labeled btn-primary">
+            <span class="btn-label"><i class="glyphicon glyphicon-plus"></i></span>Ajouter un client
+        </a>
+    </div>
+</div>
+
 @Html.Grid(Model).Columns(columns =>
 {
-    columns.Add(c => c.CustomerID).Titled("Civilité");
+
+    columns.Add(c => c.CustomerID).Titled("ID").Filterable(true);
+    columns.Add(c => c.IdentityCard).Titled("CIN").Filterable(true);
     columns.Add(c => c.Civility).Titled("Civilité");
     columns.Add(c => c.Name).Titled("Nom")
                            .Filterable(true);
     columns.Add(c => c.LastName).Titled("Prénom")
                               .Filterable(true);
     columns.Add(c => c.Address).Titled("Adresse")
+                               .Filterable(true);
+    columns.Add(c => c.BirthDate).Titled("Date de naissance")
                                .Filterable(true);
     columns.Add(c => c.PostalCode).Titled("Code Postal");
     columns.Add(c => c.City).Titled("Ville")
@@ -58,7 +72,3 @@
                  .Encoded(false)
                  .RenderValueAs(c => "<button class='btn btn-default btn-delete-customer' data-id='" + c.CustomerID + "'> <span class='glyphicon glyphicon-remove-circle' /> </button>");
 })
-
-<div>
-    @Html.ActionLink("Ajouter un nouveau client", "EditClient")
-</div>

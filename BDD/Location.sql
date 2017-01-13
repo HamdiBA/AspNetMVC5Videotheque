@@ -11,10 +11,4 @@
 	FOREIGN KEY (ArticleID) REFERENCES Article(ArticleID),
 	FOREIGN KEY (CustomerID) REFERENCES Client(CustomerID),
 	FOREIGN KEY (UserID) REFERENCES Utilisateur(UserID),
-
-
-
-
-
-
 )

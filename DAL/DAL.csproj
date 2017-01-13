@@ -60,6 +60,9 @@
     <Compile Include="Client.cs">
       <DependentUpon>LocatMeDataModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Company.cs">
+      <DependentUpon>LocatMeDataModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Facture.cs">
       <DependentUpon>LocatMeDataModel.tt</DependentUpon>
     </Compile>

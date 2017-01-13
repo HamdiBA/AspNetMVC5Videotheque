@@ -11,7 +11,7 @@ namespace WebApplication.Controllers
 {
     public class HomeController : Controller
     {
-       
+
         public ActionResult Index()
         {
             return View();
@@ -19,33 +19,41 @@ namespace WebApplication.Controllers
 
         public ActionResult Login()
         {
-           
+
             return View();
         }
-
+        [ValidateAntiForgeryToken]
         [HttpPost]
         public ActionResult Login(Utilisateur model, string returnUrl)
         {
             LocatMe_BDEntities contexteEF = new LocatMe_BDEntities();
-            var dataItem = contexteEF.Utilisateur.Where(x => x.UserName == model.UserName && x.Password == model.Password).First();
-            if (dataItem != null)
-            {
-                FormsAuthentication.SetAuthCookie(dataItem.UserName, false);
-                if (Url.IsLocalUrl(returnUrl) && returnUrl.Length > 1 && returnUrl.StartsWith("/")
-                         && !returnUrl.StartsWith("//") && !returnUrl.StartsWith("/\\"))
+           
+                var dataItem = contexteEF.Utilisateur.FirstOrDefault(x => x.UserName == model.UserName && x.Password == model.Password);
+            
+                if (dataItem != null)
                 {
-                    return Redirect(returnUrl);
+
+                    FormsAuthentication.SetAuthCookie(dataItem.UserName, false);
+                    if (Url.IsLocalUrl(returnUrl) && returnUrl.Length > 1 && returnUrl.StartsWith("/")
+                             && !returnUrl.StartsWith("//") && !returnUrl.StartsWith("/\\"))
+                    {
+                        return Redirect(returnUrl);
+                    }
+                    else
+                    {
+                        return RedirectToAction("Index");
+                    }
                 }
                 else
                 {
-                    return RedirectToAction("Index");
+                    ModelState.AddModelError(String.Empty, "Vérifier votre login et mot de passe svp");
+
                 }
-            }
-            else
-            {
-                ModelState.AddModelError("", "Invalid user/pass");
+            
+            
                 return View();
-            }
+
+            
         }
 
 

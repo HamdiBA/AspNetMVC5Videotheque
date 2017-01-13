@@ -15,17 +15,18 @@ namespace WebApplication.Controllers
         // GET: Article
         public ActionResult ListeArticle()
         {
+            
             List<Article> articles = contexteEF.Article.ToList();
             return View(articles);
         }
 
 
-        [Authorize(Roles = "Administrateur")]
+        //[Authorize(Roles = "Administrateur")]
         [HttpGet]
         public ActionResult EditArticle(int? id)
         {
 
-            ViewBag.Category = new SelectList(contexteEF.Categorie,"CategoryID","CategoryName");
+            ViewBag.Category = new SelectList(contexteEF.Categorie, "CategoryID", "CategoryName");
             ViewBag.Genre = new SelectList(contexteEF.Genre, "GenreID", "GenreName");
 
             if (id.HasValue)
@@ -41,7 +42,7 @@ namespace WebApplication.Controllers
             }
         }
 
-        [Authorize(Roles = "Administrateur")]
+        //[Authorize(Roles = "Administrateur")]
         [HttpPost]
         public ActionResult EditArticle(ArticleEditee article)
         {
@@ -71,7 +72,7 @@ namespace WebApplication.Controllers
         }
 
 
-        [Authorize(Roles = "Administrateur")]
+        //[Authorize(Roles = "Administrateur")]
         [HttpPost]
         public JsonResult Delete(int id)
         {

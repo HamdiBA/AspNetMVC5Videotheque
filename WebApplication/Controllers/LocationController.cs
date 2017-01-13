@@ -15,18 +15,18 @@ namespace WebApplication.Controllers
         // GET: Location
         public ActionResult ListeLocation()
         {
-            //List<Location> locations = contexteEF.Location.GroupBy(a => a.LocationID).Select(b => b.FirstOrDefault()).ToList();
+            List<Location> locations = contexteEF.Location.ToList();
 
-            var factures = (from f in contexteEF.Facture
-                            group f by new { f.LocationID, f.FactureID } into locationGroup
-                            select new
-                            {
-                                locationGroup.Key.LocationID,
-                                locationGroup.Key.FactureID,
-                                NumberInGroup = locationGroup.Count()
-                            }).ToList();
+            //var factures = (from f in contexteEF.Facture
+            //                group f by new { f.LocationID, f.FactureID } into locationGroup
+            //                select new
+            //                {
+            //                    locationGroup.Key.LocationID,
+            //                    locationGroup.Key.FactureID,
+            //                    NumberInGroup = locationGroup.Count()
+            //                }).ToList();
 
-            return View(factures);
+            return View(locations);
         }
 
         [HttpGet]
@@ -34,8 +34,9 @@ namespace WebApplication.Controllers
         {
 
             ViewBag.Article = new SelectList(contexteEF.Article, "ArticleID", "ArticleName");
-            ViewBag.Customer = new SelectList(contexteEF.Client, "CustomerID", "Name");
+            ViewBag.Customer = new SelectList(contexteEF.Client, "CustomerID", "IdentityCard");
             ViewBag.User = new SelectList(contexteEF.Utilisateur, "UserID", "Name");
+            //ViewBag.Identity = new SelectList(contexteEF.Client, "CustomerID", "IdentityCard");
 
 
             if (id.HasValue)

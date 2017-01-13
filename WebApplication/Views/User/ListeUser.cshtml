@@ -1,7 +1,10 @@
 ﻿
 @{
-    ViewBag.Title = "ListeUser";
+    ViewBag.Title = "Liste des utilisateurs";
+
+    <link rel="stylesheet" href="~/Content/style.css" />
 }
+
 
 @using GridMvc.Html;
 
@@ -32,7 +35,19 @@
             });
         });
     </script>
+
 }
+
+
+<div class="row">
+    <div class="col-lg-3">
+        <a href="@Url.Action("EditUser","User")" class="btn btn-labeled btn-primary">
+            <span class="btn-label"><i class="glyphicon glyphicon-plus"></i></span>Ajouter un utilisateur
+        </a>
+    </div>
+</div>
+
+<br/>
 
 @Html.Grid(Model).Columns(columns =>
 {
@@ -63,6 +78,3 @@
                  .RenderValueAs(u => "<button class='btn btn-default btn-delete-user' data-id='" + u.UserID + "'> <span class='glyphicon glyphicon-remove-circle' /> </button>");
 })
 
-<div>
-    @Html.ActionLink("Ajouter un nouveau user", "EditUser")
-</div>

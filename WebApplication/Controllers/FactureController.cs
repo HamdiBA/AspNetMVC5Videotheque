@@ -16,19 +16,60 @@ namespace WebApplication.Controllers
         public ActionResult ListeFacture()
         {
             List<Facture> factures = contexteEF.Facture.ToList();
+            //List<Facture> factures = contexteEF.Facture.ToList();
+            //var factures = (from c in contexteEF.Facture
+            //                group c by new { c.CustomerID, c.DateFacture } into result
+            //                select new FactureEditee
+            //                {
+
+            //                    CustomerID = result.Key.CustomerID,
+            //                    DateFacture = result.Key.DateFacture,
+            //                    Quantity = result.Sum(b => b.Quantity),
+            //                    Price = result.Sum(b => b.Price),
+            //                    FactureID = result.Sum(b => b.FactureID)
+            //                }).OrderByDescending(a => a.FactureID).Take(10).ToList();
             return View(factures);
         }
 
 
+        //public JsonResult GetCustomerByID(int? locId)
+        //{
+        //    contexteEF.Configuration.ProxyCreationEnabled = false;
+        //    return Json(contexteEF.Location.Where(f => f.LocationID == locId), JsonRequestBehavior.AllowGet);
+        //}
+
+        [Authorize(Roles = "Administrateur")]
         [HttpGet]
-        public ActionResult ViewFacture(int? id)
+        public ActionResult EditFacture(int? id)
         {
 
+            ViewBag.Customer = new SelectList(contexteEF.Client, "Name", "Name");
+            ViewBag.ArticleID = new SelectList(contexteEF.Article, "ArticleID", "ArticleID");
+            ViewBag.Article = new SelectList(contexteEF.Article, "ArticleName", "ArticleName");
+            ViewBag.Categorie = new SelectList(contexteEF.Categorie, "CategoryName", "CategoryName");
+            ViewBag.Quantite = new SelectList(contexteEF.Location, "Quantity", "Quantity");
+            ViewBag.Price = new SelectList(contexteEF.Article, "Price", "Price");
 
+            //List<Client> allCustomer = new List<Client>();
+            //List<Location> allLocation = new List<Location>();
+            ////ViewBag.Location = new SelectList(contexteEF.Location, "LocationID", "EtatLocation");
+
+            //using (LocatMe_BDEntities dc = new LocatMe_BDEntities())
+            //{
+            //    allCustomer = dc.Client.OrderBy(a => a.Name).ToList();
+            //    if (fb != null && fb.CustomerID > 0)
+            //    {
+            //        allLocation = dc.Location.Where(a => a.CustomerID.Equals(fb.CustomerID)).ToList();
+            //    }
+            //}
+
+
+
+            //ViewBag.CustomerID = new SelectList(allCustomer, "CustomerID", "Name");
+            //ViewBag.LocationID = new SelectList(allLocation, "LocationID", "EtatLocation");
 
             if (id.HasValue)
             {
-               
                 Facture facture = contexteEF.Facture.Single(f => f.FactureID == id);
                 FactureEditee factureEditee = AutoMapper.Mapper.Map<FactureEditee>(facture);
                 return View(factureEditee);
@@ -40,16 +81,45 @@ namespace WebApplication.Controllers
             }
         }
 
+        //[HttpGet]
+        //public JsonResult GetLocations(string customerID = "")
+        //{
+        //    List<Location> allLocation = new List<Location>();
+        //    int ID = 0;
+        //    if (int.TryParse(customerID, out ID))
+        //    {
+        //        using (LocatMe_BDEntities dc = new LocatMe_BDEntities())
+        //        {
+        //            allLocation = dc.Location.Where(a => a.CustomerID.Equals(ID)).OrderBy(a => a.EtatLocation).ToList();
+        //        }
+        //    }
+        //    if (Request.IsAjaxRequest())
+        //    {
+        //        return new JsonResult
+        //        {
+        //            Data = allLocation,
+        //            JsonRequestBehavior = JsonRequestBehavior.AllowGet
+        //        };
+        //    }
+        //    else
+        //    {
+        //        return new JsonResult
+        //        {
+        //            Data = "Not valid request",
+        //            JsonRequestBehavior = JsonRequestBehavior.AllowGet
+        //        };
+        //    }
+        //}
 
-        [Authorize(Roles = "Administrateur")]
         [HttpGet]
-        public ActionResult EditFacture(int? id)
+        public ActionResult ViewFacture(int? id)
         {
 
-            ViewBag.Location = new SelectList(contexteEF.Location, "LocationID", "EtatLocation");
+
 
             if (id.HasValue)
             {
+
                 Facture facture = contexteEF.Facture.Single(f => f.FactureID == id);
                 FactureEditee factureEditee = AutoMapper.Mapper.Map<FactureEditee>(facture);
                 return View(factureEditee);
@@ -102,9 +172,6 @@ namespace WebApplication.Controllers
             return Json(new { Suppression = "OK" });
         }
 
-        public ActionResult GeneratePDF()
-        {
-            return new Rotativa.ActionAsPdf("ViewFacture");
-        }
+        
     }
 }

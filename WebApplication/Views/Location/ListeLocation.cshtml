@@ -1,12 +1,13 @@
 ﻿
 @{
-    ViewBag.Title = "ListeLocation";
+    ViewBag.Title = "Liste des locations";
+
+    <link rel="stylesheet" href="~/Content/style.css" />
 }
 
 @using GridMvc.Html;
 @model IEnumerable<DAL.Location>
 
-<h2>ListeLocation</h2>
 
 @section Scripts {
     <script>
@@ -33,16 +34,26 @@
     </script>
 }
 
+<div class="row">
+    <div class="col-lg-3">
+        <a href="@Url.Action("EditLocation","Location")" class="btn btn-labeled btn-primary">
+            <span class="btn-label"><i class="glyphicon glyphicon-plus"></i></span>Ajouter une location
+        </a>
+    </div>
+</div>
+
+<br />
+
 @Html.Grid(Model).Columns(columns =>
 {
-    columns.Add(l => l.LocationID).SetWidth(110);
-    columns.Add(l => l.ArticleID).SetWidth(110);
-    columns.Add(l => l.CustomerID).SetWidth(110);
-    columns.Add(l => l.UserID).SetWidth(110);
-    columns.Add(l => l.DateLocation).SetWidth(110);
-    columns.Add(l => l.DateBack).SetWidth(110);
-    columns.Add(l => l.Quantity).SetWidth(110);
-    columns.Add(l => l.EtatLocation).SetWidth(110);
+    columns.Add(l => l.LocationID).Titled("ID").SetWidth(110);
+    columns.Add(l => l.ArticleID).Titled("Article ID").SetWidth(110);
+    columns.Add(l => l.CustomerID).Titled("Customer ID").SetWidth(110);
+    columns.Add(l => l.UserID).Titled("User ID").SetWidth(110);
+    columns.Add(l => l.DateLocation).Titled("Date de location").SetWidth(110);
+    columns.Add(l => l.DateBack).Titled("Date de retour").SetWidth(110);
+    columns.Add(l => l.Quantity).Titled("Quantité").SetWidth(110);
+    columns.Add(l => l.EtatLocation).Titled("Status").SetWidth(110);
     columns.Add().Sanitized(false)
                  .Encoded(false)
                  .SetWidth(110)
@@ -53,7 +64,3 @@
                  .RenderValueAs(l => "<button class='btn btn-default btn-delete-location' data-id='" + l.LocationID + "'> <span class='glyphicon glyphicon-remove-circle' /> </button>");
 
 })
-
-<div>
-    @Html.ActionLink("Ajouter un nouveau reservation", "EditLocation")
-</div>

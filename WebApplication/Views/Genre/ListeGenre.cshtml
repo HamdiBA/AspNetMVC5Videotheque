@@ -1,10 +1,13 @@
 ﻿@{
-    ViewBag.Title = "Genre";
+    ViewBag.Title = "Liste des genres";
+
+    <link rel="stylesheet" type="text/css" href="~/Content/style.css" />
 }
 
 @using GridMvc.Html;
 
 @model IEnumerable<DAL.Genre>
+
 
 
 @section Scripts {
@@ -32,21 +35,33 @@
     </script>
 }
 
+<div class="row">
+    <div class="col-lg-3">
+        <a href="@Url.Action("ListeArticle", "Article")" class="btn btn-labeled btn-default">
+            <span class="btn-label"><i class="glyphicon glyphicon-chevron-left"></i></span>Retour à la liste des articles
+        </a>
+    </div>
+    <div class="col-lg-4">
+        <a href="@Url.Action("EditGenre","Genre")" class="btn btn-labeled btn-warning">
+            <span class="btn-label"><i class="glyphicon glyphicon-plus"></i></span>Ajouter un genre
+        </a>
+    </div>
+
+</div>
+
+<br/>
 
 @Html.Grid(Model).Columns(columns =>
 {
     columns.Add(g => g.GenreID).Titled("ID")
-                               .Filterable(true);
+                               .Filterable(true).SetWidth(120); ;
     columns.Add(g => g.GenreName).Titled("Nom")
-                                 .Filterable(true);
+                                 .Filterable(true).SetWidth(220); ;
+    columns.Add().SetWidth(80)
+                 .Sanitized(false)
+                 .Encoded(false)
+                 .RenderValueAs(g => Html.ActionLink(" ", "EditGenre", new { id = g.GenreID }, new { @class = "glyphicon glyphicon-pencil" }));
     columns.Add().Sanitized(false)
                  .Encoded(false)
-                 .RenderValueAs(g => Html.ActionLink(" ", "EditCategorie", new { id = g.GenreID }, new { @class = "glyphicon glyphicon-pencil" }));
-    columns.Add().Sanitized(false)
-                 .Encoded(false)
-                 .RenderValueAs(g => "<button class='btn btn-default btn-delete-categorie' data-id='" + g.GenreID + "'> <span class='glyphicon glyphicon-trash' /> </button>");
+                 .RenderValueAs(g => "<button class='btn btn-default btn-delete-genre' data-id='" + g.GenreID + "'> <span class='glyphicon glyphicon-trash' /> </button>");
 }).WithPaging(7)
-
-<div>
-    @Html.ActionLink("Ajouter un nouveau genre", "EditGenre")
-</div>

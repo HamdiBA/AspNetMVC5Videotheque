@@ -1,6 +1,8 @@
 ﻿
 @{
-    ViewBag.Title = "Article";
+    ViewBag.Title = "Liste des article";
+    
+    <link rel="stylesheet" href="~/Content/style.css" />
 }
 
 @using GridMvc.Html;
@@ -31,26 +33,54 @@
             });
         });
     </script>
+
 }
+
+
+<div class="row">
+    <div class="col-lg-3">
+        <a href="@Url.Action("EditArticle","Article")" class="btn btn-labeled btn-primary">
+            <span class="btn-label"><i class="glyphicon glyphicon-plus"></i></span>Ajouter un article
+        </a>
+    </div>
+
+    <div class="col-lg-3">
+        <a href="@Url.Action("ListeCategorie", "Categorie")" class="btn btn-labeled btn-warning">
+            <span class="btn-label"><i class="glyphicon glyphicon-film"></i></span>Liste des catégories
+        </a>
+    </div>
+
+    <div class="col-lg-3">
+        <a href="@Url.Action("ListeGenre", "Genre")" class="btn btn-labeled btn-success">
+            <span class="btn-label"><i class="glyphicon glyphicon-list"></i></span>Liste des genres
+        </a>
+    </div>
+
+</div>
+
+<br/>
+   
 
 
 @Html.Grid(Model).Columns(columns =>
 {
-    columns.Add(a => a.ArticleID).Titled("ID");
+    columns.Add(a => a.ArticleID).Titled("ID").Filterable(true);
     columns.Add(p => p.ArticleName).Titled("Nom")
                                .Filterable(true);
     columns.Add(p => p.CategoryID).Titled("Catégorie")
                                  .Filterable(true);
     columns.Add(p => p.GenreID).Titled("Genre")
                              .Filterable(true);
-    columns.Add(p => p.Duration).Titled("Durée");
-    columns.Add(p => p.ReleaseDate).Titled("Date de sortie");
-    columns.Add(p => p.Director).Titled("Réalisateur");
-    columns.Add(p => p.Note).Titled("Note");
+    columns.Add(p => p.Duration).Titled("Durée").Sortable(true);
+    //columns.Add(p => p.ReleaseDate).Titled("Date de sortie").Sortable(true);
+    columns.Add(p => p.Director).Titled("Réalisateur").Filterable(true);
+    columns.Add(p => p.Note).Titled("Note").Sortable(true);
     columns.Add(p => p.Quantity).Titled("Quantité")
                                 .Sortable(true);
     columns.Add(p => p.Price).Titled("Prix")
                             .Sortable(true);
+    columns.Add(p => p.Status).Titled("Statut").Filterable(true)
+                                  .Sortable(true);
     columns.Add(p => p.DateAdded).Titled("Date de l'ajout")
                                   .Sortable(true);
     columns.Add().Sanitized(false)
@@ -60,13 +90,3 @@
                  .Encoded(false)
                  .RenderValueAs(p => "<button class='btn btn-default btn-delete-article' data-id='" + p.ArticleID + "'> <span class='glyphicon glyphicon-trash' /> </button>");
 }).WithPaging(7)
-
-<div>
-    @Html.ActionLink("Ajouter un nouveau article", "EditArticle")
-</div>
-<div>
-    @Html.ActionLink("Liste des catégorie", "ListeCategorie", "Categorie")
-</div>
-<div>
-    @Html.ActionLink("Liste des genres", "ListeGenre", "Genre")
-</div>

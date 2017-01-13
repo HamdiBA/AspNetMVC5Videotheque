@@ -14,15 +14,11 @@ namespace WebApplication.Models
         public int? ArticleID { get; set; }
         public int? CustomerID { get; set; }
         public int? UserID { get; set; }
-        public System.DateTime? DateLocation { get; set; }
-        [DataType(DataType.Date)]
-        [DisplayFormat(DataFormatString =
-        "{0:yyyy-MM-dd}",
-        ApplyFormatInEditMode = true)]
-        public System.DateTime? DateBack { get; set; }
-        public int Quantity { get; set; }
+        public System.DateTime DateLocation { get; set; }
+        public System.DateTime DateBack { get; set; }
+        public int? Quantity { get; set; }
         public string EtatLocation { get; set; }
 
-        
+
     }
 }

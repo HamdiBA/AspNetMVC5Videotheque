@@ -15,15 +15,14 @@ namespace WebApplication.Controllers
         public ActionResult ListeTopArticle()
         {
 
+            //List <Article> articles = contexteEF.Article.ToList();
             var articles = (from c in contexteEF.Location
                             group c by c.ArticleID into result
                             select new LocationEditee
                             {
                                 ArticleID = result.Key,
                                 Quantity = result.Sum(b => b.Quantity),
-                            }).ToList();
-
-            //List <Location> articles = contexteEF.Location.GroupBy(l => l.ArticleID).Select(a => new { qt = a.Sum(b => b.Quantity), ArticleID = a.Key }).OrderByDescending(a => a.qt).ToList();
+                            }).OrderByDescending(a => a.Quantity).Take(10).ToList();
             //var articles = contexteEF.Location.GroupBy(l => l.ArticleID).Select(a => new  { qt = a.Sum(b => b.Quantity), ArticleID = a.Key }).OrderByDescending(a => a.qt).ToList();
             return View(articles);
         }

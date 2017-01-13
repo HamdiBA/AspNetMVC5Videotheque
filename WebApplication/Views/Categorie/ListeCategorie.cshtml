@@ -1,12 +1,32 @@
 ﻿
 @{
-    ViewBag.Title = "Catégorie";
+    ViewBag.Title = "Liste des catégories";
+
+    <link rel="stylesheet" type="text/css" href="~/Content/style.css"/>
 }
 
 @using GridMvc.Html;
 
 @model IEnumerable<DAL.Categorie>
 
+
+
+
+<div class="row">
+    <div class="col-lg-3">
+        <a href="@Url.Action("ListeArticle", "Article")" class="btn btn-labeled btn-default">
+            <span class="btn-label"><i class="glyphicon glyphicon-chevron-left"></i></span>Retour à la liste des articles
+        </a>
+    </div>
+    <div class="col-lg-4">
+        <a href="@Url.Action("EditCategorie","Categorie")" class="btn btn-labeled btn-warning">
+            <span class="btn-label"><i class="glyphicon glyphicon-plus"></i></span>Ajouter une catégorie
+        </a>
+    </div>
+    
+</div>
+
+<br/>
 
 @section Scripts {
     <script>
@@ -37,17 +57,16 @@
 @Html.Grid(Model).Columns(columns =>
 {
     columns.Add(ca => ca.CategoryID).Titled("ID")
-                               .Filterable(true);
+                               .Filterable(true).SetWidth(120);
+
     columns.Add(ca => ca.CategoryName).Titled("Nom")
-                                 .Filterable(true);
-    columns.Add().Sanitized(false)
+                                 .Filterable(true).SetWidth(250);
+    columns.Add().SetWidth(80)
+                 .Sanitized(false)
                  .Encoded(false)
                  .RenderValueAs(ca => Html.ActionLink(" ", "EditCategorie", new { id = ca.CategoryID }, new { @class = "glyphicon glyphicon-pencil" }));
     columns.Add().Sanitized(false)
                  .Encoded(false)
                  .RenderValueAs(ca => "<button class='btn btn-default btn-delete-categorie' data-id='" + ca.CategoryID + "'> <span class='glyphicon glyphicon-trash' /> </button>");
-}).WithPaging(7)
+}).WithPaging(20)
 
-<div>
-    @Html.ActionLink("Ajouter un nouveau categorie", "EditCategorie")
-</div>

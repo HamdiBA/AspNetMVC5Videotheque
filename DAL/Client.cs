@@ -21,9 +21,11 @@ namespace DAL
         }
     
         public int CustomerID { get; set; }
+        public int IdentityCard { get; set; }
         public string Civility { get; set; }
         public string Name { get; set; }
         public string LastName { get; set; }
+        public System.DateTime BirthDate { get; set; }
         public string Address { get; set; }
         public int PostalCode { get; set; }
         public string City { get; set; }

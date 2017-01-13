@@ -5,6 +5,7 @@
       <EntityTypeMapping TypeName="LocatMe_BDModel.Article">
         <MappingFragment StoreEntitySet="Article">
           <ScalarProperty Name="DateAdded" ColumnName="DateAdded" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
           <ScalarProperty Name="Price" ColumnName="Price" />
           <ScalarProperty Name="Quantity" ColumnName="Quantity" />
           <ScalarProperty Name="Note" ColumnName="Note" />
@@ -34,19 +35,42 @@
           <ScalarProperty Name="City" ColumnName="City" />
           <ScalarProperty Name="PostalCode" ColumnName="PostalCode" />
           <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="BirthDate" ColumnName="BirthDate" />
           <ScalarProperty Name="LastName" ColumnName="LastName" />
           <ScalarProperty Name="Name" ColumnName="Name" />
           <ScalarProperty Name="Civility" ColumnName="Civility" />
+          <ScalarProperty Name="IdentityCard" ColumnName="IdentityCard" />
           <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Company">
+      <EntityTypeMapping TypeName="LocatMe_BDModel.Company">
+        <MappingFragment StoreEntitySet="Company">
+          <ScalarProperty Name="PostalCode" ColumnName="PostalCode" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+          <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Facture">
       <EntityTypeMapping TypeName="LocatMe_BDModel.Facture">
         <MappingFragment StoreEntitySet="Facture">
-          <ScalarProperty Name="CompanyAdDress" ColumnName="CompanyAdDress" />
-          <ScalarProperty Name="CompnayName" ColumnName="CompnayName" />
-          <ScalarProperty Name="LocationID" ColumnName="LocationID" />
+          <ScalarProperty Name="FactureDate" ColumnName="FactureDate" />
+          <ScalarProperty Name="User" ColumnName="User" />
+          <ScalarProperty Name="Price2" ColumnName="Price2" />
+          <ScalarProperty Name="Quantity2" ColumnName="Quantity2" />
+          <ScalarProperty Name="Catégorie2" ColumnName="Catégorie2" />
+          <ScalarProperty Name="ArticleName2" ColumnName="ArticleName2" />
+          <ScalarProperty Name="Article2ID" ColumnName="Article2ID" />
+          <ScalarProperty Name="Price1" ColumnName="Price1" />
+          <ScalarProperty Name="Quantity1" ColumnName="Quantity1" />
+          <ScalarProperty Name="Catégorie1" ColumnName="Catégorie1" />
+          <ScalarProperty Name="ArticleName1" ColumnName="ArticleName1" />
+          <ScalarProperty Name="Article1ID" ColumnName="Article1ID" />
+          <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
           <ScalarProperty Name="FactureID" ColumnName="FactureID" />
         </MappingFragment>
       </EntityTypeMapping>

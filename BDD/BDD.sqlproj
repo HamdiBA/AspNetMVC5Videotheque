@@ -59,12 +59,13 @@
     <Folder Include="Properties" />
   </ItemGroup>
   <ItemGroup>
-    <Build Include="Article.sql" />
-    <Build Include="Client.sql" />
     <Build Include="Utilisateur.sql" />
-    <Build Include="Location.sql" />
     <Build Include="Categorie.sql" />
     <Build Include="Genre.sql" />
+    <Build Include="Article.sql" />
+    <Build Include="Client.sql" />
+    <Build Include="Location.sql" />
     <Build Include="Facture.sql" />
+    <Build Include="Company.sql" />
   </ItemGroup>
 </Project>
