@@ -33,6 +33,7 @@
     <Property Name="Civility" Type="varchar(max)" Nullable="false" />
     <Property Name="Name" Type="varchar(max)" Nullable="false" />
     <Property Name="LastName" Type="varchar(max)" Nullable="false" />
+    <Property Name="Nom Complet" Type="varchar(max)" Nullable="false" />
     <Property Name="BirthDate" Type="date" Nullable="false" />
     <Property Name="Address" Type="varchar(max)" Nullable="false" />
     <Property Name="PostalCode" Type="int" Nullable="false" />
@@ -141,7 +142,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Location__Custom__308E3499">
+  <Association Name="FK__Location__Custom__54CB950F">
     <End Role="Client" Type="Self.Client" Multiplicity="1" />
     <End Role="Location" Type="Self.Location" Multiplicity="*" />
     <ReferentialConstraint>
@@ -186,7 +187,7 @@
       <End Role="Article" EntitySet="Article" />
       <End Role="Location" EntitySet="Location" />
     </AssociationSet>
-    <AssociationSet Name="FK__Location__Custom__308E3499" Association="Self.FK__Location__Custom__308E3499">
+    <AssociationSet Name="FK__Location__Custom__54CB950F" Association="Self.FK__Location__Custom__54CB950F">
       <End Role="Client" EntitySet="Client" />
       <End Role="Location" EntitySet="Location" />
     </AssociationSet>

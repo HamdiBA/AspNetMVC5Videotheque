@@ -8,6 +8,8 @@ namespace WebApplication.Models
 {
     public class ClientEditee
     {
+
+
         public int? CustomerID { get; set; }
         [DataType(DataType.PhoneNumber)]
         [Required(ErrorMessage = "Le numéro d'identité est requis")]
@@ -17,6 +19,8 @@ namespace WebApplication.Models
         public string Name { get; set; }
         [Required(ErrorMessage = "Le prénom est requis")]
         public string LastName { get; set; }
+        [Required(ErrorMessage = "Le nom complet est requis")]
+        public string Nom_Complet { get; set; }
         [Required(ErrorMessage = "La date de naissance est requis")]
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString =

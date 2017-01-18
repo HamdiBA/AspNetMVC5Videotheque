@@ -19,6 +19,7 @@ namespace WebApplication.Controllers
             return View(categories);
         }
 
+        [Authorize(Roles = "Administrateur")]
         [HttpGet]
         public ActionResult EditCategorie(int? id)
         {
@@ -37,6 +38,7 @@ namespace WebApplication.Controllers
             }
         }
 
+        [Authorize(Roles = "Administrateur")]
         [HttpPost]
         public ActionResult EditCategorie(CategorieEditee categorie)
         {
@@ -65,6 +67,7 @@ namespace WebApplication.Controllers
             return RedirectToAction("ListeCategorie");
         }
 
+        [Authorize(Roles = "Administrateur")]
         [HttpPost]
         public JsonResult Delete(int id)
         {

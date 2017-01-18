@@ -19,6 +19,7 @@ namespace WebApplication.Controllers
             return View(genres);
         }
 
+        [Authorize(Roles = "Administrateur")]
         [HttpGet]
         public ActionResult EditGenre(int? id)
         {
@@ -37,6 +38,7 @@ namespace WebApplication.Controllers
             }
         }
 
+        [Authorize(Roles = "Administrateur")]
         [HttpPost]
         public ActionResult EditGenre(GenreEditee genre)
         {
@@ -65,6 +67,7 @@ namespace WebApplication.Controllers
             return RedirectToAction("ListeGenre");
         }
 
+        [Authorize(Roles = "Administrateur")]
         [HttpPost]
         public JsonResult Delete(int id)
         {

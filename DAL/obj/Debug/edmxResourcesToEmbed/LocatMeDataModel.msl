@@ -36,6 +36,7 @@
           <ScalarProperty Name="PostalCode" ColumnName="PostalCode" />
           <ScalarProperty Name="Address" ColumnName="Address" />
           <ScalarProperty Name="BirthDate" ColumnName="BirthDate" />
+          <ScalarProperty Name="Nom_Complet" ColumnName="Nom Complet" />
           <ScalarProperty Name="LastName" ColumnName="LastName" />
           <ScalarProperty Name="Name" ColumnName="Name" />
           <ScalarProperty Name="Civility" ColumnName="Civility" />

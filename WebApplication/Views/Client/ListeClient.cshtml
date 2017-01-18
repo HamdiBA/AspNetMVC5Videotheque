@@ -50,13 +50,11 @@
     columns.Add(c => c.CustomerID).Titled("ID").Filterable(true);
     columns.Add(c => c.IdentityCard).Titled("CIN").Filterable(true);
     columns.Add(c => c.Civility).Titled("Civilité");
-    columns.Add(c => c.Name).Titled("Nom")
+    columns.Add(c => c.Nom_Complet).Titled("Nom complet")
                            .Filterable(true);
-    columns.Add(c => c.LastName).Titled("Prénom")
-                              .Filterable(true);
     columns.Add(c => c.Address).Titled("Adresse")
                                .Filterable(true);
-    columns.Add(c => c.BirthDate).Titled("Date de naissance")
+    columns.Add(c => c.BirthDate).Format("{0:dd/MM/yyyy}").Titled("Date de naissance")
                                .Filterable(true);
     columns.Add(c => c.PostalCode).Titled("Code Postal");
     columns.Add(c => c.City).Titled("Ville")

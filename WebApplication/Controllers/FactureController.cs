@@ -43,7 +43,7 @@ namespace WebApplication.Controllers
         public ActionResult EditFacture(int? id)
         {
 
-            ViewBag.Customer = new SelectList(contexteEF.Client, "Name", "Name");
+            ViewBag.Customer = new SelectList(contexteEF.Client, "Nom_complet", "Nom_complet");
             ViewBag.ArticleID = new SelectList(contexteEF.Article, "ArticleID", "ArticleID");
             ViewBag.Article = new SelectList(contexteEF.Article, "ArticleName", "ArticleName");
             ViewBag.Categorie = new SelectList(contexteEF.Categorie, "CategoryName", "CategoryName");

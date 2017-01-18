@@ -16,7 +16,7 @@
         <AssociationConnector Association="LocatMe_BDModel.FK__Article__Categor__7C1A6C5A" />
         <AssociationConnector Association="LocatMe_BDModel.FK__Article__GenreID__7D0E9093" />
         <AssociationConnector Association="LocatMe_BDModel.FK__Location__Articl__2F9A1060" />
-        <AssociationConnector Association="LocatMe_BDModel.FK__Location__Custom__308E3499" />
+        <AssociationConnector Association="LocatMe_BDModel.FK__Location__Custom__54CB950F" />
         <AssociationConnector Association="LocatMe_BDModel.FK__Location__UserID__318258D2" />
       </Diagram>
     </edmx:Diagrams>

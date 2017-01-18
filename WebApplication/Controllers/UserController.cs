@@ -12,6 +12,7 @@ namespace WebApplication.Controllers
     {
         private LocatMe_BDEntities contexteEF = new LocatMe_BDEntities();
 
+        [Authorize(Roles = "Administrateur")]
         // GET: Cleint
         public ActionResult ListeUser()
         {
@@ -19,6 +20,7 @@ namespace WebApplication.Controllers
             return View(users);
         }
 
+        [Authorize(Roles = "Administrateur")]
         [HttpGet]
         public ActionResult EditUser(int? id)
         {
@@ -35,6 +37,7 @@ namespace WebApplication.Controllers
             }
         }
 
+        [Authorize(Roles = "Administrateur")]
         [HttpPost]
         public ActionResult EditUser(UserEditee user)
         {
@@ -63,6 +66,7 @@ namespace WebApplication.Controllers
             return RedirectToAction("ListeUser");
         }
 
+        [Authorize(Roles = "Administrateur")]
         [HttpPost]
         public JsonResult Delete(int id)
         {

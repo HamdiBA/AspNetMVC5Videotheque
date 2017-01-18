@@ -21,7 +21,7 @@ namespace WebApplication.Controllers
         }
 
 
-        //[Authorize(Roles = "Administrateur")]
+        [Authorize(Roles = "Administrateur")]
         [HttpGet]
         public ActionResult EditArticle(int? id)
         {
@@ -42,7 +42,7 @@ namespace WebApplication.Controllers
             }
         }
 
-        //[Authorize(Roles = "Administrateur")]
+        [Authorize(Roles = "Administrateur")]
         [HttpPost]
         public ActionResult EditArticle(ArticleEditee article)
         {
@@ -72,7 +72,7 @@ namespace WebApplication.Controllers
         }
 
 
-        //[Authorize(Roles = "Administrateur")]
+        [Authorize(Roles = "Administrateur")]
         [HttpPost]
         public JsonResult Delete(int id)
         {

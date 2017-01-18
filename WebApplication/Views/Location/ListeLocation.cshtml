@@ -50,8 +50,8 @@
     columns.Add(l => l.ArticleID).Titled("Article ID").SetWidth(110);
     columns.Add(l => l.CustomerID).Titled("Customer ID").SetWidth(110);
     columns.Add(l => l.UserID).Titled("User ID").SetWidth(110);
-    columns.Add(l => l.DateLocation).Titled("Date de location").SetWidth(110);
-    columns.Add(l => l.DateBack).Titled("Date de retour").SetWidth(110);
+    columns.Add(l => l.DateLocation).Format("{0:dd/MM/yyyy}").Titled("Date de location").SetWidth(110);
+    columns.Add(l => l.DateBack).Format("{0:dd/MM/yyyy}").Titled("Date de retour").SetWidth(110);
     columns.Add(l => l.Quantity).Titled("Quantité").SetWidth(110);
     columns.Add(l => l.EtatLocation).Titled("Status").SetWidth(110);
     columns.Add().Sanitized(false)

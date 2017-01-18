@@ -25,6 +25,7 @@ namespace DAL
         public string Civility { get; set; }
         public string Name { get; set; }
         public string LastName { get; set; }
+        public string Nom_Complet { get; set; }
         public System.DateTime BirthDate { get; set; }
         public string Address { get; set; }
         public int PostalCode { get; set; }

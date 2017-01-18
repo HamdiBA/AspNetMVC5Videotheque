@@ -15,8 +15,8 @@ namespace WebApplication.Models
         public int? Article1ID { get; set; }
         public string ArticleName1 { get; set; }
         public string Catégorie1 { get; set; }
-        public int? Quantity1 { get; set; }
-        public int? Price1 { get; set; }
+        public int Quantity1 { get; set; }
+        public int Price1 { get; set; }
         public Nullable<int> Article2ID { get; set; }
         public string ArticleName2 { get; set; }
         public string Catégorie2 { get; set; }

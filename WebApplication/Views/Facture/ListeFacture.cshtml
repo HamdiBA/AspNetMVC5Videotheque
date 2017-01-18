@@ -1,7 +1,10 @@
 ﻿
 @{
     ViewBag.Title = "Facture";
+
+    <link rel="stylesheet" href="~/Content/style.css" />
 }
+
 
 @using GridMvc.Html;
 
@@ -34,18 +37,28 @@
     </script>
 }
 
+<div class="row">
+    <div class="col-lg-3">
+        <a href="@Url.Action("EditFacture","Facture")" class="btn btn-labeled btn-primary">
+            <span class="btn-label"><i class="glyphicon glyphicon-plus"></i></span>Ajouter une facture
+        </a>
+    </div>
+</div>
+
+<br/>
+
 
 @Html.Grid(Model).Columns(columns =>
 {
-    columns.Add(f => f.FactureID);
-    columns.Add(f => f.CustomerName);
+    columns.Add(f => f.FactureID).Titled("ID");
+    columns.Add(f => f.CustomerName).Titled("Nom de client");
     columns.Add(f => f.User);
-    columns.Add(f => f.FactureDate);
+    columns.Add(f => f.FactureDate).Format("{0:dd/MM/yyyy}");
 
 
-    //columns.Add().Sanitized(false)
-    //             .Encoded(false)
-    //             .RenderValueAs(f => Html.ActionLink(" ", "GeneratePDF", new { id = f.FactureID }, new { @class = "glyphicon glyphicon-print" }));
+    columns.Add().Sanitized(false)
+                 .Encoded(false)
+                .RenderValueAs(f => Html.ActionLink(" ", "GeneratePDF", new { id = f.FactureID }, new { @class = "glyphicon glyphicon-print" }));
 
     columns.Add().Sanitized(false)
                  .Encoded(false)
@@ -58,7 +71,3 @@
                  .Encoded(false)
                  .RenderValueAs(f => "<button class='btn btn-default btn-delete-facture' data-id='" + f.FactureID + "'> <span class='glyphicon glyphicon-trash' /> </button>");
 }).WithPaging(7)
-
-<div>
-    @Html.ActionLink("Ajouter un nouveau article", "EditFacture")
-</div>

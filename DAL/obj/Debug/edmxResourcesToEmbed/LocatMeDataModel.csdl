@@ -21,7 +21,7 @@
       <End Role="Article" EntitySet="Article" />
       <End Role="Location" EntitySet="Location" />
     </AssociationSet>
-    <AssociationSet Name="FK__Location__Custom__308E3499" Association="LocatMe_BDModel.FK__Location__Custom__308E3499">
+    <AssociationSet Name="FK__Location__Custom__54CB950F" Association="LocatMe_BDModel.FK__Location__Custom__54CB950F">
       <End Role="Client" EntitySet="Client" />
       <End Role="Location" EntitySet="Location" />
     </AssociationSet>
@@ -67,13 +67,14 @@
     <Property Name="Civility" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
     <Property Name="Name" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
     <Property Name="LastName" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Nom_Complet" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
     <Property Name="BirthDate" Type="DateTime" Nullable="false" Precision="0" />
     <Property Name="Address" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
     <Property Name="PostalCode" Type="Int32" Nullable="false" />
     <Property Name="City" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
     <Property Name="Phone" Type="Int32" Nullable="false" />
     <Property Name="Email" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
-    <NavigationProperty Name="Location" Relationship="LocatMe_BDModel.FK__Location__Custom__308E3499" FromRole="Client" ToRole="Location" />
+    <NavigationProperty Name="Location" Relationship="LocatMe_BDModel.FK__Location__Custom__54CB950F" FromRole="Client" ToRole="Location" />
   </EntityType>
   <EntityType Name="Company">
     <Key>
@@ -125,7 +126,7 @@
     <Property Name="Quantity" Type="Int32" Nullable="false" />
     <Property Name="EtatLocation" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="Article" Relationship="LocatMe_BDModel.FK__Location__Articl__2F9A1060" FromRole="Location" ToRole="Article" />
-    <NavigationProperty Name="Client" Relationship="LocatMe_BDModel.FK__Location__Custom__308E3499" FromRole="Location" ToRole="Client" />
+    <NavigationProperty Name="Client" Relationship="LocatMe_BDModel.FK__Location__Custom__54CB950F" FromRole="Location" ToRole="Client" />
     <NavigationProperty Name="Utilisateur" Relationship="LocatMe_BDModel.FK__Location__UserID__318258D2" FromRole="Location" ToRole="Utilisateur" />
   </EntityType>
   <EntityType Name="Utilisateur">
@@ -181,7 +182,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Location__Custom__308E3499">
+  <Association Name="FK__Location__Custom__54CB950F">
     <End Type="LocatMe_BDModel.Client" Role="Client" Multiplicity="1" />
     <End Type="LocatMe_BDModel.Location" Role="Location" Multiplicity="*" />
     <ReferentialConstraint>

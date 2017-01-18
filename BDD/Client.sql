@@ -5,6 +5,7 @@
 	[Civility] VARCHAR(MAX) NOT NULL,
 	[Name] VARCHAR(MAX) NOT NULL,
 	[LastName] VARCHAR(MAX) NOT NULL,
+	[Nom Complet] VARCHAR(MAX) NOT NULL,
 	[BirthDate] DATE NOT NULL,
 	[Address] VARCHAR(MAX) NOT NULL,
 	[PostalCode] INT NOT NULL,

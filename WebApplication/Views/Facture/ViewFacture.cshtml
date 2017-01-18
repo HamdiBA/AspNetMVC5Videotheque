@@ -29,7 +29,7 @@
     <div class="row">
         <div class="col-xs-12">
             <div class="invoice-title">
-                <h2>FACTURE</h2><h3 class="pull-right">Numéro # @Html.DisplayFor(model=>model.FactureID)</h3>
+                <h2>FACTURE</h2><h3 class="pull-right">Numéro # @Html.DisplayFor(model => model.FactureID)</h3>
             </div>
             <hr>
             <div class="row">
@@ -108,7 +108,26 @@
                                     <td class="thick-line"></td>
                                     <td class="thick-line"></td>
                                     <td class="thick-line text-right"><strong>TOTAL</strong></td>
-                                    <td class="thick-line text-right">@(Model.Price1 * Model.Quantity1 + Model.Price2 * Model.Quantity2)</td>
+                                    @{
+                                        int? t2,p2;
+                                        if (Model.Price2 == null)
+                                        {
+                                            p2 = 0;
+                                        }
+
+                                        else {
+                                            p2 = Model.Price2;
+
+                                        }
+
+                                        if (Model.Quantity2 == null)
+                                        {
+                                            t2 = 0;
+                                        }
+
+                                        else { t2 = Model.Quantity2; }
+                                    }
+                                    <td class="thick-line text-right">@(Model.Price1 * Model.Quantity1 + p2 * t2)</td>
                                 </tr>
                             </tbody>
                         </table>

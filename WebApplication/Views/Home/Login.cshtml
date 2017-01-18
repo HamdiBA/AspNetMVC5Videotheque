@@ -33,7 +33,7 @@
                         </div>
                         <!-- Password -->
                         <div class="input-group input-password">
-                            <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>@Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control", placeholder = "Mot de passe" } })
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>@Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control", placeholder = "Mot de passe", @type = "password" } })
                         </div>
 
                         <div style="margin-top:10px">
